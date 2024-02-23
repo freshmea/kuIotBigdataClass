@@ -54,5 +54,17 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
     - insert_data.sql
     - create_user.sql
     - select1.sql
-  - 3자 내용 추가
+  - 3장 내용 추가
     - 셀렉트 쓰는 방법
+  - 2장 데이터베이스 모델 진행.
+  - 3장 group by 165p 까지 진행.
+  - 윈도우 DBMS 를 우분투에서 연결.
+    - 윈도우 DBMS 에 외부 IP 접근 가능한 user 생성.
+    - 윈도우 방화벽에 3306 포트 열기.
+    - 윈도우 DBMS 에 임이의 데이터 넣고 우분투에서 확인.
+  - 우분투 DBMS 를 윈도우에서 연결.
+    - 우분투 DBMS 에 외부 IP 접근 가능한 user 생성.
+    - 우분투 방화벽에 전체 포트 열기.
+    - 우분투 DBMS 에 임이의 데이터 넣고 윈도우에서 확인.
+      - vertualbox 프로그램에서는 windows로 가는 ping 이 되지 않음.(학생들이 직접 확인 하지 못함)
+      - VMware 프로그램에서는 windows로 가는 ping 이 잘 됨.(프로젝트 화면으로 보여만 줌)
