@@ -43,3 +43,18 @@ select * from Book order by bookname desc;
 
 -- example 3-14
 select * from Book order by price desc, publisher asc;
+
+select * from R1 where (A = 'a1') or (A = 'a2');
+
+-- example 3-15 3-16
+select * from Orders;
+select sum(saleprice) 총판매액 from Orders;
+select sum(saleprice) 총매출 from Orders where custid=2;
+
+
+-- example 3-17
+select sum(saleprice) 총판매액,
+	avg(saleprice) 평균,
+    min(saleprice) 최소값,
+    max(saleprice) 최대값
+from Orders;
