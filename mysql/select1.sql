@@ -58,3 +58,23 @@ select sum(saleprice) 총판매액,
     min(saleprice) 최소값,
     max(saleprice) 최대값
 from Orders;
+
+-- example 3-18
+select count(*) from Orders;
+
+select count(*) from Customer;
+select count(phone) from Customer;
+
+-- example 3-19
+select sum(saleprice) 총매출, count(*) 권수 from Orders group by custid;
+
+
+select sum(saleprice) 총매출, count(*) 권수 
+from Orders 
+where saleprice >=8000 
+	group by custid 
+    having count(*) >= 2;
+
+use madangdb;
+INSERT INTO Book VALUES(11, '최수길ubuntu', '최수길u', 117500);
+select * from Book;
