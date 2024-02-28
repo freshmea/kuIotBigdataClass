@@ -19,5 +19,7 @@ var NAVTREEINDEX0 =
 "main_8cpp.html#a91d38ade36a6d0641222f9a459a3377b":[1,0,0,2],
 "main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[1,0,0,1],
 "main_8cpp_source.html":[1,0,0],
+"main_8hpp.html":[1,0,1],
+"main_8hpp_source.html":[1,0,1],
 "pages.html":[]
 };

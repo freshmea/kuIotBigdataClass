@@ -6,7 +6,7 @@
 */
 
 
-#include <iostream>
+#include "main.hpp"
 
 /**
  * @brief A 클래스입니다.
@@ -41,7 +41,10 @@ class A {
 void print_hello_world(int a) {
     std::cout << "Hello, World!" << a <<std::endl;
 }
-
+/**
+ * @brief main 함수입니다.
+ * @return 정상 종료가 되면 0을 반환합니다.
+*/
 int main() {
     int a = 0;
     A b(1, 2);
