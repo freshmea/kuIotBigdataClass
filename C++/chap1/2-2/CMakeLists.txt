@@ -27,7 +27,6 @@ project(booklist)
 set(CMAKE_CXX_STANDARD 14)
 
 find_library(MYSQLCPPCONN_LIBRARY mysqlcppconn HINTS /usr/lib)
-find_library(MYSQLCLIENT_LIBRARY mysqlclient HINTS /usr/lib)
 
 include_directories(/usr/include/mysql)
 
