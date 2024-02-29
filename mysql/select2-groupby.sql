@@ -19,7 +19,7 @@ from Orders;
 
 select count(*) from Orders;
 
--- 3-21 example
+-- 3-21 example 22 23
 select * from Customer, Orders;
 
 select * from Customer, Orders where Customer.custid=Orders.custid;
@@ -31,3 +31,38 @@ order by Customer.custid;
 select * from Orders, Customer 
 where Customer.custid=Orders.custid
 order by Customer.custid;
+
+select Customer.custid, name, saleprice 
+from Orders, Customer 
+where Customer.custid=Orders.custid
+order by Customer.custid;
+
+-- 3-24 example
+select name, SUM(saleprice)
+from Orders, Customer 
+where Customer.custid=Orders.custid
+group by name
+order by name;
+
+-- 3-25 example 
+select Customer.name, Book.bookname
+from Customer, Orders, Book
+where (Customer.custid=Orders.custid) and (Book.bookid= Orders.bookid);
+
+select Customer.name, Book.bookname, Book.price
+from Customer, Orders, Book
+where (Customer.custid=Orders.custid) and (Book.bookid= Orders.bookid)
+and Book.price>=20000;
+
+select *
+from Customer left join Orders on Customer.custid=Orders.custid;
+
+select Customer.name, Orders.saleprice
+from Customer left join Orders on Customer.custid=Orders.custid;
+
+select Customer.name, Orders.saleprice
+from Customer inner join Orders on Customer.custid=Orders.custid;
+
+select Customer.name, Orders.saleprice
+from Customer, Orders
+where Customer.custid=Orders.custid;
