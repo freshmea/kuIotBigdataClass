@@ -68,3 +68,28 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
     - 우분투 DBMS 에 임이의 데이터 넣고 윈도우에서 확인.
       - vertualbox 프로그램에서는 windows로 가는 ping 이 되지 않음.(학생들이 직접 확인 하지 못함)
       - VMware 프로그램에서는 windows로 가는 ping 이 잘 됨.(프로젝트 화면으로 보여만 줌)
+
+- 과제
+- 프로그래머스 C 언어:
+	3문제 풀기.
+프로그래머스 SQL 언어:
+         0 문제 풀기.
+영상 과제:
+     https://www.youtube.com/watch?v=K9L9YZhEjC0
+     https://www.youtube.com/watch?v=Xp1IKwJfDAA
+
+
+---
+## 2024-02-29
+
+---
+
+- 빌드 과정 설명
+  - make cmake for linux
+  - 전처리 어셈블리 바이너리 링크
+- make 실습
+  - 기본 문법
+  - 여러개 명령어 등록
+  - 연속 실행
+  - 생략 가능 명령어
+  - 변수 사용
