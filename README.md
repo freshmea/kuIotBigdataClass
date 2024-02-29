@@ -94,11 +94,22 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
   - 생략 가능 명령어
   - 변수 사용
 - 3장 끝까지 진행
+  - DML
+    - select 
+      - where, group by, having, order by
+  - DDL
+    - create, alter, drop
+  - DCL
+    - insert, update, delete
 - 4장 내장함수
   - SQL 내장함수
     - 숫자함수
+      - abs, ceil, floor, round, sign...
     - 문자열 함수
+      - concat, replace, substr, length...
     - 날짜 함수
+      - str_to_date, date_format, adddate, sysdate...
+      - format 형식 %Y-%m-%d %H:%i:%s ...
 - 과제
 - 프로그래머스 C 언어:
 	3문제 풀기.
