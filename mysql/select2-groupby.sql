@@ -104,3 +104,15 @@ where b1.price > (	select avg(b2.price)
 
 select publisher, avg(price) from Book group by publisher;
 
+-- 3-32 example 
+select name from Customer where address like '대한민국%'
+union all
+select orderdate from Orders where custid in (select custid from Orders);
+
+
+-- 3-33 example
+select name, address
+from Customer cs
+where exists (	select *
+				from Orders od
+                where cs.custid=od.custid);
