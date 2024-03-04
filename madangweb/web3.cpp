@@ -27,6 +27,7 @@ public:
     {
         setTitle("마당서점 도서목록");
         auto bookTemplate = std::make_unique<WTemplate>();
+        // result = Wt::WString(readFileToString(htmlFileName));
         string templeate_str = "<h2>마당서점 도서목록</h2><table border=1><thead><tr><th>책이름</th><th>출판사</th><th>가격</th></tr></thead><tbody>";
         sql::mysql::MySQL_Driver *driver;
         sql::Connection *con;
