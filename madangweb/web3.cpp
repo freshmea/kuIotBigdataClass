@@ -27,7 +27,7 @@ public:
     {
         setTitle("마당서점 도서목록");
         auto bookTemplate = std::make_unique<WTemplate>();
-        bookTemplate->setTemplateText("<h2>마당서점 도서목록</h2>", TextFormat::UnsafeXHTML);
+        string templeate_str = "<h2>마당서점 도서목록</h2><table border=1><thead><tr><th>책이름</th><th>출판사</th><th>가격</th></tr></thead><tbody>";
         sql::mysql::MySQL_Driver *driver;
         sql::Connection *con;
 
@@ -43,27 +43,17 @@ public:
 
             sql::Statement *stmt = con->createStatement();
             sql::ResultSet *res = stmt->executeQuery("SELECT * FROM Book");
-            bookTemplate->setTemplateText("<p>Book ID: ${bookid}<br>Book Name: ${bookname}</p>", TextFormat::UnsafeXHTML);
+
             while (res->next())
             {
-                auto bookTemplate = std::make_unique<WTemplate>();
-                bookTemplate->setTemplateText("<p>Book ID: ${bookid}<br>Book Name: ${bookname}</p>", TextFormat::UnsafeXHTML);
-
-                bookTemplate->bindString("bookid", WString::fromUTF8(std::to_string(res->getInt("bookid"))));
-                bookTemplate->bindString("bookname", WString::fromUTF8(res->getString("bookname")));
-
-                root()->addWidget(std::move(bookTemplate));
+                templeate_str += "<tr>";
+                templeate_str += "<td>" + res->getString("bookname") + "</td>";
+                templeate_str += "<td>" + res->getString("publisher") + "</td>";
+                templeate_str += "<td>" + std::to_string(res->getInt("price")) + "</td></tr>";
             }
-            // while (res->next()) {
-            //     root()->addWidget(std::make_unique<WText>(WString::fromUTF8(std::to_string(res->getInt("bookid")))));
-            //     root()->addWidget(std::make_unique<WText>("   "));
-            //     root()->addWidget(std::make_unique<WText>(WString::fromUTF8(res->getString("bookname"))));
-            //     root()->addWidget(std::make_unique<WText>("   "));
-            //     root()->addWidget(std::make_unique<WText>(WString::fromUTF8(res->getString("publisher"))));
-            //     root()->addWidget(std::make_unique<WText>("   "));
-            //     root()->addWidget(std::make_unique<WText>(WString::fromUTF8(std::to_string(res->getInt("price")))));
-            //     root()->addWidget(std::make_unique<WBreak>());
-            // }
+            templeate_str += "</tbody></table>";
+            bookTemplate->setTemplateText(templeate_str, TextFormat::UnsafeXHTML);
+            root()->addWidget(std::move(bookTemplate));
             delete res;
             delete stmt;
             delete con;
