@@ -11,7 +11,7 @@ cur = db.cursor()
 
 @app.route("/")
 def index():
-    sqlstring = "SELECT * FROM Book"
+    sqlstring = "SELECT bookid, bookname, publisher, price FROM Book"
     cur.execute(sqlstring)
 
     book_list = cur.fetchall()
@@ -20,8 +20,8 @@ def index():
 
 @app.route("/view")
 def getTicket():
-    id = request.args.get("id")
-    sqlstring = "SELECT * FROM BOOK WHERE bookid='" + id + "'"
+    idx = request.args.get("id")
+    sqlstring = "SELECT bookid, bookname, publisher, price FROM Book WHERE bookid='" + idx + "'"  # type: ignore
     cur.execute(sqlstring)
 
     book = cur.fetchall()
