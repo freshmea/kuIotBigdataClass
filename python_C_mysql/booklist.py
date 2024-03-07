@@ -19,8 +19,8 @@ def main():
             charset="utf8",
         )
         print("연결 성공")
-    except Exception as e:
-        print("연결 실패")
+    except pymysql.MySQLError as e:
+        print("연결 실패", e)
         config = False
 
     if config:
