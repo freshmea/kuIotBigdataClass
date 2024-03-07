@@ -121,3 +121,41 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
 영상 과제:
 포스팅 과제:
                https://www.tuwlab.com/ece/27193
+
+
+---
+## 2024-02-29
+---
+
+- mysql 내장 함수
+  - null ifnull
+- 외래키 확인 및 삭제 방법
+```sql
+set sql_safe_updates=0;
+-- 무시하고 삭제
+SET foreign_key_checks = 0;
+delete from Customer;
+SET foreign_key_checks = 1;
+
+-- 제약 조건 확인
+select * from information_schema.table_constraints where table_name = 'Orders';
+
+-- 확인된 제약 조건으로 외래키 삭제
+alter table Orders drop foreign key Orders_ibfk_2;
+```
+- 부속질의
+  - select 부속질의 (스칼라 부속질의)
+  - from 부속질의 ( 인라인 뷰)
+  - where 부속질의
+    - 단일 - 비교 ( =, >, <, >=, <=, !=, <>, is null, is not null) [비교]
+    - 다수의 열, 단일 행 ( all, some, any) [한정]
+    - 다수의 행, 다수의 열 ( in, not in, exists, not exists)[집합, 존재]
+- 뷰
+  - 뷰 생성 - create view 뷰이름 as select ...
+  - 뷰 삭제 - drop view 뷰이름
+  - 뷰 수정 - create or replace view 뷰이름 as select ...
+- 인덱스
+  - 인덱스 생성 - create index 인덱스이름 on 테이블이름(열이름)
+  - 인덱스 삭제 - drop index 인덱스이름 on 테이블이름
+  - 인덱스 재구성 - analyze table 테이블이름
+  
