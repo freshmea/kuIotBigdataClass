@@ -1,5 +1,8 @@
 use madangdb;
+
+set sql_safe_updates=0;
 -- 무시하고 삭제
+
 SET foreign_key_checks = 0;
 delete from Customer;
 SET foreign_key_checks = 1;
