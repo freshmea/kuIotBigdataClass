@@ -158,4 +158,10 @@ alter table Orders drop foreign key Orders_ibfk_2;
   - 인덱스 생성 - create index 인덱스이름 on 테이블이름(열이름)
   - 인덱스 삭제 - drop index 인덱스이름 on 테이블이름
   - 인덱스 재구성 - analyze table 테이블이름
-  
+
+- 저장 프로그램
+  - procedure
+    - call procedure이름(인수)
+  - trigger
+    - before, after (insert, update, delete)
+  - function (사용자 정의)
