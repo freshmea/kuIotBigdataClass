@@ -44,3 +44,53 @@ END$$
 DELIMITER ;
 
 -- registraion end
+
+call insertbook(13, '스포츠과학', '마당과학서적', 25000);
+select * from Book;
+
+
+-- BookInsertOrUpdate procedure registration
+USE `madangdb`;
+DROP procedure IF EXISTS `BookInsertOrUpdate`;
+
+DELIMITER $$
+USE `madangdb`$$
+CREATE PROCEDURE BookInsertOrUpdate(
+	mybookid integer,
+    mybookname varchar(40),
+    mypublisher varchar(40),
+    myprice integer)
+BEGIN
+	declare mycount integer;
+    select count(*) into mycount from Book
+		where bookname like mybookname;
+	if mycount != 0 then
+		set sql_safe_updates=0;
+        update Book set price = myprice
+			where bookname like mybookname;
+	else
+		insert into Book(bookid, bookname, publisher, price) 
+		values(mybookid, mybookname, mypublisher, myprice);
+	end if;
+END$$
+
+DELIMITER ;
+-- BookInsertOrUpdate procedure registration end
+
+
+-- AveragePrice procefure resigtration
+USE `madangdb`;
+DROP procedure IF EXISTS `AveragePrice`;
+
+DELIMITER $$
+USE `madangdb`$$
+CREATE PROCEDURE AveragePrice(
+	out AverageVal integer)
+BEGIN
+	select avg(price) into AverageVal
+    from Book where price is not null;
+END$$
+
+DELIMITER ;
+-- AveragePrice procefure resigtration end
+
