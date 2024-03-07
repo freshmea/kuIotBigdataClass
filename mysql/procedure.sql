@@ -80,7 +80,7 @@ select * from Book;
 call BookInsertOrUpdate(15, '스포츠 즐거움', '마당과학서적', 25000);
 call BookInsertOrUpdate(16, '스포츠 즐거움', '마당과학서적', 30000);
 
--- AveragePrice procefure resigtration
+-- AveragePrice procedure registration
 USE `madangdb`;
 DROP procedure IF EXISTS `AveragePrice`;
 
@@ -94,6 +94,39 @@ BEGIN
 END$$
 
 DELIMITER ;
--- AveragePrice procefure resigtration end
+-- AveragePrice procedure registration end
 call AveragePrice(@myprice);
 select @myprice;
+
+-- Interest procedure registration
+USE `madangdb`;
+DROP procedure IF EXISTS `Interest`;
+
+DELIMITER $$
+USE `madangdb`$$
+CREATE PROCEDURE Interest()
+BEGIN
+	declare myInterest integer default 0.0;
+    declare price integer;
+    declare endOfRow boolean default false;
+    declare interestCursor cursor for select saleprice from Orders;
+    declare continue handler for not found set endOfRow=true;
+	open interestCursor;
+    cursor_loop : loop
+		fetch interestCursor into price;
+        if endOfRow then leave cursor_loop;
+        end if;
+        if price >= 30000 then
+			set myInterest = myInterest + price * 0.1;
+		else
+			set myInterest = myInterest + price * 0.05;
+		end if;
+	end loop cursor_loop;
+    close interestCursor;
+    select concat('전체이익금액 =', myInterest);
+END$$
+
+DELIMITER ;
+-- Interest procedure registration end
+
+call Interest();
