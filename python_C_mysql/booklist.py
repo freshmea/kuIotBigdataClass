@@ -19,7 +19,7 @@ def main():
             charset="utf8",
         )
         print("연결 성공")
-    except:  # ignore error
+    except Exception as e:
         print("연결 실패")
         config = False
 
