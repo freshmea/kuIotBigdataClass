@@ -76,7 +76,9 @@ END$$
 
 DELIMITER ;
 -- BookInsertOrUpdate procedure registration end
-
+select * from Book;
+call BookInsertOrUpdate(15, '스포츠 즐거움', '마당과학서적', 25000);
+call BookInsertOrUpdate(16, '스포츠 즐거움', '마당과학서적', 30000);
 
 -- AveragePrice procefure resigtration
 USE `madangdb`;
@@ -93,4 +95,5 @@ END$$
 
 DELIMITER ;
 -- AveragePrice procefure resigtration end
-
+call AveragePrice(@myprice);
+select @myprice;
