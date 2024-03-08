@@ -65,7 +65,7 @@ insert into SummerPrice values ('C++', 25000);
 
 select count(*) from SummerEnroll;
 
--- 7-6 example 수정 이상
+-- 7-6 example 수정 이상 발생 안되는 예제`
 update SummerPrice set price=15000 where class like 'JAVA';
 
 select price as 'JAVA class 의 가격' 
