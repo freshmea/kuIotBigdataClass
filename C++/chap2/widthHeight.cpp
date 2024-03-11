@@ -1,11 +1,8 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 int main(){
-    for (auto i : {1, 2, 3, 4, 5})
-    {
-        cout << i << " ";
-    }
     cout << "너비를 입력하세요>>";
     int width;
     cin >> width;
