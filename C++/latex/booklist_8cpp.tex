@@ -1,0 +1,76 @@
+\hypertarget{booklist_8cpp}{}\doxysection{chap1/1-\/2/booklist.cpp 파일 참조}
+\label{booklist_8cpp}\index{chap1/1-\/2/booklist.cpp@{chap1/1-\/2/booklist.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$mysql\+\_\+driver.\+h$>$}\newline
+{\ttfamily \#include $<$mysql\+\_\+connection.\+h$>$}\newline
+{\ttfamily \#include $<$cppconn/driver.\+h$>$}\newline
+{\ttfamily \#include $<$cppconn/exception.\+h$>$}\newline
+{\ttfamily \#include $<$cppconn/resultset.\+h$>$}\newline
+{\ttfamily \#include $<$cppconn/statement.\+h$>$}\newline
+booklist.\+cpp에 대한 include 의존 그래프
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{booklist_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{booklist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{함수 문서화}
+\mbox{\Hypertarget{booklist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{booklist_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{booklist.cpp@{booklist.cpp}!main@{main}}
+\index{main@{main}!booklist.cpp@{booklist.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+booklist.\+cpp 파일의 12 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12            \{}
+\DoxyCodeLine{13     sql::mysql::MySQL\_Driver *driver;}
+\DoxyCodeLine{14     sql::Connection *con;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{string} host = \textcolor{stringliteral}{"{}localhost:3306"{}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{string} user = \textcolor{stringliteral}{"{}root"{}};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} password = \textcolor{stringliteral}{"{}0000"{}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{21         driver = sql::mysql::get\_mysql\_driver\_instance();}
+\DoxyCodeLine{22         con = driver-\/>connect(host, user, password);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         con-\/>setSchema(\textcolor{stringliteral}{"{}madangdb"{}});}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         sql::Statement *stmt = con-\/>createStatement();}
+\DoxyCodeLine{27         sql::ResultSet *res = stmt-\/>executeQuery(\textcolor{stringliteral}{"{}SELECT * FROM Book"{}});}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordflow}{while} (res-\/>next()) \{}
+\DoxyCodeLine{30             cout << res-\/>getInt(\textcolor{stringliteral}{"{}bookid"{}}) << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{31             cout << res-\/>getString(\textcolor{stringliteral}{"{}bookname"{}}) << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{32             cout << res-\/>getString(\textcolor{stringliteral}{"{}publisher"{}}) << \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{33             cout << res-\/>getInt(\textcolor{stringliteral}{"{}price"{}}) << endl;}
+\DoxyCodeLine{34         \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \textcolor{keyword}{delete} res;}
+\DoxyCodeLine{37         \textcolor{keyword}{delete} stmt;}
+\DoxyCodeLine{38         \textcolor{keyword}{delete} con;}
+\DoxyCodeLine{39     \} \textcolor{keywordflow}{catch} (sql::SQLException \&e) \{}
+\DoxyCodeLine{40         cout << \textcolor{stringliteral}{"{}\# ERR: SQLException in "{}} << \_\_FILE\_\_;}
+\DoxyCodeLine{41         cout << \textcolor{stringliteral}{"{}("{}} << \_\_FUNCTION\_\_ << \textcolor{stringliteral}{"{}) on line "{}} << \_\_LINE\_\_ << endl;}
+\DoxyCodeLine{42         cout << \textcolor{stringliteral}{"{}\# ERR: "{}} << e.what();}
+\DoxyCodeLine{43         cout << \textcolor{stringliteral}{"{} (MySQL error code: "{}} << e.getErrorCode();}
+\DoxyCodeLine{44         cout << \textcolor{stringliteral}{"{}, SQLState: "{}} << e.getSQLState() << \textcolor{stringliteral}{"{} )"{}} << endl;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
