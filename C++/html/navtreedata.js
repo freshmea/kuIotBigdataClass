@@ -48,7 +48,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"1-1_2build_2_c_make_files_23_822_81_2_compiler_id_c_2_c_make_c_compiler_id_8c.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = '패널 동기화를 비활성화하기 위해 클릭하십시오';

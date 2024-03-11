@@ -4,6 +4,9 @@
 #build
 build/
 
+#Doxygenfiles
+html/
+latex/
 # Prerequisites
 *.d
 
