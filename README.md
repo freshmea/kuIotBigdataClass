@@ -70,13 +70,13 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
       - VMware 프로그램에서는 windows로 가는 ping 이 잘 됨.(프로젝트 화면으로 보여만 줌)
 
 - 과제
-- 프로그래머스 C 언어:
-	3문제 풀기.
-프로그래머스 SQL 언어:
-         0 문제 풀기.
-영상 과제:
-     https://www.youtube.com/watch?v=K9L9YZhEjC0
-     https://www.youtube.com/watch?v=Xp1IKwJfDAA
+  - 프로그래머스 C 언어:
+  	3문제 풀기.
+  - 프로그래머스 SQL 언어:
+           0 문제 풀기.
+  - 영상 과제:
+       https://www.youtube.com/watch?v=K9L9YZhEjC0
+       https://www.youtube.com/watch?v=Xp1IKwJfDAA
 
 
 ---
@@ -111,16 +111,16 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
       - str_to_date, date_format, adddate, sysdate...
       - format 형식 %Y-%m-%d %H:%i:%s ...
 - 과제
-- 프로그래머스 C 언어:
-	3문제 풀기.
-프로그래머스 SQL 언어:
- ‘인기 있는 아이스크림’
-	‘3월에 태어난 여성 회원 목록’
-	‘조건에 맞는 도서 리스트’
-	‘흉부 외과 또는 일반외과’
-영상 과제:
-포스팅 과제:
-               https://www.tuwlab.com/ece/27193
+  - 프로그래머스 C 언어:
+  	3문제 풀기.
+  - 프로그래머스 SQL 언어:
+   ‘인기 있는 아이스크림’
+  	‘3월에 태어난 여성 회원 목록’
+  	‘조건에 맞는 도서 리스트’
+  	‘흉부 외과 또는 일반외과’
+  - 영상 과제:
+  - 포스팅 과제:
+                 https://www.tuwlab.com/ece/27193
 
 
 ---
@@ -168,6 +168,9 @@ alter table Orders drop foreign key Orders_ibfk_2;
 - 파이썬 프로그램 ( pymysql 라이브러리 활용)
 - C 프로그램 ( C API mysql.h 라이브러리 활용)
   - 컴파일 설정 `cc -o booklist booklist.c -lmysqlclient -I/usr/include/mysql -L/usr/lib/x86_64-linux-gnu`
+- 과제
+  - 프로그래머스 C 언어:
+    3문제 풀기.
 
 
 ---
@@ -257,3 +260,14 @@ int main(){
     - 배타락
   - 데드락
     - 데드락 발생 조건
+- 과제
+  - 프로그래머스 C 언어:
+  	문제 풀기.3
+  - 영상과제:
+  	https://www.youtube.com/watch?v=ZVuHZ2Fjkl4
+  	https://www.youtube.com/watch?v=Y1FbowQRcmI
+  - 포스팅 과제:
+  	https://www.tuwlab.com/ece/27234
+  	https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=3345588
+  - C api 둘러보기 :
+  	https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-connect.html
