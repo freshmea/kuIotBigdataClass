@@ -46,11 +46,4 @@ var menudata={children:[
 {text:"s",url:"globals.html#index_s"}]},
 {text:"함수",url:"globals_func.html"},
 {text:"변수",url:"globals_vars.html"},
-{text:"매크로",url:"globals_defs.html",children:[
-{text:"_",url:"globals_defs.html#index__5F"},
-{text:"a",url:"globals_defs.html#index_a"},
-{text:"c",url:"globals_defs.html#index_c"},
-{text:"d",url:"globals_defs.html#index_d"},
-{text:"h",url:"globals_defs.html#index_h"},
-{text:"p",url:"globals_defs.html#index_p"},
-{text:"s",url:"globals_defs.html#index_s"}]}]}]}]}
+{text:"매크로",url:"globals_defs.html"}]}]}]}
