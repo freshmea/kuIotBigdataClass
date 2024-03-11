@@ -1,6 +1,16 @@
+/**
+ * @file Ex2-3-KeyInput.cpp
+ * @brief cin << 을 활용한 프로그램
+ * @author 최수길
+ * @date 2024-03-11
+*/
+
 #include <iostream> 
 using namespace std;
-
+/**
+ * @brief 주어진 코드의 메인 함수입니다.
+ * @details 키보드로부터 너비와 높이를 입력받아 사각형의 면적을 계산합니다.
+*/
 int main() {
 	cout << "너비를 입력하세요>>";
 
