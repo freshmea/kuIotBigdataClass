@@ -7,6 +7,10 @@ build/
 #Doxygenfiles
 html/
 latex/
+
+# .mypy
+.mypy_cache/
+
 # Prerequisites
 *.d
 
