@@ -10,7 +10,8 @@ set(EXECUTABLES
     ex2-6-getline
     ex2-7-string
     widthHeight
-    getString)
+    getString
+    test)
 
 foreach(EXECUTABLE ${EXECUTABLES})
     add_executable(${EXECUTABLE} ${EXECUTABLE}.cpp)
