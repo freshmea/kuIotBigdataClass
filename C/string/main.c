@@ -29,6 +29,7 @@ int main()
     printf("%d\n", my_strlen(str));
     printf("%d\n", my_strlen(str2));
     my_strcat(str, str2);
+    printf("%s\n", str);
     printf("%d\n", my_strlen(str));
 
     return 0;
