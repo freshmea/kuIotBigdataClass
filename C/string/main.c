@@ -15,7 +15,7 @@ int main()
     my_strcat(str, "def");
     printf("%s\n", str);
     // printf("%s\n", strcat(str, "ghi"));
-    printf("%d\n", my_strcmp("abcde", "abcfe"));
+    printf("%d\n", my_strcmp("abcde", "cccfe"));
     // strcpy(str2, str);
     my_strcpy(str2, str);
     if (my_strcmp(str, str2) == 0)
