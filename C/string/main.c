@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <string.h>
+// #include <string.h>
+#include "myString.h"
 
 int main()
 {
@@ -7,14 +8,17 @@ int main()
     char str2[100];
 
     printf("Hello, World!\n");
-    strcat(str, "abc");
+    // strcat(str, "abc");
+    my_strcat(str, "abc");
     printf("%s\n", str);
-    strcat(str, "def");
+    // strcat(str, "def");
+    my_strcat(str, "def");
     printf("%s\n", str);
-    printf("%s\n", strcat(str, "ghi"));
-    printf("%d\n", strcmp("abcde", "abcfe"));
-    strcpy(str2, str);
-    if (strcmp(str, str2) == 0)
+    // printf("%s\n", strcat(str, "ghi"));
+    printf("%d\n", my_strcmp("abcde", "abcfe"));
+    // strcpy(str2, str);
+    my_strcpy(str2, str);
+    if (my_strcmp(str, str2) == 0)
     {
         printf("두 스트링 변수는 같다.\n");
     }
@@ -22,10 +26,10 @@ int main()
     {
         printf("두 스트링 변수는 다르다.\n");
     }
-    printf("%ld\n", strlen(str));
-    printf("%ld\n", strlen(str2));
-    strcat(str, str2);
-    printf("%ld\n", strlen(str));
+    printf("%d\n", my_strlen(str));
+    printf("%d\n", my_strlen(str2));
+    my_strcat(str, str2);
+    printf("%d\n", my_strlen(str));
 
     return 0;
 }
