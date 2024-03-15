@@ -22,6 +22,10 @@ int main()
     {
         printf("두 스트링 변수는 다르다.\n");
     }
+    printf("%ld\n", strlen(str));
+    printf("%ld\n", strlen(str2));
+    strcat(str, str2);
+    printf("%ld\n", strlen(str));
 
     return 0;
 }
