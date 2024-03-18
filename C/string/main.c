@@ -1,12 +1,18 @@
 #include <stdio.h>
 // #include <string.h>
+#include <stdlib.h>
+#include <string.h>
 #include "myString.h"
 
 int main()
 {
-    char str[100];
-    char str2[100];
+    char *str = (char *)malloc(100 * sizeof(char));
+    memset(str, 0, 100 * sizeof(char));
+    char *str2 = (char *)malloc(100 * sizeof(char));
+    memset(str2, 0, 100 * sizeof(char));
 
+    for (int i = 0; i < 100; i++)
+        printf("%c\n", str[i]);
     printf("Hello, World!\n");
     // strcat(str, "abc");
     my_strcat(str, "abc");
