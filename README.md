@@ -271,3 +271,30 @@ int main(){
   	https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=3345588
   - C api 둘러보기 :
   	https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-connect.html
+
+---
+2024_3_19
+---
+
+- c_game_project 시작
+  - git repository 생성
+  - .gitignore 생성
+  - doxygen 세팅
+    - sudo apt install doxygen graphviz
+    - sudo apt install doxygen-gui
+    - sudo apt install qt5
+    - unset GTK_PATH
+- cmake 배포 설정
+  - install 명령어 사용
+  - cpack 설정
+- tetris 게임 설계
+  - signal 60Hz 로 update 함수가 실행되게 만듬.
+  - getch 함수로 실시간 키보드 입력.
+  - 게임판
+  - 블록
+  - 블록 회전
+  - 블록 이동
+  - 블록 떨어짐
+  - 블록 삭제
+  - 블록 생성
+  - 게임 오버
