@@ -4,7 +4,16 @@ C/C++ database arduino raspberrypi Iot clas.....
 ---
 ## 2024-02-22
 ---
-
+- 권한 설정
+```text
+sudo 권한 추가하는법
+1. 터미널 열기 (Ctrl + Alt + T)
+2. "su -" 치기 (큰 따옴표 제외)
+3. 자신의 ubuntu 로그인 비밀번호 입력하기
+4. 터미널 좌측 상단에, "root@bunt22:~#" 확인하기
+5. 아래 링크에서, sudoers 파일에, ubuntu 사용자 이름 추가하기
+   https://projooni.tistory.com/entry/%EB%A6%AC%EB%88%85%EC%8A%A4ubuntu%EC%97%90%EC%84%9C-sudoers-%EC%88%98%EC%A0%95%ED%95%B4%EC%84%9C-sudo-%EA%B6%8C%ED%95%9C-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0
+```
 - instruction.
 - google slide share.
 - gitHub sign up.
