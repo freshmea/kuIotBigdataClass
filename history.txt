@@ -1,0 +1,2000 @@
+make
+make clean
+make
+gcc -c 2022_7_6_C2.c 
+gcc -o 2022_7_6_C2 2022_7_6_C2.o
+./2022_7_6_C2 
+make clean
+make
+make clean
+make
+./2022_7_6_C2 
+make clean
+make
+make clean
+make
+./a.out
+rm a.out
+ls
+make clean
+make average
+make 
+make clean
+make all
+make -h
+make -k
+make clean
+make
+make clean
+make
+make clean
+make
+./average
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+./2022_7_6_C2 
+./average 
+make clean
+make
+make clean
+rm cels
+rm fahr2celsius.exe
+rm fahr2celsius.out
+rm fahr2celsius2.out 
+rm fahr2celsius3.out 
+rm fahr2celsius4.out 
+rm test.out
+rm triangle
+clear
+make
+make clean
+make
+./fahr2celsius
+./fahr2celsius2
+./fahr2celsius3
+./fahr2celsius4
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+./average 
+make clean
+make
+make clean
+cd ..
+cd study3
+ls
+rm arithmetics
+touch makefile
+make
+./arithmetics
+make
+rm arithmetics
+make
+rm arithmetics
+make
+rm arithmetics
+make
+make clean
+make
+./arithmetics 
+rm arithmetics
+rm average2
+rm average2.out 
+make
+make clean
+make 
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+touch makefile
+make clean
+make 
+make clean
+cd ..
+cd study4
+ls
+touch makefile
+make clean
+rm characteroutput 
+rm letterAttribute.o
+rm letterAttribute.i
+rm letterAttribute.s
+make
+./absoluteValue 
+make clean
+make
+make clean
+ls
+cc -c absoluteValue.c 
+ls
+cc -o main absoluteValue.c
+ls
+./main
+rm main
+rm absoluteValue.o
+cc -o main absoluteValue.c
+ls
+./main
+rm main
+ls
+cc -c absoluteValue.c 
+ls
+cc -o main absoluteValue.o
+ls
+./main
+rm main
+rm absoluteValue.o
+ls
+cc absoluteValue.c 
+ls
+./a.out
+cc -h
+gcc -h
+gcc
+cd ../study2
+cd makeTest/
+make
+./main
+make clean
+make
+./main
+rm amin
+rm main
+make
+ls
+make
+rm main.o
+make
+make clean
+make
+./main
+make clean
+make
+make clean
+make 
+make clean
+make
+./main 
+make clean
+make
+make clean
+make
+./main
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+gcc -v
+cc
+gcc
+g++
+ls
+git clone https://github.com/freshmea/ubntplusC.git
+git clone https://github.com/freshmea/acceleratedCplus.git
+make
+sudo make install
+sudo apt install make
+ssh ubuntu@192.168.0.57
+cat /etc/systemd/system.conf
+sudo nano /etc/systemd/system.conf
+ssh ubuntu@192.168.0.57
+ssh ubuntu@192.168.0.59
+ssh ubuntu@192.168.0.60
+ssh ubuntu@192.168.0.61
+ssh ubuntu@192.168.0.62
+cd ..
+ls
+cd study39
+ls
+sudo apt install ./code_1.86.2-1707854558_amd64.deb 
+mysql_config -cflags
+mysql_config --cflags
+mysql_config --cflag
+mysql_config --cflags
+apt-get install libmysql++-dev
+apt-get install libmysql++-devsudo apt install libmysql++*
+printenv > "/tmp/tmp-4132O6VaOrZflGnl.txt"
+sql
+mysql
+apt list | grep mysql*
+sudo apt install mysql-server
+mysql
+sudo ufw allow mysql
+sudo systemctl start mysql
+sudo systemctl enable mysql
+sudo mysql -u root
+sudo mysql -u root -p 0000
+sudo mysql -u root -p users
+sudo systemctl stop mysql
+apt-get install mysql-server --fix-missing --fix-broken
+sudo apt-get install mysql-server --fix-missing --fix-broken
+mysql
+sudo apt remove mysql-server
+mysql
+sudo apt install mysql-server
+mysql
+sudo systemctl start mysql
+mysql
+sudo systemctl enable mysql
+sudo ufw allow mysql
+sudo mysql -u root
+sudo mysql -u root -p
+ifconfig
+sudo mysql -u root -p
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo systemctl stop mysql
+sudo systemctl start mysql
+sudo snap install mysql-workbench-community 
+mysql-workbench-community 
+sudo apt install libmysql++*
+gcc -o main booklist.c
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+sudo apt install libmysqlcppconn*
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn
+[200~gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++~
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+./main
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn -lstdc++
+./main2
+mysql
+mysql -u root -p root
+mysql -u root
+mysql -p root
+./main2
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+gcc -o main booklist.c -I/usr/include/mysql -lmysqlclient -L/usr/lib
+./main
+rm -rf instantclient_21_12/
+sudo rm -rf instantclient_21_12/
+sudo mv ~/Downloads/instantclient_21_12/ .
+cd ..
+cd Downloads/
+ls
+unzip instantclient-basic-linux.x64-21.12.0.0.0dbru.zip 
+cd instantclient_21_12/
+ls
+cat BASIC_README 
+gcc -o booklist2 booklist2.c -lodbc
+cd ~
+cd ubntplusC/
+cd study39
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2 
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2 
+gcc -o booklist booklist.c `mysql_config --cflags --libs`
+./booklist
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+./booklist
+gcc -o booklist2 booklist2.c -lodbc
+./booklist
+./booklist2
+gcc -o booklist booklist.c `mysql_config --cflags --libs`
+./booklist
+gcc -o booklist booklist.c `mysql_config --cflags --libs`
+./booklist
+gcc -o booklist booklist.c `mysql_config --cflags --libs`
+./booklist
+./booklist2
+gcc -o booklist2 booklist2.c -lodbc
+./booklist2
+git config pull.rebase false
+cd Downloads/
+ls
+rm -rf *
+ls
+visudo -f /etc/sudoers
+sudo su
+clear
+sudo su
+login root
+login su
+code
+cd ..
+ls
+git clone https://github.com/freshmea/kuIotBigdataClass.git
+ls
+cd kuIotBigdataClass/
+ls
+cat README.md 
+history
+ls
+ls -al
+code
+hisotry
+history
+cd ~
+clear
+history
+clear
+history 
+mysql -u root -p
+sudo mysql -u root -p
+mysql-workbench-community 
+sudo mysql -u root -p
+mysql-workbench-community 
+clear
+sudo cat /etc/sudoers
+mysql
+mysql -u root -p
+useradd ab
+sudo useradd ab
+login ab
+sudo su
+ls
+cd ..
+ls
+passwd ab
+adduser ab
+sudo adduser ab
+sudo userdel ab
+sudo adduser ab
+ls
+login ab
+exit
+mysql -u root -p
+clear
+ping 163.152.224.131
+sudo nano /etc/mysql/mysql.conf.d
+cd /etc/mysql/mysql.conf.d
+ls
+sudo nano /etc/mysql/mysql.conf.d/mysql.cnf 
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf 
+sudo ufw allow mysql
+ifconfig
+cd C++
+cd chap1/
+cd 2-1/
+ls
+mkdir build
+cd build/
+cmake ..
+ls
+make
+ls
+./hello-cmake 
+cd ..
+rm -rf build/
+mkdir build
+cd build/
+cmake ..
+make
+ls
+./CMakeProject1 
+cd C++/
+cd chap1/
+cd 2-1/
+ls
+rm -rf build/
+rm main
+ls
+cd study39
+ls
+rm booklist
+rm booklist2
+rm main
+rm main2 
+ls
+mkdir build
+cd build/
+cmake ..
+make
+ls
+./BookList 
+make
+./BookList 
+make
+./BookList 
+cmake ..
+make
+cmake ..
+apt list | grep sql
+apt list | grep mysqlcppconn
+cmake ..
+clear
+cmake ..
+ls
+rm BookList 
+ls
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+./BookList 
+cmake ..
+make
+rm -rf *
+ls
+cmake ..
+make
+ls
+./BookList 
+echo $MYSQL_LIB_DIR
+echo $MYSQL_CLIB_DIR
+cmake ..
+make
+cmake ..
+make
+./BookList 
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+rm -rf *
+ls
+cmake ..
+make
+ls
+./BookList 
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+ls /usr/lib/mysql/
+cmake ..
+make
+ls /usr/lib/x86_64-linux-gnu
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+./BookList 
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+cmake ..
+make
+rm -rf *
+cmake ..
+make
+ls
+./BookList2
+./BookList
+rm -rf *
+cmake ..
+make
+rm -rf *
+cmake ..
+make
+cd C++/chap1/2-1/latex/
+ls
+make
+make all
+make pdf
+xelatex
+sudo apt install texlive-xetex 
+make all
+export PATH=/usr/local/texlive/2010/bin/i386-linux:$PATH
+make all
+cd [200~/usr/local/texlive/2010/bin/i386-linux~
+
+sudo apt install ko
+sudo apt install texlive-full
+which dot
+cd C++/
+cd chap1/2-1/html/
+google-chrome index.html 
+ls
+doxygen -g 
+doxygen Doxyfile 
+cd html/
+ls
+google-chrome index.html 
+doxywizard 
+doxywizard Doxyfile
+sudo apt install doxygen
+sudo apt install graphviz*
+doxygen
+sudo apt install doxygen-gui
+cd ..
+ls
+doxywizard Doxyfile 
+sudo apt install texlive-full 
+make clean
+make all
+sudo apt update
+sudo apt upgrade
+make pdf
+make all
+make clean
+make pdf
+tlmgr info kotex-euc
+sudo tlmgr info kotex-euc
+make all
+cat /usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
+doxygen -V
+doxygen -v
+sudo apt-get install fonts-noto-cjk
+make all
+make
+sudo apt-get install texlive-lang-cjk
+make all
+tlmgr init-usertree
+wget http://cdn.naver.com/naver/NanumFont/fontfiles/NanumFont_TTF_ALL.zip
+ls
+unzip NanumFont_TTF_ALL.zip -d NanumFont
+rm -f NanumFont_TTF_ALL.zip 
+sudo yum install fontconfig
+sudo apt install fontconfig
+cd /usr/share/fonts
+ls
+cp ~/NanumFont/ .
+sudo cp -r ~/NanumFont/ .
+ls
+fc-cache -f -v
+fc-list | grep -i nanum
+apt-get install fonts-nanum
+sudo apt-get install fonts-nanum
+fc-list | grep -i nanum
+fc-cache -f -v
+fc-list | grep -i nanum
+sudo cp /usr/share/texlive/texmf-dist/fonts/afm/public/nanumtype1/t1nanummjb.afm .
+sudo cp /usr/share/texlive/texmf-dist/fonts/afm/public/nanumtype1/t1nanummjm.afm .
+history
+doxywizard 
+cd kuIotBigdataClass/
+cd C++/chap1/2-1/latex/
+ls
+cd ..
+ls
+doxywizard Doxyfile 
+make all
+cd ..
+doxywizard Doxyfile 
+ls
+mkdir build
+cd build/
+ls
+cmake ..
+make
+ls
+./CMakeProject1 
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn
+cd C++/chap1/2-2
+ls
+gcc booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn
+g++ booklist.cpp -o main2 -I /usr/include/cppconn -lmysqlcppconn
+rm booklist
+ls
+rm main2
+rm booklist
+cd build/
+ls
+rm -rf *
+ls
+cmake ..
+make
+ls
+rm -rf *
+cmake ..
+make
+cd C++/chap1/2-2
+ls
+mkdir build
+cd build/
+cmake ..
+make
+ls
+./BookList 
+/usr/bin/g++  -I/usr/include/mysql -g -std=gnu++14 -o CMakeFiles/booklist.dir/booklist.cpp.o -c /home/aa/kuIotBigdataClass/C++/chap1/2-2/booklist.cpp
+rm -rf *
+ls
+cd ..
+rm -rf build/
+ls
+asd
+qwd
+cd C++/chap1/2-2
+rm -rf build/
+ls
+/home/aa/kuIotBigdataClass/build/booklist
+/usr/bin/g++  -I/usr/include/mysql -g -std=gnu++14 -o CMakeFiles/booklist.dir/booklist.cpp.o -c /home/aa/kuIotBigdataClass/C++/chap1/2-2/booklist.cpp
+clear
+cd C++/chap1/2-2/
+mkdir build
+cd build/
+cmake ..
+make
+/usr/bin/g++  -I/usr/include/mysql -g -std=gnu++14 -o CMakeFiles/booklist.dir/booklist.cpp.o -c /home/aa/kuIotBigdataClass/C++/chap1/2-2/booklist.cpp
+cd ..
+cd C++/chap1/2-2/
+ls
+rm -rf build/
+ls
+cd C++/chap1/2-2/
+rm -rf build/
+ls
+rm -rf build/
+cd .vscode/
+rm -rf build/
+cd ..
+ls
+rm -rf build/
+/usr/bin/g++  -I/usr/include/mysql -g -std=gnu++14 -o CMakeFiles/booklist.dir/booklist.cpp.o -c /home/aa/kuIotBigdataClass/C++/chap1/2-2/booklist.cpp
+cd ..
+rm -rf build/
+cd build/
+make
+cd build/
+ls
+./booklist 
+cd C++/chap1/2-2/
+ls
+rm -rf build/
+ls
+mkdir aa
+cd aa
+cmake ~/kuIotBigdataClass/C++/chap1/2-2/CMakeLists.txt 
+ls
+cmake ~/kuIotBigdataClass/C++/chap1/2-2/CMakeLists.txt .
+cd ..
+ls
+cmake 
+cmake .
+cmake clean
+cmake --help
+cd aa
+ls
+cmake  .
+ls
+rm -rf *
+ls
+cmake ~/kuIotBigdataClass/C++/chap1/2-2/CMakeLists.txt .
+cmake ~/kuIotBigdataClass/C++/chap1/2-2 .
+cd ..
+rm -rf aa
+ls
+cd ..
+ls
+rm -rf build/
+cd build/
+ls
+rm -rf *
+ls
+cmake ~/kuIotBigdataClass/C++/chap1/2-2 .
+make
+ls
+./booklist 
+rm -rf build/
+/home/aa/kuIotBigdataClass/build/booklist
+make
+rm circle
+cd c_src/
+rm circle
+ls
+make
+./circle
+make clean
+make celsius2Fahr 
+rm celsius2Fahr
+make celsius2Fahr 
+make clean
+make
+clean
+make clean
+cc -c circle.c
+rm circle.o
+make 
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+make clean
+make
+rm circle.o
+make
+make clean
+make
+make clean
+make limits
+./limits 
+make clean
+git clone https://github.com/MrTwee/KUIOT-Teemo.git
+clear
+make
+touch Makefile
+ls
+rm Makefile 
+cd KUIOT-Teemo/
+ls
+cd c_src/
+ls
+touch Makefile
+make
+cd ..
+ls
+cd madangweb/
+ls
+pip install flask
+pip install pymysql
+python app.py
+python -V
+python3 app.py
+flask run
+sudo apt-get install witty witty-dev
+sudo apt install witty
+sudo apt install wt
+ls
+mkdir build
+ls
+cd build/
+cmake ..
+ls
+make
+rm -rf *
+ls
+cmake ..
+make
+cmake ..
+ls
+make
+ls
+./MyWtProject 
+./MyWtProject .
+./MyWtProject --docroot .
+./MyWtProject --http-port 10000 --docroot .
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+cmake ..
+rm -rf *
+cmake ..
+make 
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+ㅡ맏
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make 
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make 
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make 
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make 
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./MyWtProject --http-port 10000 --http-addr 0.0.0.0 --docroot .
+sudo apt install libboost-all-dev
+sudo apt-get install doxygen libgraphicsmagick3 libssl-dev libpq-dev libssl-dev libfcgi-dev
+wget -c https://github.com/emweb/wt/archive/x.y.z.tar.gz
+wget -c https://github.com/emweb/wt/archive/4.10.3.tar.gz
+sudo apt-get install witty witty-dev witty-doc witty-dbg witty-examples
+ls
+tar xvsf 4.10.3.tar.gz 
+ls
+rm 4.10.3.tar.gz 
+cd wt-4.10.3/
+ls
+mkdir build
+cd build/
+cmake ..
+make
+make -C examples
+sudo make install
+sudo ldconfig
+ls
+cd examples/
+ls
+cd blog/
+ls
+blog.wt
+./blog.wt 
+cd ..
+ls
+cd ..
+cmake -DWT_SOURCE_DIR=/usr/share/doc/witty-doc/ -DEXAMPLES_CONNECTOR="wt;wthttp" /usr/share/doc/witty-doc/examples
+ls
+cd examples/
+ls
+cmake -DWT_SOURCE_DIR=/usr/share/doc/witty-doc/ -DEXAMPLES_CONNECTOR="wt;wthttp" /usr/share/doc/witty-doc/examples
+cd charts
+ls
+./charts.wt --http-port 10000 --http-addr 0.0.0.0 --docroot .
+lks
+ls
+cd ..
+ls
+cd ..
+ls
+cd src
+ls
+cd ..
+ls
+cd examples/
+ls
+cd charts
+ls
+cd CMakeFiles/
+ls
+cd ..
+ls
+cd ..
+ls
+cd src
+ls
+cat Plain_html.C 
+ls
+cd web/
+ls
+cd ../Wt/
+ls
+cd ../..
+ls
+cd ..
+ls
+cd examples/
+ls
+cd charts
+ls
+cd ..
+ls
+cd blog/
+ls
+cd ..
+ls
+cd build/
+ls
+cd examples/
+cd blog/
+ls
+./blog.wt --http-port 10000 --http-addr 0.0.0.0 --docroot .
+cd ..
+ls
+cd dialog/
+ls
+./dialog.wt --http-port 10000 --http-addr 0.0.0.0 --docroot .
+cd ..
+cd form/
+ls
+./formexample.wt --http-port 10000 --http-addr 0.0.0.0 --docroot .
+./web --http-port 10000 --http-addr 0.0.0.0 --docroot .
+cd madangweb/
+cd build/
+ls
+./web --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./web --http-port 10000 --http-addr 0.0.0.0 --docroot .
+make
+./web --http-port 10000 --http-addr 0.0.0.0 --docroot .
+git clone -b master https://github.com/pocoproject/poco.git
+ls
+cd poco/
+ls
+mkdir build
+cd build/
+ls
+cmake ..
+ls
+cmake --build
+cmake --build .
+sudo cmake --build . --target install
+cd ..
+ls
+cd ..
+ls
+cd kuIotBigdataClass/
+ls
+cd madangweb/
+ls
+g++ -o poco web4.cpp -lPocoFoundation -lPocoUtil -lPocoNet
+./poco 
+rm -rf poco 
+g++ web4.cpp -o web4 -lPocoFoundation -lPocoData -lPocoDataMySQL
+\
+침ㄱ
+clear
+g++ web4.cpp -o web4 -lPocoFoundation -lPocoData -lPocoDataMySQL -L/usr/local/lib
+g++ web4.cpp -o web4 -L/usr/local/lib -lPocoFoundation -lPocoData -lPocoDataMySQL
+ldconfig
+sudo ldconfig
+g++ web4.cpp -o web4 -L/usr/local/lib -lPocoFoundation -lPocoData -lPocoDataMySQL
+cd /usr/local/lib/
+ls
+python -V
+python3 -V
+pip
+pip install pymysql
+cd kuIotBigdataClass/
+cd python/
+python3 booklist.py
+ls
+make
+ls
+./booklist 
+history
+cd python_C_mysql/
+make
+rm booklist
+make
+./booklist 
+rm booklist
+make
+./booklist 
+ls
+rm booklist
+cc -c booklist.c
+cp /usr/include/mysql/mysql.h .
+ls
+cc -o main booklist.c mysql.h 
+cp /usr/include/mysql/field_types.h .
+cc -o main booklist.c mysql.h field_types.h 
+rm main
+cp /usr/include/mysql/my_list.h .
+cc -o main booklist.c mysql.h field_types.h my_list.h
+cp /usr/include/mysql/mysql_com.h .
+cc -o main booklist.c mysql.h field_types.h my_list.h mysql_com.h
+cp /usr/include/mysql/my_command.h .
+cc -o main booklist.c mysql.h field_types.h my_list.h mysql_com.h my_command.h 
+mkdir build
+cd build/
+cmake ..
+ls
+make
+make clean
+ls
+rm -rf *
+ls
+cmake ..
+mysql-config
+mysql_config
+dpkg -L mysql
+dpkg -L my
+dpkg -L sql
+dpkg -L mysql++
+dpkg -L mysql++*
+dpkg -L libmysql++
+dpkg --contents
+dpkg --contents mysql
+dpkg list
+echo $MYSQL_INCLUDE_DIR
+echo "ddf'
+
+a
+echo "ddf'
+
+a"
+echo $MYSQL_LIBRARIES
+ls
+rm -rf *
+cmake ..
+rm -rf *
+cmake ..
+ls
+make
+ls
+./booklist 
+rm -rf *
+ls
+cmake ..
+ls
+rm -rf *
+cmake ..
+make
+./booklist 
+rm -rf *
+cmake ..
+rm -rf *
+cmake ..
+make
+rm -rf *
+ls
+cmake ..
+make
+ㅣㄴ
+ls
+rm -rf *
+cmake ..
+make
+./booklist 
+rm -rf *
+cmake ..
+ls
+make
+ㅣㄴ
+ls
+rm -rf *
+ls
+cmake ..
+ls
+make
+cmake .
+cmake ..
+rm -rf *
+cmake ..
+rm -rf *
+cmake ..
+make
+./booklist 
+ls
+rm -rf *
+mysql_config
+ls
+cmake ..
+ㅣㄴ
+ls
+rm -rf *
+cmake ..
+make
+./booklist 
+rm -rf *
+ls
+cmake ..
+ls
+cmake ..
+ls
+cmake ..
+cmake
+cd python_C_mysql/
+cd build/
+ls
+rm -rf *
+ls
+cmake ..
+make
+rm -rf *
+mysql_config 
+mysql_config --libs
+cd /usr/include/mysql
+ls
+cat mysql.h
+mysql_config --libs
+mysql_config 
+pkg-config --libs mysqlclient
+ldconfig -p
+cat /etc/ld.so.conf
+cd /etc/ld.so.conf.d/
+ls
+cat libc.conf 
+ls x86_64-linux-gnu.conf 
+cat x86_64-linux-gnu.conf 
+cat fakeroot-x86_64-linux-gnu.conf 
+cat zz_i386-biarch-compat.conf 
+ls
+cd ..
+ls
+ls -al | grep lib
+ls -al | grep ld
+cd ~/kuIotBigdataClass/python_C_mysql/
+gcc -o booklist booklist.c /usr/include/mysql/mysql.h /usr/lib/
+ls
+sudo apt install flask
+history
+pip install flask
+cd flaskweb/
+ls
+flask run
+cd python_C_mysql/
+make
+rm -rf booklist
+make
+./booklist
+make
+./booklist
+python3 booklist.py 
+make
+./booklist
+make
+./booklist
+make
+./booklist
+make
+./booklist
+make
+./booklist
+rm -rf build/
+cmake --version
+mysql_config
+ls
+mkdir build
+cd build
+cmake ..
+make
+ls
+./booklist 
+history
+cd ..
+ls
+rm -rf build/
+cd C++/
+ls
+doxywizard Doxyfile 
+man strcpy
+man2 strcpy
+man strncpy
+asdfwqefasdf /usr/bin/env /bin/sh /tmp/Microsoft-MIEngine-Cmd-bjwowxts.bhi 
+cd C++
+ls
+doxywizard 
+cd C++
+cd chap2/
+ls
+rm -rf build/
+\ /usr/bin/env /bin/sh /tmp/Microsoft-MIEngine-Cmd-abpnpa3o.m1l 
+cd C
+ls
+cc -o abort abort.c
+./abort 
+make clean
+rm -rf build/
+make
+./abort
+man3 abort
+man abort
+make
+./abort
+make abort
+./abort
+make abort
+./abort
+make abort
+./abort
+make clean
+make arg
+./arg
+clean arg
+make clean arg
+make clean
+make arg
+rm arg
+cd ..
+ls
+touch a.c
+make a.c
+make a
+./a
+rm a
+rm a.c
+cd C
+make math.c
+make math
+cc math.c -o math -lm
+./math 
+cc math.c -o math -lm
+./math 
+make clean
+clear
+make math
+make allLibrary
+make clean
+rm allLibrary
+make allLib
+make allLibrary
+./allLibrary 
+make allLibrary
+./allLibrary 
+make math
+gcc math.c
+make
+make clean
+make 
+make clean
+make allLibraray
+rm allLibrary
+make allLibrary
+rm allLibrary
+cc allLibraray.c
+cc allLibrary.c
+./a.out 
+rm a.out 
+cc allLibrary.c
+./a.out 
+cc allLibrary.c
+./a.out 
+cc allLibrary.c
+./a.out 
+cc allLibrary.c
+cd ..
+ls
+git clone https://github.com/nsf/termbox-games.git
+ls
+rm MHS6.1.rar 
+ls
+doxywizard 
+cd src
+ls
+cc tetrisV01.c 
+./a.out 
+cat result 
+./a.out 
+그 a.out
+rm a.out 
+rm result 
+cd ..
+cd build/
+ls
+cmake ..
+make
+ls
+./TetrisV01 
+cd build/
+rm -rf *
+ls
+cmake ..
+make
+cmake ..
+make
+ls
+./tetrisV01 
+ls
+cd build/
+ls
+rm -rf *
+git clone https://github.com/freshmea/c_game_project.git
+tetrisV01 
+ls
+cd build/
+rm result 
+ㅣ
+ls
+cd build/
+cmake ..
+make
+make install
+sudo make install
+ㅣㄴ
+ls
+./tetrisV01 
+/usr/bin/git -C "/home/aa/c_game_project" -c "core.editor=code --wait --reuse-window" revert --no-edit eb955d13233d736f7f5a1b2a917c277abbe4a970
+ls
+cd c_game_project/
+ls
+cd build/
+./tetrisV01 
+make install
+sudo make install
+tetrisV01 
+cd ~
+tetrisV01 
+cd latex/
+ls
+make
+doxywizard 
+tetrisV01 
+clear
+tetrisV01 
+beep
+sudo apt install beep
+beep
+cd C
+make test
+./test 
+make test
+./test 
+aplay -l
+aplay -h
+sudo apt-get install libopenal-dev
+cd buy
+cd build/
+sudo make install
+□
+□□□□□□□□
+sudo make install
+cmake -version
+cd ..
+ls
+cd build/
+sudo cmake install
+ls
+rm -rf *
+cmake ..
+make
+sudo make install
+2
+2222222
+2
+22
+2
+clear
+cdfㅇ
+dfdf
+clear
+dfdf /usr/bin/env /bin/sh /tmp/Microsoft-MIEngine-Cmd-bpdnw0ka.iwn 
+cd c_game_project/
+ls
+cd build/
+ls
+./tetrisV01 
+clear
+./tetrisV01 
+make
+./tetrisV01 
+make
+./tetrisV01 
+cd C
+ls
+./test 
+sudo apt-get install libmpg123-dev libopenal-dev
+make test
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+make test
+./test
+make test
+sudo apt-get install libao-dev
+make test
+gcc test.c -lao -o test
+./test 
+gcc test.c -lmpg123 -lao -o test
+./test 
+gcc test.c -lmpg123 -lao -o test
+./test 
+[200~gcc test.c -lmpg123 -lopenal -o test~
+gcc test.c -lmpg123 -lopenal -o test
+[200~gcc test.c -lmpg123 -lopenal -o test~
+./test 
+[200~gcc test.c -lmpg123 -lopenal -o test~
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lopenal -o test
+./test 
+gcc test.c -lmpg123 -lao -o test
+./test 
+./tetrisV01 
+cd string
+ls
+make main
+./main
+make 
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+./main
+make main
+make
+ls
+rm main
+make
+./main
+make
+rm main
+make
+./main
+make
+rm main
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+make clean
+make
+./main
+cd ..
+rm test
+cd ..
+make test
+cc -o test test.c
+cd C
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+cc -o test test.c
+./test
+clear
+clear /usr/bin/env /bin/sh /tmp/Microsoft-MIEngine-Cmd-sll1zk0q.u24 
+cd build/
+sudo make install
+rm -rf *
+cmake ..
+make
+cpack
+ls
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+ls -al
+sudo chmod a+r /home/aa/c_game_project/build/tetrisV01-1.0.0-Linux.deb
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+sudo apt remove tetrisv01 
+tet
+tetrisV01
+sudo apt remove tetrisv01 
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+tetrisV01 
+ls -al
+sudo chmod a+r /home/aa/c_game_project/build/tetrisV01-1.0.0-Linux.deb
+ls -al
+sudo apt remove tetrisv01 
+rm -rf *
+ls
+cmake ..
+make
+cpack
+ls
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+sudo apt update
+clear
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+sudo apt remove tetrisv01 
+ㅊ ㅊ
+cd C
+cd string/
+rm main
+make main
+./main
+rm main
+make main
+./main
+make clean
+make 
+./main 
+rm -rf build/
+make clean
+make 
+./main 
+make clean
+make 
+make clean
+make 
+./main 
+make clean
+make 
+./main 
+make
+make clean
+make
+make clean
+make
+./main
+tetrisV01 
+clear
+sudo apt remove tetrisv01 
+ls
+sudo apt install ./code_1.87.2-1709912201_amd64.deb 
+cd build/
+ls
+sudo apt remove tetrisv01 
+rm -rf *
+ls
+cmake ..
+ls
+make
+ls
+history
+ls
+cpack
+ls
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+cd ~
+tetrisV01 
+cd c_game_project/
+ls
+cd build/
+ls
+rm -rf *
+ls
+cmake ..
+ls
+cd c_game_project/
+cd build/
+ls
+sudo apt install ./tetrisV01-1.0.0-Linux.deb 
+cd ..
+ls
+tetrisV01 
+cd ..
+ls
+./et
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+cc -o test test.c
+./test 
+ls
+rm display_menu.c 
+ls
+sudo rm display_menu.c 
+ls
+sud rm display_tetris.c 
+sudo rm display_tetris.c 
+ls
+sudo rm main.c 
+ls
+sudo rm -rf tetris/
+ls
+cd ..
+cd bin
+sudo rm tetris_csk 
+cd ..
+cd include/
+ls
+sudo rm display_tetris.h 
+/usr/bin/git -C "/home/aa/c_game_project" -c "core.editor=code --wait --reuse-window" branch teaching addmusic
+clear
+doxywizard 
+/usr/bin/git -C "/home/aa/c_game_project" -c "core.editor=code --wait --reuse-window" revert --no-edit 1055265ed347c0ae0405b787d53e740fc43e6265
+cd build/
+cmake ..
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+tetris
+tetris_csk 
+sudo apt-get install doxygen graphviz
+출처: https://changun516.tistory.com/101 [하루의 쉼터:티스토리]
+sudo apt-get install doxygen graphviz
+sudo apt install doxygen graphviz
+sudo apt install doxygen graphviz
+clear
+cd c_game_project/
+ls
+cd src
+ls
+cd ..
+ls
+rm -rf build
+ls
+claer
+clear
+ls
+mkdir build
+cd build
+cmake ..
+make
+ls
+./tetris_csk 
+clear
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+cmake ..
+make
+./tetris_csk 
+cmake ..
+make
+sudo make install
+history
+ls
+cmake ..
+ls
+make
+cpack
+ls
+sudo cpack
+ls
+sudo apt install ./tetris_csk-0.1.1-Linux.deb 
+sudo apt remove tetris_csk 
+history
+[200~  __                  ___       ___               __
+
+doxywizard 
+sudo apt remove tetrisv01 
+cd build/
+make
+ls
+make
+ls
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+ls
+./tetris_csk 
+ls
+rm -rf *
+ls
+cmake ..
+make
+ls
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+make
+./tetris_csk 
+cd build/
+make
+./tetris_csk 
+cd ..
+cd latex/
+make
+xelatex
+cd ..
+doxywizard Doxyfile
+cd latex
+ls
+cd C++
+ls
+doxywizard Doxyfile
