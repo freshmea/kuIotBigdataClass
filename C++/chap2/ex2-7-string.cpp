@@ -13,9 +13,7 @@ using namespace std;
 
 /**
  * @brief 메인 함수
- * 
  * 사용자로부터 가수 이름을 입력받아 맞는지 확인하는 함수입니다.
- * 
  * @return int 프로그램 종료 시 반환되는 값
  */
 int main() {
