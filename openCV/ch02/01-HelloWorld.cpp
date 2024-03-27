@@ -7,7 +7,7 @@ int main()
 	std::cout << "Hello OpenCV " << CV_VERSION << std::endl;
 
 	cv::Mat img;
-	img = cv::imread("lenna.bmp");
+	img = cv::imread("/home/aa/kuIotBigdataClass/openCV/ch02/lenna.bmp");
 
 	if (img.empty()) {
 		std::cerr << "Image load failed!" << std::endl;
