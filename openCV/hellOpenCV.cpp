@@ -1,5 +1,4 @@
 #include <opencv2/opencv.hpp>
-#include <highgui.hpp>
 #include <iostream>
 
 using namespace cv;
@@ -15,8 +14,7 @@ int main( int argc, char** argv )
         printf( "No image data \n" );
         return -1;
     }
-
-    namedWindow( "Display Image", CV_WINDOW_AUTOSIZE );
+    namedWindow( "Display Image", WINDOW_AUTOSIZE );
     imshow( "Display Image", image );
 
     waitKey(0);
