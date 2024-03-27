@@ -1,13 +1,14 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
+#include <string>
 
-
+std::string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 int main()
 {
 	std::cout << "Hello OpenCV " << CV_VERSION << std::endl;
 
 	cv::Mat img;
-	img = cv::imread("/home/aa/kuIotBigdataClass/openCV/ch02/lenna.bmp");
+	img = cv::imread(folderPath + "lenna.bmp");
 
 	if (img.empty()) {
 		std::cerr << "Image load failed!" << std::endl;
