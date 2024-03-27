@@ -1,8 +1,11 @@
 ﻿#include "opencv2/opencv.hpp"
 #include <iostream>
+#include <string>
 
 using namespace cv;
 using namespace std;
+
+string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void MatOp1();
 void MatOp2();
@@ -55,7 +58,7 @@ void MatOp1()
 
 void MatOp2()
 {
-	Mat img1 = imread("dog.bmp");
+	Mat img1 = imread(folderPath + "cat.bmp");
 
 	Mat img2 = img1;
 	Mat img3;
@@ -79,15 +82,17 @@ void MatOp2()
 
 void MatOp3()
 {
-	Mat img1 = imread("cat.bmp");
+	Mat img1 = imread(folderPath+"cat.bmp");
 
 	if (img1.empty()) {
 		cerr << "Image load failed!" << endl;
 		return;
 	}
-
-	Mat img2 = img1(Rect(220, 120, 340, 240));
-	Mat img3 = img1(Rect(220, 120, 340, 240)).clone();
+	// Mat img2 = img1;
+	// Mat img3 = img1.clone();
+	Rect roi(220, 120, 200, 200);
+	Mat img2 = img1(roi);
+	Mat img3 = img1(roi).clone();
 
 	img2 = ~img2;
 
@@ -125,7 +130,7 @@ void MatOp4()
 
 void MatOp5()
 {
-	Mat img1 = imread("lenna.bmp");
+	Mat img1 = imread(folderPath+"lenna.bmp");
 
 	cout << "Width: " << img1.cols << endl;
 	cout << "Height: " << img1.rows << endl;
@@ -158,7 +163,7 @@ void MatOp6()
 
 void MatOp7()
 {
-	Mat img1 = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat img1 = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	Mat img1f;
 	img1.convertTo(img1f, CV_32FC1);
