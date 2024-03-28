@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-std::string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
+std::string folderPath = "/home/bindsoft/choisugil/kuIotBigdataClass/openCV/ch02/";
 int main()
 {
 	std::cout << "Hello OpenCV " << CV_VERSION << std::endl;
