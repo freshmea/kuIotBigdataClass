@@ -1,24 +1,31 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
 #include <string>
+using namespace cv;
+using namespace std;
 
-std::string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
+string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
+
 int main()
 {
-	std::cout << "Hello OpenCV " << CV_VERSION << std::endl;
-
-	cv::Mat img;
-	img = cv::imread(folderPath + "lenna.bmp");
-
+	cout << "Hello OpenCV " << CV_VERSION << endl;
+	Mat img;
+	// IMREAD_ 로 시작하는 enum 상수를 사용하면 이미지를 읽을 때 다양한 옵션을 사용할 수 있다.
+	img = imread(folderPath + "lenna.bmp", IMREAD_IGNORE_ORIENTATION | IMREAD_COLOR);
+	Point pt1(10, 10);
 	if (img.empty()) {
-		std::cerr << "Image load failed!" << std::endl;
+		cerr << "Image load failed!" << endl;
 		return -1;
 	}
+	img.empty();
 
-	cv::namedWindow("image");
-	cv::imshow("image", img);
+	imwrite(folderPath + "lenna.bmp", img, {IMWRITE_JPEG_QUALITY, 90, IMWRITE_PNG_COMPRESSION, 9});
+	namedWindow("image", WINDOW_AUTOSIZE);
+	Size size(640, 480);
+	resizeWindow("image", size);
+	imshow("image", img);
 
-	cv::waitKey();
+	waitKey();
 
 	return 0;
 }
