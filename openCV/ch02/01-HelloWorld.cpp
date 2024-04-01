@@ -6,6 +6,7 @@ using namespace std;
 
 string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
+std::string folderPath = "/home/bindsoft/choisugil/kuIotBigdataClass/openCV/ch02/";
 int main()
 {
 	cout << "Hello OpenCV " << CV_VERSION << endl;
