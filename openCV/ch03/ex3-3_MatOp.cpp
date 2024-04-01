@@ -31,7 +31,7 @@ int main()
 void MatOp1()
 {
 	Mat img1; 	// empty matrix
-
+	img1 = Scalar(10,0,0);
 	Mat img2(480, 640, CV_8UC1);		// unsigned char, 1-channel
 	Mat img3(480, 640, CV_8UC3);		// unsigned char, 3-channels
 	Mat img4(Size(640, 480), CV_8UC3);	// Size(width, height)
@@ -65,8 +65,10 @@ void MatOp2()
 	img3 = img1;
 
 	Mat img4 = img1.clone();
-	Mat img5;
+	Mat img5(Size(img1.size()/2), img1.type());
+	printf("img5.size(): %d, %d\n", img5.size().width, img5.size().height);
 	img1.copyTo(img5);
+	printf("img5.size(): %d, %d\n", img5.size().width, img5.size().height);
 
 	img1.setTo(Scalar(0, 255, 255));	// yellow
 
@@ -88,8 +90,7 @@ void MatOp3()
 		cerr << "Image load failed!" << endl;
 		return;
 	}
-	// Mat img2 = img1;
-	// Mat img3 = img1.clone();
+
 	Rect roi(220, 120, 200, 200);
 	Mat img2 = img1(roi);
 	Mat img3 = img1(roi).clone();
@@ -171,7 +172,7 @@ void MatOp7()
 	uchar data1[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 	Mat mat1(3, 4, CV_8UC1, data1);
 	Mat mat2 = mat1.reshape(0, 1);
-
+	mat1.at<uchar>(1, 2) = 0;
 	cout << "mat1:\n" << mat1 << endl;
 	cout << "mat2:\n" << mat2 << endl;
 
@@ -181,4 +182,9 @@ void MatOp7()
 	Mat mat3 = Mat::ones(1, 4, CV_8UC1) * 255;
 	mat1.push_back(mat3);
 	cout << "mat1:\n" << mat1 << endl;
+	cv::Mat mat(3, 3, CV_32FC1); // 3x3 크기의, float 형태의 행렬 생성
+	for(auto it = mat.begin<float>(); it != mat.end<float>(); ++it) {
+		*it = 1.0f; // 모든 원소값을 1.0으로 변경
+	}
+
 }
