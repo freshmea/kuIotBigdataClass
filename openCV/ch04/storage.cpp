@@ -58,7 +58,7 @@ void readData()
 		cerr << "File open failed!" << endl;
 		return;
 	}
-	
+
 	fs["name"] >> name;
 	fs["age"] >> age;
 	fs["point"] >> pt1;

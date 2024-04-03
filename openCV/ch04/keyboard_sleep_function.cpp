@@ -19,6 +19,25 @@ void set_fps_rapper_while(int fps, std::function<void()> func)
     }
 }
 
+void on_mouse(int event, int x, int y, int flags, void*)
+{
+    switch (event) {
+    case EVENT_LBUTTONDOWN:
+        cout << "EVENT_LBUTTONDOWN: " << x << ", " << y << endl;
+        break;
+    case EVENT_LBUTTONUP:
+        cout << "EVENT_LBUTTONUP: " << x << ", " << y << endl;
+        break;
+    case EVENT_MOUSEMOVE:
+        if (flags & EVENT_FLAG_LBUTTON) {
+            cout << "EVENT_MOUSEMOVE: " << x << ", " << y << endl;
+        }
+        break;
+    default:
+        break;
+    }
+}
+
 int main(void)
 {
     Mat img = imread(folderPath+"lenna.bmp");
@@ -34,13 +53,14 @@ int main(void)
     auto i = getTickCount();
     bool play = true;
     int keycode;
+    setMouseCallback("img", on_mouse);
     while (play)
     {
         set_fps_rapper_while(60, [&img, &i, &play, &keycode]()
                              {
             keycode = waitKey(3);
-            cout << "keycode: " << keycode << endl;
-            cout << "fps: " << getTickFrequency() / (getTickCount() - i) << endl;
+            // cout << "keycode: " << keycode << endl;
+            // cout << "fps: " << getTickFrequency() / (getTickCount() - i) << endl;
             if (keycode == 'i' || keycode == 'I') {
                 img = ~img;
                 imshow("img", img);
