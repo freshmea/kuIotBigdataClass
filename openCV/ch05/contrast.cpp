@@ -3,6 +3,7 @@
 
 using namespace cv;
 using namespace std;
+string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void contrast1();
 void contrast2();
@@ -17,7 +18,7 @@ int main(void)
 
 void contrast1()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -36,7 +37,7 @@ void contrast1()
 
 void contrast2()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

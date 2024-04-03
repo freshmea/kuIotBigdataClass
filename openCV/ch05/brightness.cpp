@@ -3,6 +3,7 @@
 
 using namespace cv;
 using namespace std;
+string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void brightness1();
 void brightness2();
@@ -22,7 +23,7 @@ int main(void)
 
 void brightness1()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -30,6 +31,7 @@ void brightness1()
 	}
 
 	Mat dst = src + 100;
+	cvtColor(src, src, COLOR_GRAY2BGR);
 
 	imshow("src", src);
 	imshow("dst", dst);
@@ -40,7 +42,7 @@ void brightness1()
 
 void brightness2()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -64,7 +66,7 @@ void brightness2()
 
 void brightness3()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -88,7 +90,7 @@ void brightness3()
 
 void brightness4()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

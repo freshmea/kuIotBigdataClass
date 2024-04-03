@@ -6,6 +6,7 @@ using namespace std;
 
 Mat calcGrayHist(const Mat& img);
 Mat getGrayHistImage(const Mat& hist);
+string folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void histogram_stretching();
 void histogram_equalization();
@@ -53,7 +54,7 @@ Mat getGrayHistImage(const Mat& hist)
 
 void histogram_stretching()
 {
-	Mat src = imread("hawkes.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"hawkes.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -77,7 +78,7 @@ void histogram_stretching()
 
 void histogram_equalization()
 {
-	Mat src = imread("hawkes.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"hawkes.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
