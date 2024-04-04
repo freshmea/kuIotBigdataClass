@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 Mat src;
 Point2f srcPts[4], dstPts[4];
 
@@ -11,7 +11,7 @@ void on_mouse(int event, int x, int y, int flags, void* userdata);
 
 int main()
 {
-	src = imread("card.bmp");
+	src = imread(folderPath+"card.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void unsharp_mask();
 
 int main(void)
@@ -15,7 +15,7 @@ int main(void)
 
 void unsharp_mask()
 {
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"rose.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

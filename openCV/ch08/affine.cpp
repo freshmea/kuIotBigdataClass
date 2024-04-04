@@ -3,6 +3,7 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void affine_transform();
 void affine_translation();
@@ -25,7 +26,7 @@ int main(void)
 
 void affine_transform()
 {
-	Mat src = imread("tekapo.bmp");
+	Mat src = imread(folderPath+"tekapo.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -44,7 +45,6 @@ void affine_transform()
 
 	Mat dst;
 	warpAffine(src, dst, M, Size());
-
 	imshow("src", src);
 	imshow("dst", dst);
 
@@ -54,7 +54,7 @@ void affine_transform()
 
 void affine_translation()
 {
-	Mat src = imread("tekapo.bmp");
+	Mat src = imread(folderPath+"tekapo.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -75,7 +75,7 @@ void affine_translation()
 
 void affine_shear()
 {
-	Mat src = imread("tekapo.bmp");
+	Mat src = imread(folderPath+"tekapo.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -83,10 +83,11 @@ void affine_shear()
 	}
 
 	double mx = 0.3;
-	Mat M = Mat_<double>({ 2, 3 }, { 1, mx, 0, 0, 1, 0 });
+	double my = 0.2;
+	Mat M = Mat_<double>({ 2, 3 }, { 1, mx, 0, my, 1, 0 });
 
 	Mat dst;
-	warpAffine(src, dst, M, Size(cvRound(src.cols + src.rows * mx), src.rows));
+	warpAffine(src, dst, M, Size(cvRound(src.cols + src.rows * mx), cvRound(src.rows+src.cols*my)));
 
 	imshow("src", src);
 	imshow("dst", dst);
@@ -97,7 +98,7 @@ void affine_shear()
 
 void affine_scale()
 {
-	Mat src = imread("rose.bmp");
+	Mat src = imread(folderPath+"rose.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -122,7 +123,7 @@ void affine_scale()
 
 void affine_rotation()
 {
-	Mat src = imread("tekapo.bmp");
+	Mat src = imread(folderPath+"tekapo.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -144,7 +145,7 @@ void affine_rotation()
 
 void affine_flip()
 {
-	Mat src = imread("eastsea.bmp");
+	Mat src = imread(folderPath+"eastsea.bmp");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

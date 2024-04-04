@@ -6,6 +6,7 @@ using namespace std;
 
 void blurring_mean();
 void blurring_gaussian();
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 int main(void)
 {
@@ -17,7 +18,7 @@ int main(void)
 
 void blurring_mean()
 {
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"rose.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -43,7 +44,7 @@ void blurring_mean()
 
 void blurring_gaussian()
 {
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"rose.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -57,7 +58,7 @@ void blurring_gaussian()
 		GaussianBlur(src, dst, Size(0, 0), (double)sigma);
 
 		String desc = format("Gaussian: sigma = %d", sigma);
-		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0,
 				Scalar(255), 1, LINE_AA);
 
 		imshow("dst", dst);

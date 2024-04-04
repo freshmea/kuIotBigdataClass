@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void noise_gaussian();
 void filter_bilateral();
 void filter_median();
@@ -19,7 +19,7 @@ int main(void)
 
 void noise_gaussian()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -46,7 +46,7 @@ void noise_gaussian()
 
 void filter_bilateral()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -73,7 +73,7 @@ void filter_bilateral()
 
 void filter_median()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
