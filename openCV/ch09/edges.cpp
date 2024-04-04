@@ -57,7 +57,7 @@ void sobel_edge()
 	Mat fmag, mag;
 	magnitude(dx, dy, fmag);
 	fmag.convertTo(mag, CV_8UC1);
-
+	phase(dx, dy, dx, true);
 	Mat edge = mag > 150;
 
 	imshow("src", src);
