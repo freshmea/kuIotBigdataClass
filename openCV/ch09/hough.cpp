@@ -9,7 +9,7 @@ void hough_line_segments();
 void hough_circles();
 void hough_circles_trackbar();
 void hough_circles_trackbar2();
-void hough_circles_trackbar20();
+void hough_circles_trackbar3();
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
 	hough_circles();
 	hough_circles_trackbar();
 	hough_circles_trackbar2();
-	// hough_circles_trackbar20();
+	hough_circles_trackbar3();
 
 	return 0;
 }
@@ -225,4 +225,76 @@ void hough_circles_trackbar_onChange(int, void* handler)
     }
 
     imshow("dst", dst);
+}
+
+// 클래스로 정보 넘기기
+
+class HoughCirclesTrackbarHandlerClass{
+public:
+	int min_dist = 50;
+	int param1 = 150;
+	int param2 = 30;
+	int min_radius = 20;
+	int max_radius = 50;
+	Mat *blurred = 0;
+	Mat *src = 0;
+	void onChange(int, void*){
+		vector<Vec3f> circles;
+		printf("min_dist: %d, param1: %d, param2: %d, min_radius: %d, max_radius: %d\n", min_dist, param1, param2, min_radius, max_radius);
+		HoughCircles(*blurred, circles, HOUGH_GRADIENT, 1, min_dist, param1, param2, min_radius, max_radius);
+
+		Mat dst;
+		cvtColor(*src, dst, COLOR_GRAY2BGR);
+
+		for (Vec3f c : circles) {
+			Point center(cvRound(c[0]), cvRound(c[1]));
+			int radius = cvRound(c[2]);
+			circle(dst, center, radius, Scalar(0, 0, 255), 2, LINE_AA);
+		}
+
+		imshow("dst", dst);
+	};
+};
+
+void hough_circles_trackbar3(){
+	Mat src = imread(folderPath + "coins.png", IMREAD_GRAYSCALE);
+	Mat blurred;
+	HoughCirclesTrackbarHandlerClass handler;
+	blur(src, blurred, Size(3, 3));
+	handler.blurred = &blurred;
+	handler.src = &src;
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	namedWindow("dst");
+	createTrackbar("min_dist", "dst", &handler.min_dist, 400, [](int, void* handler){
+		HoughCirclesTrackbarHandlerClass *hcth = reinterpret_cast<HoughCirclesTrackbarHandlerClass*>(handler);
+		hcth->onChange(0, hcth);
+	}, &handler);
+	createTrackbar("param1", "dst", &handler.param1, 400, [](int, void* handler){
+		HoughCirclesTrackbarHandlerClass *hcth = reinterpret_cast<HoughCirclesTrackbarHandlerClass*>(handler);
+		hcth->onChange(0, hcth);
+	}, &handler);
+	createTrackbar("param2", "dst", &handler.param2, 400, [](int, void* handler){
+		HoughCirclesTrackbarHandlerClass *hcth = reinterpret_cast<HoughCirclesTrackbarHandlerClass*>(handler);
+		hcth->onChange(0, hcth);
+	}, &handler);
+	createTrackbar("min_radius", "dst", &handler.min_radius, 400, [](int, void* handler){
+		HoughCirclesTrackbarHandlerClass *hcth = reinterpret_cast<HoughCirclesTrackbarHandlerClass*>(handler);
+		hcth->onChange(0, hcth);
+	}, &handler);
+	createTrackbar("max_radius", "dst", &handler.max_radius, 400, [](int, void* handler){
+		HoughCirclesTrackbarHandlerClass *hcth = reinterpret_cast<HoughCirclesTrackbarHandlerClass*>(handler);
+		hcth->onChange(0, hcth);
+	}, &handler);
+
+	handler.onChange(0, &handler); // initial call
+
+	waitKey();
+	destroyAllWindows();
+
+	return;
 }
