@@ -3,14 +3,15 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 int main()
 {
 	// Calculate CrCb histogram from a reference image
 
 	Mat ref, ref_ycrcb, mask;
-	ref = imread("ref.png", IMREAD_COLOR);
-	mask = imread("mask.bmp", IMREAD_GRAYSCALE);
+	ref = imread(folderPath+"ref.png", IMREAD_COLOR);
+	mask = imread(folderPath+"mask.bmp", IMREAD_GRAYSCALE);
 	cvtColor(ref, ref_ycrcb, COLOR_BGR2YCrCb);
 
 	Mat hist;
@@ -26,7 +27,7 @@ int main()
 	// Apply histogram backprojection to an input image
 
 	Mat src, src_ycrcb;
-	src = imread("kids.png", IMREAD_COLOR);
+	src = imread(folderPath+"kids.png", IMREAD_COLOR);
 	cvtColor(src, src_ycrcb, COLOR_BGR2YCrCb);
 
 	Mat backproj;

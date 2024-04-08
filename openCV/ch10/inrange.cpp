@@ -3,6 +3,7 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 int lower_hue = 40, upper_hue = 80;
 Mat src, src_hsv, mask;
@@ -11,7 +12,7 @@ void on_hue_changed(int, void*);
 
 int main(int argc, char* argv[])
 {
-	src = imread("candies.png", IMREAD_COLOR);
+	src = imread(folderPath+"candies.png", IMREAD_COLOR);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

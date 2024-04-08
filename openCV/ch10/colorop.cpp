@@ -3,6 +3,7 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void color_op();
 void color_inverse();
@@ -21,7 +22,7 @@ int main(void)
 
 void color_op()
 {
-	Mat img = imread("butterfly.jpg", IMREAD_COLOR);
+	Mat img = imread(folderPath+"butterfly.jpg", IMREAD_COLOR);
 
 	if (img.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -41,7 +42,7 @@ void color_op()
 
 void color_inverse()
 {
-	Mat src = imread("butterfly.jpg", IMREAD_COLOR);
+	Mat src = imread(folderPath+"butterfly.jpg", IMREAD_COLOR);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -70,7 +71,7 @@ void color_inverse()
 
 void color_grayscale()
 {
-	Mat src = imread("butterfly.jpg");
+	Mat src = imread(folderPath+"butterfly.jpg");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -89,20 +90,27 @@ void color_grayscale()
 
 void color_split()
 {
-	Mat src = imread("candies.png");
+	Mat src = imread(folderPath+"candies.png");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
 		return;
 	}
 
-	vector<Mat> bgr_planes;
+	vector<Mat> bgr_planes, b_planes, g_planes, r_planes;
 	split(src, bgr_planes);
-
+	Mat Bdst, Gdst, Rdst;
+	Mat Empty(src.rows, src.cols, CV_8UC1, Scalar(0));
+	b_planes = { bgr_planes[0], Empty, Empty };
+	g_planes = { Empty, bgr_planes[1], Empty };
+	r_planes = { Empty, Empty, bgr_planes[2] };
+	merge(b_planes, Bdst);
+	merge(g_planes, Gdst);
+	merge(r_planes, Rdst);
 	imshow("src", src);
-	imshow("B_plane", bgr_planes[0]);
-	imshow("G_plane", bgr_planes[1]);
-	imshow("R_plane", bgr_planes[2]);
+	imshow("B_plane", Bdst);
+	imshow("G_plane", Gdst);
+	imshow("R_plane", Rdst);
 
 	waitKey();
 	destroyAllWindows();

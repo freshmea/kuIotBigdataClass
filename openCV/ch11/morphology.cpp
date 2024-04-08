@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void erode_dilate();
 void open_close();
 
@@ -17,7 +17,7 @@ int main(void)
 
 void erode_dilate()
 {
-	Mat src = imread("milkdrop.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"milkdrop.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -42,7 +42,7 @@ void erode_dilate()
 
 void open_close()
 {
-	Mat src = imread("milkdrop.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"milkdrop.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

@@ -3,12 +3,13 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void on_trackbar(int pos, void* userdata);
 
 int main()
 {
-	Mat src = imread("sudoku.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"sudoku.jpg", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

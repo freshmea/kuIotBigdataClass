@@ -3,10 +3,11 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 int main(void)
 {
-	Mat src = imread("pepper.bmp", IMREAD_COLOR);
+	Mat src = imread(folderPath + "pepper.bmp", IMREAD_COLOR);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

@@ -3,16 +3,17 @@
 
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void on_threshold(int pos, void* userdata);
 
 int main(int argc, char* argv[])
 {
 	Mat src;
-	
+
 	if (argc < 2)
-		src = imread("neutrophils.png", IMREAD_GRAYSCALE);
-	else 
+		src = imread(folderPath+"neutrophils.png", IMREAD_GRAYSCALE);
+	else
 		src = imread(argv[1], IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
