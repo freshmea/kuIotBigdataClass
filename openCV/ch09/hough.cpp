@@ -3,23 +3,25 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void hough_lines();
 void hough_line_segments();
 void hough_circles();
+void hough_circles_trackbar();
 
 int main(void)
 {
 	hough_lines();
 	hough_line_segments();
 	hough_circles();
+	hough_circles_trackbar();
 
 	return 0;
 }
 
 void hough_lines()
 {
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"building.jpg", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -55,7 +57,7 @@ void hough_lines()
 
 void hough_line_segments()
 {
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"building.jpg", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -84,7 +86,7 @@ void hough_line_segments()
 
 void hough_circles()
 {
-	Mat src = imread("coins.png", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"coins.png", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -110,5 +112,51 @@ void hough_circles()
 	imshow("dst", dst);
 
 	waitKey();
+	destroyAllWindows();
+}
+
+void hough_circles_trackbar()
+{
+	Mat src = imread(folderPath+"coins.png", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	Mat blurred;
+	blur(src, blurred, Size(3, 3));
+
+	int min_dist = 50;
+	int param1 = 150;
+	int param2 = 30;
+	int min_radius = 20;
+	int max_radius = 50;
+
+	namedWindow("dst");
+	createTrackbar("min_dist", "dst", &min_dist, 100);
+	createTrackbar("param1", "dst", &param1, 200);
+	createTrackbar("param2", "dst", &param2, 100);
+	createTrackbar("min_radius", "dst", &min_radius, 50);
+	createTrackbar("max_radius", "dst", &max_radius, 100);
+
+	while (true) {
+		vector<Vec3f> circles;
+		HoughCircles(blurred, circles, HOUGH_GRADIENT, 1, min_dist, param1, param2, min_radius, max_radius);
+
+		Mat dst;
+		cvtColor(src, dst, COLOR_GRAY2BGR);
+
+		for (Vec3f c : circles) {
+			Point center(cvRound(c[0]), cvRound(c[1]));
+			int radius = cvRound(c[2]);
+			circle(dst, center, radius, Scalar(0, 0, 255), 2, LINE_AA);
+		}
+
+		imshow("dst", dst);
+
+		if (waitKey(1) == 27) break;
+	}
+
 	destroyAllWindows();
 }

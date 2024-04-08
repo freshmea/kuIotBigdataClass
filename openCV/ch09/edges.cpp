@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void sobel_derivative();
 void sobel_edge();
 void canny_edge();
@@ -19,7 +19,7 @@ int main(void)
 
 void sobel_derivative()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -43,7 +43,7 @@ void sobel_derivative()
 
 void sobel_edge()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -70,7 +70,7 @@ void sobel_edge()
 
 void canny_edge()
 {
-	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"lenna.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
