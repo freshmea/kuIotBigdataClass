@@ -3,10 +3,10 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 int main()
 {
-	VideoCapture cap("vtest.avi");
+	VideoCapture cap(folderPath+"vtest.avi");
 
 	if (!cap.isOpened()) {
 		cerr << "Video open failed!" << endl;

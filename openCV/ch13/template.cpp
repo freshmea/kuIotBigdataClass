@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void template_matching();
 
 int main()
@@ -15,8 +15,8 @@ int main()
 
 void template_matching()
 {
-	Mat img = imread("circuit.bmp", IMREAD_COLOR);
-	Mat templ = imread("crystal.bmp", IMREAD_COLOR);
+	Mat img = imread(folderPath+"circuit.bmp", IMREAD_COLOR);
+	Mat templ = imread(folderPath+"crystal.bmp", IMREAD_COLOR);
 
 	if (img.empty() || templ.empty()) {
 		cerr << "Image load failed!" << endl;

@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void labeling_basic();
 void labeling_stats();
 
@@ -40,7 +40,7 @@ void labeling_basic()
 
 void labeling_stats()
 {
-	Mat src = imread("keyboard.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"keyboard.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

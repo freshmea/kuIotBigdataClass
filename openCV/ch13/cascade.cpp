@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void detect_face();
 void detect_eyes();
 
@@ -17,14 +17,14 @@ int main()
 
 void detect_face()
 {
-	Mat src = imread("kids.png");
+	Mat src = imread(folderPath+"kids.png");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
 		return;
 	}
 
-	CascadeClassifier classifier("haarcascade_frontalface_default.xml");
+	CascadeClassifier classifier(folderPath+"haarcascade_frontalface_default.xml");
 
 	if (classifier.empty()) {
 		cerr << "XML load failed!" << endl;
@@ -46,15 +46,15 @@ void detect_face()
 
 void detect_eyes()
 {
-	Mat src = imread("kids.png");
+	Mat src = imread(folderPath+"kids.png");
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
 		return;
 	}
 
-	CascadeClassifier face_classifier("haarcascade_frontalface_default.xml");
-	CascadeClassifier eye_classifier("haarcascade_eye.xml");
+	CascadeClassifier face_classifier(folderPath+"haarcascade_frontalface_default.xml");
+	CascadeClassifier eye_classifier(folderPath+"haarcascade_eye.xml");
 
 	if (face_classifier.empty() || eye_classifier.empty()) {
 		cerr << "XML load failed!" << endl;

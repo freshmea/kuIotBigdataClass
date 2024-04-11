@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void contours_basic();
 void contours_hier();
 
@@ -17,7 +17,7 @@ int main(void)
 
 void contours_basic()
 {
-	Mat src = imread("contours.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"contours.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -44,7 +44,7 @@ void contours_basic()
 
 void contours_hier()
 {
-	Mat src = imread("contours.bmp", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"contours.bmp", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
