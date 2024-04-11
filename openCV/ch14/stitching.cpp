@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 int main(int argc, char* argv[])
 {
 	if (argc < 3) {
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
 	vector<Mat> imgs;
 	for (int i = 1; i < argc; i++) {
-		Mat img = imread(argv[i]);
+		Mat img = imread(folderPath+argv[i]);
 
 		if (img.empty()) {
 			cerr << "Image load failed!" << endl;

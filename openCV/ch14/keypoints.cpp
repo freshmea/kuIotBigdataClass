@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void detect_keypoints();
 
 int main(void)
@@ -15,7 +15,7 @@ int main(void)
 
 void detect_keypoints()
 {
-	Mat src = imread("box_in_scene.png", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"box_in_scene.png", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;

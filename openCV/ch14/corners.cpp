@@ -1,23 +1,25 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
-
 using namespace cv;
 using namespace std;
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 
 void corner_harris();
 void corner_fast();
+void good_features_to_track();
 
 int main(void)
 {
 	corner_harris();
 	corner_fast();
+	good_features_to_track();
 
 	return 0;
 }
 
 void corner_harris()
 {
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"building.jpg", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -56,7 +58,7 @@ void corner_harris()
 
 void corner_fast()
 {
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+	Mat src = imread(folderPath+"building.jpg", IMREAD_GRAYSCALE);
 
 	if (src.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -80,4 +82,53 @@ void corner_fast()
 	waitKey();
 	destroyAllWindows();
 }
+struct USER_DATA{
+	vector<Point2f> *corners;
+	int *maxCorners;
+	Mat *src;
+};
 
+void on_trackbar(int, void* user_data);
+
+void good_features_to_track()
+{
+	Mat src = imread(folderPath+"building.jpg", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	vector<Point2f> corners;
+	//set maxCorners to tracbar
+	int maxCorners = 300;
+	USER_DATA user_data;
+	user_data.src = &src;
+	user_data.corners = &corners;
+	user_data.maxCorners = &maxCorners;
+	Mat dst;
+
+	namedWindow("dst");
+	createTrackbar("maxCorners", "dst", &maxCorners, 1000, on_trackbar, &user_data);
+	setTrackbarPos("maxCorners", "dst", maxCorners);
+
+	on_trackbar(0, &user_data);
+	imshow("src", src);
+
+	waitKey();
+	destroyAllWindows();
+}
+
+void on_trackbar(int a, void* user)
+{
+	USER_DATA *_user_data = reinterpret_cast<USER_DATA*>(user);
+	goodFeaturesToTrack(*_user_data->src, *_user_data->corners, *_user_data->maxCorners, 0.01, 10);
+	Mat dst;
+	cvtColor(*_user_data->src, dst, COLOR_GRAY2BGR);
+
+	for (Point2f pt : *_user_data->corners) {
+		circle(dst, pt, 5, Scalar(0, 0, 255), 2);
+	}
+	imshow("dst", dst);
+	waitKey(3);
+}

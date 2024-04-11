@@ -3,7 +3,7 @@
 
 using namespace cv;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 void keypoint_matching();
 void good_matching();
 void find_homography();
@@ -19,8 +19,8 @@ int main(void)
 
 void keypoint_matching()
 {
-	Mat src1 = imread("box.png", IMREAD_GRAYSCALE);
-	Mat src2 = imread("box_in_scene.png", IMREAD_GRAYSCALE);
+	Mat src1 = imread(folderPath+"box.png", IMREAD_GRAYSCALE);
+	Mat src2 = imread(folderPath+"box_in_scene.png", IMREAD_GRAYSCALE);
 
 	if (src1.empty() || src2.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -52,8 +52,8 @@ void keypoint_matching()
 
 void good_matching()
 {
-	Mat src1 = imread("box.png", IMREAD_GRAYSCALE);
-	Mat src2 = imread("box_in_scene.png", IMREAD_GRAYSCALE);
+	Mat src1 = imread(folderPath+"box.png", IMREAD_GRAYSCALE);
+	Mat src2 = imread(folderPath+"box_in_scene.png", IMREAD_GRAYSCALE);
 
 	if (src1.empty() || src2.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -88,8 +88,8 @@ void good_matching()
 
 void find_homography()
 {
-	Mat src1 = imread("box.png", IMREAD_GRAYSCALE);
-	Mat src2 = imread("box_in_scene.png", IMREAD_GRAYSCALE);
+	Mat src1 = imread(folderPath+"box.png", IMREAD_GRAYSCALE);
+	Mat src2 = imread(folderPath+"box_in_scene.png", IMREAD_GRAYSCALE);
 
 	if (src1.empty() || src2.empty()) {
 		cerr << "Image load failed!" << endl;
