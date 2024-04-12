@@ -37,7 +37,7 @@ void keypoint_matching()
 	cout << "desc2.size(): " << desc2.size() << endl;
 
 	Ptr<DescriptorMatcher> matcher = BFMatcher::create(NORM_HAMMING);
-
+	auto matcher2 = FlannBasedMatcher::create();
 	vector<DMatch> matches;
 	matcher->match(desc1, desc2, matches);
 

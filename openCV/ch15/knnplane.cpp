@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace cv::ml;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 Mat img;
 Mat train, label;
 Ptr<KNearest> knn;

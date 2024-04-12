@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace cv::ml;
 using namespace std;
-
+String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 Ptr<SVM> train_hog_svm(const HOGDescriptor& hog);
 void on_mouse(int event, int x, int y, int flags, void* userdata);
 
@@ -55,7 +55,7 @@ int main()
 
 Ptr<SVM> train_hog_svm(const HOGDescriptor& hog)
 {
-	Mat digits = imread("digits.png", IMREAD_GRAYSCALE);
+	Mat digits = imread(folderPath+"digits.png", IMREAD_GRAYSCALE);
 
 	if (digits.empty()) {
 		cerr << "Image load failed!" << endl;
@@ -92,12 +92,15 @@ Point ptPrev(-1, -1);
 void on_mouse(int event, int x, int y, int flags, void* userdata)
 {
 	Mat img = *(Mat*)userdata;
-
-	if (event == EVENT_LBUTTONDOWN)
+	static bool flag = false;
+	if (event == EVENT_LBUTTONDOWN){
 		ptPrev = Point(x, y);
-	else if (event == EVENT_LBUTTONUP)
+		flag = true;
+	} else if (event == EVENT_LBUTTONUP){
 		ptPrev = Point(-1, -1);
-	else if (event == EVENT_MOUSEMOVE && (flags & EVENT_FLAG_LBUTTON))
+		flag = false;
+	}
+	else if (event == EVENT_MOUSEMOVE && flag)
 	{
 		line(img, ptPrev, Point(x, y), Scalar::all(255), 40, LINE_AA, 0);
 		ptPrev = Point(x, y);
