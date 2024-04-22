@@ -7,10 +7,9 @@ using namespace std;
 
 int main(void)
 {
-	Mat train = Mat_<float>({ 8, 2 }, {
-		150, 200, 200, 250, 100, 250, 150, 300,
-		350, 100, 400, 200, 400, 300, 350, 400 });
-	Mat label = Mat_<int>({ 8, 1 }, { 0, 0, 0, 0, 1, 1, 1, 1 });
+	Mat train = Mat_<float>({8, 2}, {150, 200, 200, 250, 100, 250, 150, 300,
+									 350, 100, 400, 200, 400, 300, 350, 400});
+	Mat label = Mat_<int>({8, 1}, {0, 0, 0, 0, 1, 1, 1, 1});
 
 	Ptr<SVM> svm = SVM::create();
 	svm->setType(SVM::C_SVC);
@@ -19,9 +18,11 @@ int main(void)
 
 	Mat img = Mat::zeros(Size(500, 500), CV_8UC3);
 
-	for (int j = 0; j < img.rows; j++) {
-		for (int i = 0; i < img.cols; i++) {
-			Mat test = Mat_<float>({ 1, 2 }, { (float)i, (float)j });
+	for (int j = 0; j < img.rows; j++)
+	{
+		for (int i = 0; i < img.cols; i++)
+		{
+			Mat test = Mat_<float>({1, 2}, {(float)i, (float)j});
 			int res = cvRound(svm->predict(test));
 
 			if (res == 0)
@@ -31,7 +32,8 @@ int main(void)
 		}
 	}
 
-	for (int i = 0; i < train.rows; i++) {
+	for (int i = 0; i < train.rows; i++)
+	{
 		int x = cvRound(train.at<float>(i, 0));
 		int y = cvRound(train.at<float>(i, 1));
 		int l = label.at<int>(i, 0);

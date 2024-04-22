@@ -7,27 +7,30 @@ using namespace std;
 
 const String model = "../res10_300x300_ssd_iter_140000_fp16.caffemodel";
 const String config = "../deploy.prototxt";
-//const String model = "opencv_face_detector_uint8.pb";
-//const String config = "opencv_face_detector.pbtxt";
+// const String model = "opencv_face_detector_uint8.pb";
+// const String config = "opencv_face_detector.pbtxt";
 
 int main(void)
 {
 	VideoCapture cap(4);
 
-	if (!cap.isOpened()) {
+	if (!cap.isOpened())
+	{
 		cerr << "Camera open failed!" << endl;
 		return -1;
 	}
 
 	Net net = readNet(model, config);
 
-	if (net.empty()) {
+	if (net.empty())
+	{
 		cerr << "Net open failed!" << endl;
 		return -1;
 	}
 
 	Mat frame;
-	while (true) {
+	while (true)
+	{
 		cap >> frame;
 		if (frame.empty())
 			break;
@@ -38,7 +41,8 @@ int main(void)
 
 		Mat detect(res.size[2], res.size[3], CV_32FC1, res.ptr<float>());
 
-		for (int i = 0; i < detect.rows; i++) {
+		for (int i = 0; i < detect.rows; i++)
+		{
 			float confidence = detect.at<float>(i, 2);
 			if (confidence < 0.5)
 				break;

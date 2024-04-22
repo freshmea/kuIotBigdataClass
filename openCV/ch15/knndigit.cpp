@@ -6,13 +6,14 @@ using namespace cv::ml;
 using namespace std;
 String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
 Ptr<KNearest> train_knn();
-void on_mouse(int event, int x, int y, int flags, void* userdata);
+void on_mouse(int event, int x, int y, int flags, void *userdata);
 
 int main()
 {
 	Ptr<KNearest> knn = train_knn();
 
-	if (knn.empty()) {
+	if (knn.empty())
+	{
 		cerr << "Training failed!" << endl;
 		return -1;
 	}
@@ -20,14 +21,18 @@ int main()
 	Mat img = Mat::zeros(400, 400, CV_8U);
 
 	imshow("img", img);
-	setMouseCallback("img", on_mouse, (void*)&img);
+	setMouseCallback("img", on_mouse, (void *)&img);
 
-	while (true) {
+	while (true)
+	{
 		int c = waitKey();
-		
-		if (c == 27) {
+
+		if (c == 27)
+		{
 			break;
-		} else if (c == ' ') {
+		}
+		else if (c == ' ')
+		{
 			Mat img_resize, img_float, img_flatten, res;
 
 			resize(img, img_resize, Size(20, 20), 0, 0, INTER_AREA);
@@ -39,7 +44,7 @@ int main()
 
 			img.setTo(0);
 			imshow("img", img);
-		} 
+		}
 	}
 
 	return 0;
@@ -47,17 +52,20 @@ int main()
 
 Ptr<KNearest> train_knn()
 {
-	Mat digits = imread(folderPath+"digits.png", IMREAD_GRAYSCALE);
+	Mat digits = imread(folderPath + "digits.png", IMREAD_GRAYSCALE);
 
-	if (digits.empty()) {
+	if (digits.empty())
+	{
 		cerr << "Image load failed!" << endl;
 		return 0;
 	}
 
 	Mat train_images, train_labels;
 
-	for (int j = 0; j < 50; j++) {
-		for (int i = 0; i < 100; i++) {
+	for (int j = 0; j < 50; j++)
+	{
+		for (int i = 0; i < 100; i++)
+		{
 			Mat roi, roi_float, roi_flatten;
 			roi = digits(Rect(i * 20, j * 20, 20, 20));
 			roi.convertTo(roi_float, CV_32F);
@@ -76,9 +84,9 @@ Ptr<KNearest> train_knn()
 
 Point ptPrev(-1, -1);
 
-void on_mouse(int event, int x, int y, int flags, void* userdata)
+void on_mouse(int event, int x, int y, int flags, void *userdata)
 {
-	Mat img = *(Mat*)userdata;
+	Mat img = *(Mat *)userdata;
 	static bool flag = false;
 	if (event == EVENT_LBUTTONDOWN)
 	{

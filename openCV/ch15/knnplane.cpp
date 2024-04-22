@@ -10,8 +10,8 @@ Mat train, label;
 Ptr<KNearest> knn;
 int k_value = 1;
 
-void on_k_changed(int, void*);
-void addPoint(const Point& pt, int cls);
+void on_k_changed(int, void *);
+void addPoint(const Point &pt, int cls);
 void trainAndDisplay();
 
 int main(void)
@@ -30,8 +30,8 @@ int main(void)
 	for (int i = 0; i < NUM; i++)
 		addPoint(Point(rn.at<int>(i, 0) + 350, rn.at<int>(i, 1) + 150), 1);
 
-	randn(rn, 0, 70); 
-	for (int i = 0; i < NUM; i++) 
+	randn(rn, 0, 70);
+	for (int i = 0; i < NUM; i++)
 		addPoint(Point(rn.at<int>(i, 0) + 250, rn.at<int>(i, 1) + 400), 2);
 
 	namedWindow("knn");
@@ -43,13 +43,14 @@ int main(void)
 	return 0;
 }
 
-void on_k_changed(int, void*)
+void on_k_changed(int, void *)
 {
-	if (k_value < 1) k_value = 1;
+	if (k_value < 1)
+		k_value = 1;
 	trainAndDisplay();
 }
 
-void addPoint(const Point& pt, int cls)
+void addPoint(const Point &pt, int cls)
 {
 	Mat new_sample = (Mat_<float>(1, 2) << pt.x, pt.y);
 	train.push_back(new_sample);
@@ -62,8 +63,10 @@ void trainAndDisplay()
 {
 	knn->train(train, ROW_SAMPLE, label);
 
-	for (int i = 0; i < img.rows; ++i) {
-		for (int j = 0; j < img.cols; ++j) {
+	for (int i = 0; i < img.rows; ++i)
+	{
+		for (int j = 0; j < img.cols; ++j)
+		{
 			Mat sample = (Mat_<float>(1, 2) << j, i);
 
 			Mat res;

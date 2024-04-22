@@ -6,7 +6,7 @@ using namespace cv;
 using namespace cv::dnn;
 using namespace std;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	// Load an image
 
@@ -17,7 +17,8 @@ int main(int argc, char* argv[])
 	else
 		img = imread(argv[1], IMREAD_COLOR);
 
-	if (img.empty()) {
+	if (img.empty())
+	{
 		cerr << "Image load failed!" << endl;
 		return -1;
 	}
@@ -26,7 +27,8 @@ int main(int argc, char* argv[])
 
 	Net net = readNet("../bvlc_googlenet.caffemodel", "../deploy.prototxt");
 
-	if (net.empty()) {
+	if (net.empty())
+	{
 		cerr << "Network load failed!" << endl;
 		return -1;
 	}
@@ -35,14 +37,16 @@ int main(int argc, char* argv[])
 
 	ifstream fp("../classification_classes_ILSVRC2012.txt");
 
-	if (!fp.is_open()) {
+	if (!fp.is_open())
+	{
 		cerr << "Class file load failed!" << endl;
 		return -1;
 	}
 
 	vector<String> classNames;
 	string name;
-	while (!fp.eof()) {
+	while (!fp.eof())
+	{
 		getline(fp, name);
 		if (name.length())
 			classNames.push_back(name);

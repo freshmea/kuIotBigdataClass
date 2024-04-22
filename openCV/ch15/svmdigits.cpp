@@ -5,8 +5,8 @@ using namespace cv;
 using namespace cv::ml;
 using namespace std;
 String folderPath = "/home/aa/kuIotBigdataClass/openCV/data/";
-Ptr<SVM> train_hog_svm(const HOGDescriptor& hog);
-void on_mouse(int event, int x, int y, int flags, void* userdata);
+Ptr<SVM> train_hog_svm(const HOGDescriptor &hog);
+void on_mouse(int event, int x, int y, int flags, void *userdata);
 
 int main()
 {
@@ -19,7 +19,8 @@ int main()
 
 	Ptr<SVM> svm = train_hog_svm(hog);
 
-	if (svm.empty()) {
+	if (svm.empty())
+	{
 		cerr << "Training failed!" << endl;
 		return -1;
 	}
@@ -27,14 +28,18 @@ int main()
 	Mat img = Mat::zeros(400, 400, CV_8U);
 
 	imshow("img", img);
-	setMouseCallback("img", on_mouse, (void*)&img);
+	setMouseCallback("img", on_mouse, (void *)&img);
 
-	while (true) {
+	while (true)
+	{
 		int c = waitKey();
 
-		if (c == 27) {
+		if (c == 27)
+		{
 			break;
-		} else if (c == ' ') {
+		}
+		else if (c == ' ')
+		{
 			Mat img_resize;
 			resize(img, img_resize, Size(20, 20), 0, 0, INTER_AREA);
 
@@ -53,19 +58,22 @@ int main()
 	return 0;
 }
 
-Ptr<SVM> train_hog_svm(const HOGDescriptor& hog)
+Ptr<SVM> train_hog_svm(const HOGDescriptor &hog)
 {
-	Mat digits = imread(folderPath+"digits.png", IMREAD_GRAYSCALE);
+	Mat digits = imread(folderPath + "digits.png", IMREAD_GRAYSCALE);
 
-	if (digits.empty()) {
+	if (digits.empty())
+	{
 		cerr << "Image load failed!" << endl;
 		return 0;
 	}
 
 	Mat train_hog, train_labels;
 
-	for (int j = 0; j < 50; j++) {
-		for (int i = 0; i < 100; i++) {
+	for (int j = 0; j < 50; j++)
+	{
+		for (int i = 0; i < 100; i++)
+		{
 			Mat roi = digits(Rect(i * 20, j * 20, 20, 20));
 
 			vector<float> desc;
@@ -89,14 +97,17 @@ Ptr<SVM> train_hog_svm(const HOGDescriptor& hog)
 
 Point ptPrev(-1, -1);
 
-void on_mouse(int event, int x, int y, int flags, void* userdata)
+void on_mouse(int event, int x, int y, int flags, void *userdata)
 {
-	Mat img = *(Mat*)userdata;
+	Mat img = *(Mat *)userdata;
 	static bool flag = false;
-	if (event == EVENT_LBUTTONDOWN){
+	if (event == EVENT_LBUTTONDOWN)
+	{
 		ptPrev = Point(x, y);
 		flag = true;
-	} else if (event == EVENT_LBUTTONUP){
+	}
+	else if (event == EVENT_LBUTTONUP)
+	{
 		ptPrev = Point(-1, -1);
 		flag = false;
 	}
