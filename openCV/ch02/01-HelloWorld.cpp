@@ -1,6 +1,7 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
 #include <string>
+
 using namespace cv;
 using namespace std;
 
@@ -14,7 +15,8 @@ int main()
 	// IMREAD_ 로 시작하는 enum 상수를 사용하면 이미지를 읽을 때 다양한 옵션을 사용할 수 있다.
 	img = imread(folderPath + "lenna.bmp", IMREAD_IGNORE_ORIENTATION | IMREAD_COLOR);
 	Point pt1(10, 10);
-	if (img.empty()) {
+	if (img.empty())
+	{
 		cerr << "Image load failed!" << endl;
 		return -1;
 	}
