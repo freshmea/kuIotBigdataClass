@@ -1,3 +1,5 @@
+# colab 에서 실행 할것!
+
 import torch
 import torch.nn as nn
 import torch.onnx
