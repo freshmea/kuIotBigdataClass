@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	Mat img;
 
 	if (argc < 2)
-		img = imread("space_shuttle.jpg", IMREAD_COLOR);
+		img = imread("../space_shuttle.jpg", IMREAD_COLOR);
 	else
 		img = imread(argv[1], IMREAD_COLOR);
 
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 	// Load network
 
-	Net net = readNet("bvlc_googlenet.caffemodel", "deploy.prototxt");
+	Net net = readNet("../bvlc_googlenet.caffemodel", "../deploy.prototxt");
 
 	if (net.empty()) {
 		cerr << "Network load failed!" << endl;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 
 	// Load class names
 
-	ifstream fp("classification_classes_ILSVRC2012.txt");
+	ifstream fp("../classification_classes_ILSVRC2012.txt");
 
 	if (!fp.is_open()) {
 		cerr << "Class file load failed!" << endl;
