@@ -5,14 +5,14 @@ using namespace cv;
 using namespace cv::dnn;
 using namespace std;
 
-const String model = "res10_300x300_ssd_iter_140000_fp16.caffemodel";
-const String config = "deploy.prototxt";
+const String model = "../res10_300x300_ssd_iter_140000_fp16.caffemodel";
+const String config = "../deploy.prototxt";
 //const String model = "opencv_face_detector_uint8.pb";
 //const String config = "opencv_face_detector.pbtxt";
 
 int main(void)
 {
-	VideoCapture cap(0);
+	VideoCapture cap(4);
 
 	if (!cap.isOpened()) {
 		cerr << "Camera open failed!" << endl;
