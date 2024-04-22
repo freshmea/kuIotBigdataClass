@@ -29,7 +29,7 @@ int main(void)
 	Mat frame;
 	while (true) {
 		cap >> frame;
-		if (frame.empty()) 
+		if (frame.empty())
 			break;
 
 		Mat blob = blobFromImage(frame, 1, Size(300, 300), Scalar(104, 177, 123));
@@ -40,7 +40,7 @@ int main(void)
 
 		for (int i = 0; i < detect.rows; i++) {
 			float confidence = detect.at<float>(i, 2);
-			if (confidence < 0.5) 
+			if (confidence < 0.5)
 				break;
 
 			int x1 = cvRound(detect.at<float>(i, 3) * frame.cols);
@@ -55,7 +55,7 @@ int main(void)
 		}
 
 		imshow("frame", frame);
-		if (waitKey(1) == 27) 
+		if (waitKey(1) == 27)
 			break;
 	}
 
