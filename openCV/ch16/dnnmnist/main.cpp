@@ -9,7 +9,7 @@ void on_mouse(int event, int x, int y, int flags, void* userdata);
 
 int main()
 {
-	Net net = readNet("mnist_cnn.pb");
+	Net net = readNet("../mnist_cnn.pb");
 
 	if (net.empty()) {
 		cerr << "Network load failed!" << endl;
@@ -51,12 +51,14 @@ Point ptPrev(-1, -1);
 void on_mouse(int event, int x, int y, int flags, void* userdata)
 {
 	Mat img = *(Mat*)userdata;
-
+	static bool flag = false;
 	if (event == EVENT_LBUTTONDOWN) {
 		ptPrev = Point(x, y);
+		flag = true;
 	} else if (event == EVENT_LBUTTONUP) {
 		ptPrev = Point(-1, -1);
-	} else if (event == EVENT_MOUSEMOVE && (flags & EVENT_FLAG_LBUTTON)) {
+		flag = false;
+	} else if (event == EVENT_MOUSEMOVE && flag) {
 		line(img, ptPrev, Point(x, y), Scalar::all(255), 40, LINE_AA, 0);
 		ptPrev = Point(x, y);
 
