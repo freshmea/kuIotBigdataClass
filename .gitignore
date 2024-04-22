@@ -63,3 +63,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# caffe model files
+*.caffemodel
+
+# torch model files
+*.pt
+*.pth
+
+# 
