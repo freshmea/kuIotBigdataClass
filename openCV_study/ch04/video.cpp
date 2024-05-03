@@ -29,7 +29,7 @@ int main() {
     imshow("doubleFrame", doubleFrame);
     outputVideo << doubleFrame;
     imshow("reshapedFrame", reshapedFrame);
-    if (waitKey(int(delay)) == 27)
+    if (waitKey(delay) == 27)
       break;
   }
   destroyAllWindows();
