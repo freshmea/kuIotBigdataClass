@@ -1,0 +1,10 @@
+SortIncludes: true
+IncludeCategories:
+  - Regex: '^<ext/.*\.h>'
+    Priority: 2
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: "^<.*"
+    Priority: 1
+  - Regex: ".*"
+    Priority: 1
