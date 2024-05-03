@@ -1,10 +1,9 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
-#include <string>
 
-std::string folder = "/home/aa/kuIotBigdataClass/openCV_study/data/";
 using namespace cv;
 using namespace std;
+String folder = "/home/aa/kuIotBigdataClass/openCV_study/data/";
 
 int main() {
   // Rect 예제
