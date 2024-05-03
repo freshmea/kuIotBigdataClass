@@ -8,3 +8,7 @@ IncludeCategories:
     Priority: 1
   - Regex: ".*"
     Priority: 1
+
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
