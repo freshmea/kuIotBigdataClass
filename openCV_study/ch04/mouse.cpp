@@ -35,15 +35,15 @@ void onMouse(int event, int x, int y, int flags, void *) {
 		flag = true;
 		break;
 	case EVENT_LBUTTONUP:
-		ptNew = Point(x, y);
+		// ptNew = Point(x, y);
 		cout << "Event Left Button Up: " << x << ", " << y << endl;
 		flag = false;
 		break;
 	case EVENT_MOUSEMOVE:
-		ptOld = Point(x, y);
 		if (flag & EVENT_FLAG_LBUTTON) {
 			line(img, ptOld, Point(x, y), blue, 5);
 			imshow("img", img);
+			ptOld = Point(x, y);
 			// waitKey(3);
 		}
 		break;
