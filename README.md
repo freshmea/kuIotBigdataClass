@@ -313,31 +313,57 @@ int main(){
 ---
 
 - OpenCV 설치
-  - sudo apt install libopencv-dev python3-opencv
-  - cmake 설정
-    - glob file 적용하기
-  - 영상처리 영상인식 기본 개념 
-  - 모던 C++ 기초 문법
-    - auto
-    - lambda
-    - range for
-    - smart pointer
-  - 기본 클래스
-    - Point 클래스
-    - Size 클래스
-    - Rect 클래스
-    - Scalar 클래스
-    - Mat 클래스
-      - 얕은 복사 -대입 연산
-      - 깊은 복사 -clone, copyTo
-    - Vec 클래스
-  - 영상 입출력
-    - imread
-    - imshow
-    - imwrite
-  - 동영상 입출력
-    - VideoCapture
-    - VideoWriter
-  - 직선 그리기
-    - line 함수
-    - 움직이는 line 함수 그리기
+- sudo apt install libopencv-dev python3-opencv
+- cmake 설정
+  - glob file 적용하기
+- 영상처리 영상인식 기본 개념
+- 모던 C++ 기초 문법
+  - auto
+  - lambda
+  - range for
+  - smart pointer
+- 기본 클래스
+  - Point 클래스
+  - Size 클래스
+  - Rect 클래스
+  - Scalar 클래스
+  - Mat 클래스
+    - 얕은 복사 -대입 연산
+    - 깊은 복사 -clone, copyTo
+  - Vec 클래스
+- 영상 입출력
+  - imread
+  - imshow
+  - imwrite
+- 동영상 입출력
+  - VideoCapture
+  - VideoWriter
+- 직선 그리기
+  - line 함수
+  - 움직이는 line 함수 그리기
+
+
+---
+## 2024_5_7
+---
+
+- drawing
+  - circle
+  - rectangle
+  - ellipse
+- text
+  - putText
+  - freeStyle 한글 폰트 가능
+- mouse
+  - mouse callback 함수 사용
+- keyboard
+  - 키보드 입력 받기
+- tickMeter
+  - 시간 측정
+  - frame 일정하게 만들기 최적화
+- trackbar
+  - trackbar Callback 함수 사용
+- 4장 마지막 예제
+  - 마우스 따라다니는 사각형 + BGR 정보 얻기 + 파일 저장
+- 영상 밝기 조절 
+  - saturated cast 예제
