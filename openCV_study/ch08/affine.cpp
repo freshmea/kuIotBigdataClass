@@ -25,8 +25,8 @@ int main() {
 
 	Mat M = getAffineTransform(srcPts, dstPts);
 	cout << M << endl;
-	cout << M.at<double>(2, 0);
-	M.at<double>(2, 0) = M.at<double>(2, 0) + 200;
+	cout << M.at<double>(0, 2);
+	M.at<double>(0, 2) = M.at<double>(0, 2) + 200;
 	Mat dst;
 	warpAffine(src, dst, M, Size());
 
