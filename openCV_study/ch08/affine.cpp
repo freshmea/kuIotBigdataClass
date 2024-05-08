@@ -24,6 +24,9 @@ int main() {
 	// dstPts[2] = Point2f(2, 2);
 
 	Mat M = getAffineTransform(srcPts, dstPts);
+	cout << M << endl;
+	cout << M.at<double>(2, 0);
+	M.at<double>(2, 0) = M.at<double>(2, 0) + 200;
 	Mat dst;
 	warpAffine(src, dst, M, Size());
 
