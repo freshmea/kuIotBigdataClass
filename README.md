@@ -365,5 +365,5 @@ int main(){
   - trackbar Callback 함수 사용
 - 4장 마지막 예제
   - 마우스 따라다니는 사각형 + BGR 정보 얻기 + 파일 저장
-- 영상 밝기 조절 
+- 영상 밝기 조절
   - saturated cast 예제
