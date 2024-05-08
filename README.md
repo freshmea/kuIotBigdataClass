@@ -367,3 +367,24 @@ int main(){
   - 마우스 따라다니는 사각형 + BGR 정보 얻기 + 파일 저장
 - 영상 밝기 조절
   - saturated cast 예제
+
+---
+## 2024_5_8
+---
+- 영상 밝기 조절
+  - 트랙바 적용
+- 영상 대비 조절
+  - 단순 곱하기
+  - 중간 영역 확장
+  - 히스토그램 스트레칭
+  - 히스토그램 평활화
+- 영상의 산술 연산
+  - add, addWeighted, subtract, absdiff
+- 비트연산
+  - bitwise_and, bitwise_or, bitwise_xor, bitwise_not
+- Covolution 회선
+  - 기본 개념
+  - 가장자리 연산
+  - filter2D
+- 블러링
+  - blur, GaussianBlur, medianBlur, bilateralFilter
