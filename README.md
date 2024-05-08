@@ -388,3 +388,17 @@ int main(){
   - filter2D
 - 블러링
   - blur, GaussianBlur, medianBlur, bilateralFilter
+- 샤프닝
+  - 블러와 원본의 조합으로 샤프닝
+- 노이즈 생성
+  - 가우시안 노이즈
+  - 소금-후추 노이즈 미디안 필터로 없애기
+- 기하학적 변환 affine, perspective
+  - 기본 개념
+  - 평행 이동, 전단 변환, 회전 변환, 크기 변환
+  - warpAffine, warpPerspective
+  - getRotationMatrix2D, getAffineTransform
+- 미분 필터
+  - 소벨 마스크
+- 엣지
+  - 캐니엣지
