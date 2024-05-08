@@ -395,9 +395,10 @@ int main(){
   - 소금-후추 노이즈 미디안 필터로 없애기
 - 기하학적 변환 affine, perspective
   - 기본 개념
-  - 평행 이동, 전단 변환, 회전 변환, 크기 변환
-  - warpAffine, warpPerspective
-  - getRotationMatrix2D, getAffineTransform
+  - 이동 변환, 전단 변환, 회전 변환, 크기 변환
+  - warpAffine, getAffineTransform
+  - getRotationMatrix2D
+  - warpPerspective, getPerspectiveTransform
 - 미분 필터
   - 소벨 마스크
 - 엣지
