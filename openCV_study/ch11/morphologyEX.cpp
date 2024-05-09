@@ -23,7 +23,7 @@ int main() {
 	imshow("close", dst2);
 	imshow("gradient", dst3);
 	imshow("tophat", dst4);
-	imshow("hitmiss", dst5);
+	imshow("blackhat", dst5);
 	imshow("src", src);
 	waitKey();
 	destroyAllWindows();
