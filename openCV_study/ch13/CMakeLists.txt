@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(basicOp)
 find_package(OpenCV REQUIRED)
+find_package(CURL REQUIRED)
 file(GLOB SOURCES "*.cpp")
 
 foreach(SOURCE ${SOURCES})
@@ -8,4 +9,5 @@ foreach(SOURCE ${SOURCES})
     add_executable(${EXE_NAME} ${SOURCE})
     target_link_libraries(${EXE_NAME} ${OpenCV_LIBS})
     target_include_directories(${EXE_NAME} PUBLIC ${OpenCV_LIB_DIR})
+    target_link_libraries(${EXE_NAME} ${CURL_LIBRARIES})
 endforeach()
