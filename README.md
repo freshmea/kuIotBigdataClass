@@ -404,26 +404,48 @@ int main(){
 - 엣지
   - 캐니엣지
 
-
 ---
+## 2024_5_21
+---
+- python 설치
+  - linux 시스템에서는 기본적으로 설치가 되어 있다.
+    - python3 --version
+    - python -V
+  - 파이썬 언어의 특징
+    - 인터프리터 언어
+    - 동적 타입 언어
+    - 객체 지향 언어
+    - 플랫폼 독립적 언어
+  - 개발환경 설치
+    - 가상환경 설치
+      - virtualenv 설치 pip 와 같이 운용
+      - miniconda 설치
+
+```shell
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sh Miniconda3-latest-Linux-x86_64.sh 
-cd miniconda/bin
+bash Miniconda3-latest-Linux-x86_64.sh
+cd miniconda3/bin
 ./conda config --set auto_activate_base false
 ./conda init
-쉘 재실행
-conda 명령어 진행
-생성: conda create myenv
-생성시 환경 위치 지정
-conda create --prefix ./envs jupyterlab=3.2 matplotlib=3.5 numpy=1.21 
-activate 시 ./envs 로 활성화
-프롬프트의 접두사가 너무 길면 
-conda config --set env_prompt '({이름})'
-활성화: conda activate myenv
-비활성화: conda deactivate
-패키지 설치: conda install [패키지이름]
-가상환경 제거: conda remove -n [가상환경이름] --all
-패키지목록 생성: conda list --export > requirements.txt
-패키지목록으로 설치: conda install --file requirements.txtconda create --name <새 가상환경 이름> --file requirements.txt
+source ~/.bashrc
+```
 
-
+      - Vscode 설정
+        - VsCode 에서 가상환경 사용하기
+    - 패키지 관리
+      - 패키지가 설치되는 폴더
+        - 패키지 설치 확인
+          - pip list -v
+          - conda list
+          - pip show 패키지이름
+        - 가상환경의 패키지 내보내기
+          - pip freeze > requirements.txt
+          - conda list --export > requirements.txt
+        - 가상환경의 패키지 파일로 설치하기
+          - pip install -r requirements.txt
+          - conda install --file requirements.txt
+- 파이썬 변수
+  - 변수 선언
+  - 변수 타입
+  - 변수 출력
+  - 
