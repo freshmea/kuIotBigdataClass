@@ -403,3 +403,27 @@ int main(){
   - 소벨 마스크
 - 엣지
   - 캐니엣지
+
+
+---
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh 
+cd miniconda/bin
+./conda config --set auto_activate_base false
+./conda init
+쉘 재실행
+conda 명령어 진행
+생성: conda create myenv
+생성시 환경 위치 지정
+conda create --prefix ./envs jupyterlab=3.2 matplotlib=3.5 numpy=1.21 
+activate 시 ./envs 로 활성화
+프롬프트의 접두사가 너무 길면 
+conda config --set env_prompt '({이름})'
+활성화: conda activate myenv
+비활성화: conda deactivate
+패키지 설치: conda install [패키지이름]
+가상환경 제거: conda remove -n [가상환경이름] --all
+패키지목록 생성: conda list --export > requirements.txt
+패키지목록으로 설치: conda install --file requirements.txtconda create --name <새 가상환경 이름> --file requirements.txt
+
+
