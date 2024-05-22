@@ -445,7 +445,47 @@ source ~/.bashrc
           - pip install -r requirements.txt
           - conda install --file requirements.txt
 - 파이썬 변수
-  - 변수 선언
-  - 변수 타입
-  - 변수 출력
-  - 
+  - 파이썬의 변수는 모두 클래스의 객체이다.
+  - 파이썬의 기본 타입은 없다. 모두 클래스이다.
+  - 파이썬의 클래스는 모두 object 클래스를 상속받는다.
+  - 파이썬의 변수는 Heap 에 의해 동적으로 관리되고 GC garbage collection 이 된다.
+- 파이썬의 연산자
+  - C/C++ 과 다른 점
+    - 나누기 연산자 / 는 정수와 실수를 구분하지 않는다.
+    - 나머지 연산자 % 는 정수와 실수를 구분하지 않는다.
+    - 제곱승 연산자 ** 를 사용한다.
+    - 나누기 연산자 // 는 정수 나누기 연산자이다.
+    - 비트 연산자는 사용하지 않는다.
+    - 논리 연산자는 and, or, not 을 사용한다.
+    - 증감연산자는 사용하지 않는다.
+  - 자료형 확인
+    - type 함수를 사용한다.
+    - isinstance 함수를 사용한다.
+    - id 함수를 사용한다.
+    - isSubclass 함수를 사용한다.
+- 화면 입출력
+  - 화면 출력
+    - print 함수를 사용한다.
+    - f-string 을 사용한다.
+    - format 함수를 사용한다.
+    - sep, end, flush 를 사용한다.
+  - 표준 입력 함수
+    - input 함수를 사용한다.
+    - 리턴 값은 str 이다.
+  - 화씨 온도 변환기
+    - 에러 처리 추가
+- 리스트
+  - 인덱싱과 슬라이싱
+  - 리버스 인덱싱
+  - 리스트 메소드
+    - append, extend, insert, remove, pop, index, count, sort, reverse
+    - 리스트 복사
+      - 얕은 복사
+      - 깊은 복사
+  - 패킹과 언패킹
+  - 이차원 리스트
+  - 리스트의 메모리 관리 방식
+- 조건문
+  - if, elif, else
+  - True, False
+  - 삼항 연산자
