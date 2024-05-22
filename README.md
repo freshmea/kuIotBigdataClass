@@ -1,10 +1,15 @@
 # kuIotBigdataClass
+
 C/C++ database arduino raspberrypi Iot clas.....
 
 ---
+
 ## 2024-02-22
+
 ---
+
 - 권한 설정
+
 ```text
 sudo 권한 추가하는법
 1. 터미널 열기 (Ctrl + Alt + T)
@@ -14,6 +19,7 @@ sudo 권한 추가하는법
 5. 아래 링크에서, sudoers 파일에, ubuntu 사용자 이름 추가하기
    https://projooni.tistory.com/entry/%EB%A6%AC%EB%88%85%EC%8A%A4ubuntu%EC%97%90%EC%84%9C-sudoers-%EC%88%98%EC%A0%95%ED%95%B4%EC%84%9C-sudo-%EA%B6%8C%ED%95%9C-%EB%B6%80%EC%97%AC%ED%95%98%EA%B8%B0
 ```
+
 - instruction.
 - google slide share.
 - gitHub sign up.
@@ -21,6 +27,7 @@ sudo 권한 추가하는법
 - ubuntu hangul setting.
 - VsCode install
 - git install
+
 ```shell
 sudo apt-get install git
 git clone https://github.com/freshmea/kuIotBigdataClass.git
@@ -43,12 +50,14 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
 - 과제
   - MD 포스트 읽어 보기:
     https://www.heropy.dev/p/B74sNE
-  - 영상 시청 git: 
+  - 영상 시청 git:
     https://www.youtube.com/watch?v=YFNQwo7iTNc
     https://www.youtube.com/watch?v=1I3hMwQU6GU&t=5618s
 
 ---
+
 ## 2024-02-23
+
 ---
 
 - mysql ubuntu 문제 해결
@@ -57,7 +66,7 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
   - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '0000';` 명령어 사용
   - 새로운 유저를 만들때 mysql_native_password 를 사용하도록 설정
 - 우분투 myworkbench 에서 코드를 작성하고 vscode 에서 git에 연동.
-  - 추가한 파일: 
+  - 추가한 파일:
     - create_database.sql
     - create_table.sql
     - insert_data.sql
@@ -80,15 +89,15 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
 
 - 과제
   - 프로그래머스 C 언어:
-  	3문제 풀기.
+    - 3문제 풀기.
   - 프로그래머스 SQL 언어:
-           0 문제 풀기.
+    - 0 문제 풀기.
   - 영상 과제:
        https://www.youtube.com/watch?v=K9L9YZhEjC0
        https://www.youtube.com/watch?v=Xp1IKwJfDAA
 
-
 ---
+
 ## 2024-02-29
 
 ---
@@ -104,7 +113,7 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
   - 변수 사용
 - 3장 끝까지 진행
   - DML
-    - select 
+    - select
       - where, group by, having, order by
   - DDL
     - create, alter, drop
@@ -121,24 +130,26 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
       - format 형식 %Y-%m-%d %H:%i:%s ...
 - 과제
   - 프로그래머스 C 언어:
-  	3문제 풀기.
+    - 3문제 풀기.
   - 프로그래머스 SQL 언어:
-   ‘인기 있는 아이스크림’
-  	‘3월에 태어난 여성 회원 목록’
-  	‘조건에 맞는 도서 리스트’
-  	‘흉부 외과 또는 일반외과’
+    - ‘인기 있는 아이스크림’
+    - ‘3월에 태어난 여성 회원 목록’
+    - ‘조건에 맞는 도서 리스트’
+    - ‘흉부 외과 또는 일반외과’
   - 영상 과제:
   - 포스팅 과제:
                  https://www.tuwlab.com/ece/27193
 
-
 ---
+
 ## 2024-03-7
+
 ---
 
 - mysql 내장 함수
   - null ifnull
 - 외래키 확인 및 삭제 방법
+
 ```sql
 set sql_safe_updates=0;
 -- 무시하고 삭제
@@ -152,13 +163,14 @@ select * from information_schema.table_constraints where table_name = 'Orders';
 -- 확인된 제약 조건으로 외래키 삭제
 alter table Orders drop foreign key Orders_ibfk_2;
 ```
+
 - 부속질의
   - select 부속질의 (스칼라 부속질의)
   - from 부속질의 ( 인라인 뷰)
   - where 부속질의
     - 단일 - 비교 ( =, >, <, >=, <=, !=, <>, is null, is not null) [비교]
     - 다수의 열, 단일 행 ( all, some, any) [한정]
-    - 다수의 행, 다수의 열 ( in, not in, exists, not exists)[집합, 존재]
+    - 다수의 행, 다수의 열 (in, not in, exists, not exists)[집합, 존재]
 - 뷰
   - 뷰 생성 - create view 뷰이름 as select ...
   - 뷰 삭제 - drop view 뷰이름
@@ -181,14 +193,16 @@ alter table Orders drop foreign key Orders_ibfk_2;
   - 프로그래머스 C 언어:
     3문제 풀기.
 
-
 ---
+
 ## 2024-03-8
+
 ---
 
 - C 프로그램 ( C API mysql.h 라이브러리 활용)
   - C Api documentation
     - https://dev.mysql.com/doc/c-api/en/
+
 ```c
 #include <stdio.h>
 #include <mysql.h>
@@ -230,6 +244,7 @@ int main(){
 }
 
 ```
+
 - CMake
   - 설치 sudo apt-get install cmake
   - 실습
@@ -282,7 +297,9 @@ int main(){
   	https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-connect.html
 
 ---
+
 2024_3_19
+
 ---
 
 - c_game_project 시작
@@ -309,7 +326,9 @@ int main(){
   - 게임 오버
 
 ---
+
 ## 2024_5_03
+
 ---
 
 - OpenCV 설치
@@ -342,9 +361,10 @@ int main(){
   - line 함수
   - 움직이는 line 함수 그리기
 
-
 ---
+
 ## 2024_5_7
+
 ---
 
 - drawing
@@ -369,8 +389,11 @@ int main(){
   - saturated cast 예제
 
 ---
+
 ## 2024_5_8
+
 ---
+
 - 영상 밝기 조절
   - 트랙바 적용
 - 영상 대비 조절
@@ -405,8 +428,11 @@ int main(){
   - 캐니엣지
 
 ---
+
 ## 2024_5_21
+
 ---
+
 - python 설치
   - linux 시스템에서는 기본적으로 설치가 되어 있다.
     - python3 --version
@@ -421,14 +447,14 @@ int main(){
       - virtualenv 설치 pip 와 같이 운용
       - miniconda 설치
 
-```shell
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-cd miniconda3/bin
-./conda config --set auto_activate_base false
-./conda init
-source ~/.bashrc
-```
+      ```shell
+      wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      bash Miniconda3-latest-Linux-x86_64.sh
+      cd miniconda3/bin
+      ./conda config --set auto_activate_base false
+      ./conda init
+      source ~/.bashrc
+      ```
 
       - Vscode 설정
         - VsCode 에서 가상환경 사용하기
@@ -444,6 +470,7 @@ source ~/.bashrc
         - 가상환경의 패키지 파일로 설치하기
           - pip install -r requirements.txt
           - conda install --file requirements.txt
+
 - 파이썬 변수
   - 파이썬의 변수는 모두 클래스의 객체이다.
   - 파이썬의 기본 타입은 없다. 모두 클래스이다.
@@ -489,3 +516,10 @@ source ~/.bashrc
   - if, elif, else
   - True, False
   - 삼항 연산자
+
+---
+
+## 2024_5_22
+
+---
+
