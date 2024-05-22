@@ -49,10 +49,10 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
 
 - 과제
   - MD 포스트 읽어 보기:
-    https://www.heropy.dev/p/B74sNE
+    [링크](https://www.heropy.dev/p/B74sNE)
   - 영상 시청 git:
-    https://www.youtube.com/watch?v=YFNQwo7iTNc
-    https://www.youtube.com/watch?v=1I3hMwQU6GU&t=5618s
+    [링크](https://www.youtube.com/watch?v=YFNQwo7iTNc)
+    [링크](https://www.youtube.com/watch?v=1I3hMwQU6GU&t=5618s)
 
 ---
 
@@ -62,7 +62,7 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
 
 - mysql ubuntu 문제 해결
 - user 를 새로 만들어서 권한을 주어 봤지만 해결되지 않음.
-- 권한 설정 및 user create 시 
+- 권한 설정 및 user create 시
   - `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '0000';` 명령어 사용
   - 새로운 유저를 만들때 mysql_native_password 를 사용하도록 설정
 - 우분투 myworkbench 에서 코드를 작성하고 vscode 에서 git에 연동.
@@ -93,8 +93,8 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
   - 프로그래머스 SQL 언어:
     - 0 문제 풀기.
   - 영상 과제:
-       https://www.youtube.com/watch?v=K9L9YZhEjC0
-       https://www.youtube.com/watch?v=Xp1IKwJfDAA
+    - [링크](https://www.youtube.com/watch?v=K9L9YZhEjC0)
+    - [링크](https://www.youtube.com/watch?v=Xp1IKwJfDAA)
 
 ---
 
@@ -138,7 +138,7 @@ git clone https://github.com/freshmea/kuIotBigdataClass.git
     - ‘흉부 외과 또는 일반외과’
   - 영상 과제:
   - 포스팅 과제:
-                 https://www.tuwlab.com/ece/27193
+    - [링크](https://www.tuwlab.com/ece/27193)
 
 ---
 
@@ -170,7 +170,7 @@ alter table Orders drop foreign key Orders_ibfk_2;
   - where 부속질의
     - 단일 - 비교 ( =, >, <, >=, <=, !=, <>, is null, is not null) [비교]
     - 다수의 열, 단일 행 ( all, some, any) [한정]
-    - 다수의 행, 다수의 열 (in, not in, exists, not exists)[집합, 존재]
+    - 다수의 행, 다수의 열 (in, not in, exists, not exists)
 - 뷰
   - 뷰 생성 - create view 뷰이름 as select ...
   - 뷰 삭제 - drop view 뷰이름
@@ -201,7 +201,7 @@ alter table Orders drop foreign key Orders_ibfk_2;
 
 - C 프로그램 ( C API mysql.h 라이브러리 활용)
   - C Api documentation
-    - https://dev.mysql.com/doc/c-api/en/
+    - [링크](https://dev.mysql.com/doc/c-api/en/)
 
 ```c
 #include <stdio.h>
@@ -286,15 +286,15 @@ int main(){
     - 데드락 발생 조건
 - 과제
   - 프로그래머스 C 언어:
-  	문제 풀기.3
+    - 문제 풀기.3
   - 영상과제:
-  	https://www.youtube.com/watch?v=ZVuHZ2Fjkl4
-  	https://www.youtube.com/watch?v=Y1FbowQRcmI
+    - [링크](https://www.youtube.com/watch?v=ZVuHZ2Fjkl4)
+    - [링크2](https://www.youtube.com/watch?v=Y1FbowQRcmI)
   - 포스팅 과제:
-  	https://www.tuwlab.com/ece/27234
-  	https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=3345588
+    - [링크](https://www.tuwlab.com/ece/27234)
+    - [링크2](https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=3345588)
   - C api 둘러보기 :
-  	https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-connect.html
+    - [링크](https://dev.mysql.com/doc/c-api/8.0/en/mysql-real-connect.html)
 
 ---
 
@@ -523,3 +523,64 @@ int main(){
 
 ---
 
+- 반복문
+  - for ~ in ~:
+  - for ~ in range():
+  - while ~ :
+  - break, continue
+    - 구구단 프로그램
+    - 진수 변환 프로그램
+    - 숫자 찾기 프로그램
+    - 평균 구하기 프로그램
+- 함수
+  - def 함수명(매개변수)
+  - 매개변수 종류
+    - 위치 매개변수
+    - 키워드 매개변수
+    - 디폴트 매개변수
+    - 가변 매개변수 - 튜플의 형태로 넘어 간다.
+    - 키워드 가변 매개변수 - 딕션너리의 형태로 넘어 간다.
+  - 함수의 리턴 값 : 여러개를 리턴 하면 튜플로 전달
+  - 함수 호출 방식
+    - 기본적으로 모두 call by value 이다.
+    - list 를 쓰면 call by referece 처럼 사용 가능하다.
+  - 변수의 사용 범위
+    - 지역 변수
+    - 전역 변수 global 키워드
+  - 람다 함수
+    - lambda 매개변수 : 리턴값
+    - map, filter, reduce
+    - 함수의 인자로 함수를 넘길때 사용
+  - 제너레이터
+    - yield 키워드 사용
+    - next 함수 사용
+    - for ~ in ~ 사용
+    - 제너레이터 표현식
+  - 데코레이터
+    - 함수를 감싸는 함수
+    - 함수의 시작과 끝을 감싸는 함수
+    - 함수의 인자를 검사하는 함수
+    - 함수의 리턴값을 검사하는 함수
+    - 함수의 실행시간을 측정하는 함수
+- 문자열
+  - 파이썬의 문자열은 클래스의 객체로서 시퀀스 자료형이다.
+  - 문자열의 인덱싱과 슬라이싱
+  - 문자열의 메소드
+    - upper, lower, title, capitalize, swapcase
+    - strip, lstrip, rstrip
+    - split, join
+    - replace, find, index, count
+    - startswith, endswith
+    - isalpha, isdigit, isalnum, isspace
+  - 문자열 포맷팅
+    - % 연산자
+    - format 함수
+    - f-string
+    - 패딩 처리
+  - 단어카운팅 프로그램
+- 코딩 테스트 연습(프로그래머스-파이썬3)
+  - 꼬리 문자열
+  - 정수 찾기
+  - 부분 문자열인지 확인하기
+  - 부분 문자열
+  - 0 떼기
