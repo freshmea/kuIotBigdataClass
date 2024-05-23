@@ -7,15 +7,22 @@ import pygame
 WIDTH = 640
 HEIGHT = 480
 TITLE = "Simple Game"
-class BlueCircle:
-    def __init__(self):
+class BlueCircle(pygame.sprite.Sprite):
+    def __init__(self, group):
+        super().__init__(group) #type: ignore
         self.x = random.randint(0, WIDTH)
         self.y = random.randint(0, HEIGHT)
         self.radius = random.randint(10, 20)
         self.speed = random.randint(1, 3)
         self.color = (0, 0, 255)
+        self.rect = pygame.Rect(self.x, self.y, self.radius * 2, self.radius * 2)
+        self.image = pygame.Surface((self.radius * 2, self.radius * 2))
+        self.image.fill((255, 255, 255))
+        pygame.draw.circle(self.image, self.color, (self.radius, self.radius), self.radius)
+        self.image.set_colorkey((255, 255, 255))
 
-    def move(self):
+    def update(self):
+        self.rect.center = (self.x, self.y)
         self.x += self.speed
         if self.x > WIDTH:
             self.x = 0
@@ -32,7 +39,9 @@ class Game:
         pygame.display.set_caption(TITLE)
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         self.clock = pygame.time.Clock()
-        self.circles = [BlueCircle() for _ in range(30)]
+        self.all_sprites = pygame.sprite.Group()
+        for _ in range(30):
+            self.all_sprites.add(BlueCircle(self.all_sprites))
 
     def run(self):
         while True:
@@ -48,13 +57,11 @@ class Game:
                 exit()
 
     def update(self):
-        for circle in self.circles:
-            circle.move()
+        self.all_sprites.update()
 
     def draw(self):
         self.screen.fill((255, 255, 255))
-        for circle in self.circles:
-            pygame.draw.circle(self.screen, circle.color, (circle.x, circle.y), circle.radius)
+        self.all_sprites.draw(self.screen)
         pygame.display.update()
 
 
