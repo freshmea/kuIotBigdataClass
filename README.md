@@ -593,4 +593,46 @@ int main(){
 
 - 자료구조
   - 스택, 큐 구현 : 리스트로 구현할 수 있음
-  - 
+  - 튜플 - 메소드가 리스트와 거의 같음
+  - 세트
+    - add , remove, update, discard, pop, clear
+    - 중복을 허용하지 않는다.
+    - 순서가 없다.
+    - 집합 연산이 가능하다.
+      - 합집합, 교집합, 차집합
+      - union, intersection, difference, -, &, |
+  - 딕션너리
+    - key, value 쌍으로 이루어진 자료형
+    - key 는 중복이 되지 않는다.
+    - value 는 중복이 되어도 상관없다.
+    - key 는 변경이 되지 않는다.
+    - value 는 변경이 가능하다.
+    - 딕션너리 메소드
+      - get, items, keys, values, pop, popitem, update
+  - collections 모듈
+    - deque
+      - rotate, reverse, extend, appendleft, popleft
+    - defaultdict
+      - 새로운 키값에 접근하면 디폴트 값을 반환
+    - OrderedDict
+      - sorted 함수를 사용하여 정렬된 딕션너리를 만들 수 있다.
+    - Counter
+      - 갯수를 세어주는 딕션너리를 만들 수 있다.
+    - namedtuple
+      - 이름을 가진 튜플을 만들 수 있다.
+      - C 언어의 구조체와 비슷하다.
+    - 텍스트 마이닝 프로그램
+- 파이썬 스타일 코드
+  - split, join
+  - list comprehension
+    - [i for i in range(10) if ~]
+    - [i if ~ else ~ for i in range(10)]
+  - enumerate, zip
+    - enumerate 는 인덱스를 같이 반환
+    - zip 은 같은 인덱스의 값을 튜플로 묶어서 반환
+  - lambda
+    - 함수를 간단하게 만들어 준다.
+  - map, filter, reduce
+    - map 은 리스트의 요소를 지정된 함수로 처리
+    - filter 는 리스트의 요소를 지정된 함수로 걸러낸다.
+    - reduce 는 리스트의 요소를 누적으로 처리한다.
