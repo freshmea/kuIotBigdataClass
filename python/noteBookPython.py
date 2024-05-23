@@ -18,13 +18,15 @@ class NoteBook():
     def __init__(self, title):
         self.title = title
         self.page_number = 1
+        self.end_page_number = 1
         self.notes = dict()
 
     def add_note(self, note, page = 0):
         if self.page_number < 300:
             if page == 0:
-                self.notes[self.page_number] = note
+                self.notes[self.end_page_number] = note
                 self.page_number += 1
+                self.end_page_number += 1
             else:
                 if page in self.notes.keys():
                     print("해당 페이지에는 이미 노트가 존재합니다.")
@@ -37,6 +39,7 @@ class NoteBook():
 
     def remove_note(self, page_number):
         if page_number in self.notes.keys():
+            self.page_number -= 1
             return self.notes.pop(page_number)
         else:
             print("해당 페이지는 존재하지 않습니다.")
