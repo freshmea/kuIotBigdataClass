@@ -1,4 +1,4 @@
-def min():
+def main():
     kor_score = [45, 23, 53, 35, 93]
     math_score = [75, 53, 72, 65, 100]
     eng_score = [57, 38, 29, 69, 48]
@@ -15,4 +15,4 @@ def min():
             print(f"student_average : {student:.2f} : {kor_score[i]}, {math_score[i]}, {eng_score[i]}")
 
 if __name__ == "__main__":
-    min()
+    main()
