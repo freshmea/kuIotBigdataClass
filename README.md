@@ -651,3 +651,83 @@ int main(){
     - 가시성
       - __변수 : private
       - @property
+
+---
+
+## 2024_5_24
+
+---
+
+- 모듈과 패키지
+  - 모듈
+    - 파이썬 파일
+    - import 모듈이름
+    - from 모듈이름 import 함수이름
+    - import 모듈이름 as 별칭
+    - __name__ 변수
+  - 패키지
+    - 모듈을 모아놓은 디렉토리
+    - __init__.py 파일
+    - __all__ 변수
+    - from 패키지이름 import 모듈이름
+    - from 패키지이름.모듈이름 import 함수이름
+    - from 패키지이름.모듈이름 import *
+  - 패키지 설치
+    - pip install 패키지이름
+    - conda install 패키지이름
+    - pip install -r requirements.txt
+    - conda install --file requirements.txt
+  - 패키지 관리
+    - pip list
+    - conda list
+    - pip show 패키지이름
+    - conda show 패키지이름
+    - pip freeze > requirements.txt
+    - conda list --export > requirements.txt
+  - 패키지 만들기
+    - roboadvisor 패키지 만들기
+      - roboadvisor 디렉토리 만들기
+      - __init__.py 파일 만들기
+    - sub 패키지 만들기
+      - crawling 디렉토리 만들기
+      - __init__.py 파일 만들기
+      - database 디렉토리 만들기
+      - __init__.py 파일 만들기
+      - analysis 디렉토리 만들기
+      - __init__.py 파일 만들기
+    - 메타 데이터 넣기
+      - __init__.py 파일에 __version__ 변수 추가
+    - 패키지 네임스페이스 설정
+- 예외 처리와 파일 다루기
+  - 예외 처리
+    - try, except, else, finally
+    - raise
+    - assert
+  - 파일 다루기
+    - open, close
+    - read, write
+    - readline, readlines
+    - with
+    - pickle
+- 로그 관리
+  - logging
+    - 로그 레벨
+    - 로그 포맷
+    - 로그 파일
+    - 로그 핸들러
+    - 로그 필터
+    - 로그 포맷터
+  - logging 환경 변수 설정 및 이용
+    - 환경 변수 설정
+    - configparser
+    - argparse
+    - logging.config
+    - logging.config.fileConfig
+- 웹 스크래핑
+  - HTML 파싱
+    - 정규 표현식
+- xml 과 json
+  - xml
+    - BeautifulSoup
+  - json
+  - csv
