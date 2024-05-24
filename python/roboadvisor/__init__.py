@@ -1,5 +1,3 @@
-import analysis
-import crawling
-import database
+from roboadvisor import analysis, crawling, database
 
 __all__ = ['analysis', 'crawling', 'database']
