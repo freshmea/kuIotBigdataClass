@@ -672,18 +672,6 @@ int main(){
     - from 패키지이름 import 모듈이름
     - from 패키지이름.모듈이름 import 함수이름
     - from 패키지이름.모듈이름 import *
-  - 패키지 설치
-    - pip install 패키지이름
-    - conda install 패키지이름
-    - pip install -r requirements.txt
-    - conda install --file requirements.txt
-  - 패키지 관리
-    - pip list
-    - conda list
-    - pip show 패키지이름
-    - conda show 패키지이름
-    - pip freeze > requirements.txt
-    - conda list --export > requirements.txt
   - 패키지 만들기
     - roboadvisor 패키지 만들기
       - roboadvisor 디렉토리 만들기
@@ -703,12 +691,16 @@ int main(){
     - try, except, else, finally
     - raise
     - assert
+    - Exception 클래스
+      - 상속 받아서 사용자 정의 예외 처리
   - 파일 다루기
     - open, close
     - read, write
     - readline, readlines
     - with
+      - close 없이 파일을 다루기
     - pickle
+      - 객체를 바로 저장 가능, 여러개의 객체도 저장 가능
 - 로그 관리
   - logging
     - 로그 레벨
