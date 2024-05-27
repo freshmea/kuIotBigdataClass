@@ -3,7 +3,6 @@ import os
 import numpy as np
 import pandas as pd
 import wquantiles
-from flask.cli import F
 from scipy import stats
 
 folder = "/home/aa/kuIotBigdataClass/pythonData/data/"
