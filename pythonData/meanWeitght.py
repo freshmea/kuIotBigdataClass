@@ -16,8 +16,7 @@ def main():
     print(f"Poulation 의 절사 평균은 {state_trim_mean:.2f}")
     state_median = state["Population"].median()
     print(f"Poulation 의 중앙값은 {state_median:.2f}")
-    
-    
+
     print(f"미국 살인률 평균 {state['Murder.Rate'].mean()}")
     print(f"미국 살인률 절사 평균은 {stats.trim_mean(state['Murder.Rate'], 0.1)}")
     print(f"미국 살인률 중앙 값은 {state['Murder.Rate'].median()}")
