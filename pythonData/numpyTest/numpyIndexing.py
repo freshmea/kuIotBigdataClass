@@ -14,5 +14,6 @@ def main():
     x = np.array(range(15), int).reshape(3, -1)
     print(x[:,::2])
     print(x[::2,::3])
+
 if __name__ == "__main__":
     main()
