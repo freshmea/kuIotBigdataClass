@@ -11,13 +11,18 @@ def main():
                 'Points': [876, 789, 863, 673, 741, 812, 756, 788, 694, 701, 804, 690]}
     df = pd.DataFrame(ipl_data)
     print(df)
-    print(df.groupby("Team")[["Points", "Year"]].sum())
-    print(df.groupby("Team")[["Points", "Year"]].count())
-    group_df = df.groupby(["Team", "Year"])["Points"]
-    print(group_df.sum())
-    print(group_df.count())
-    print(group_df.sum().unstack())
-    print(group_df.sum().swaplevel())
-    print(group_df.sum().swaplevel().sort_index())
+    grouped = df.groupby("Team")
+    #aggregation
+    print(grouped.get_group("Riders"))
+    print(grouped.agg(min))
+    print(grouped.agg(max))
+    #transformation
+    score = lambda x: (x - x.mean()) / x.std()
+    print(grouped.transform(max))
+    print(grouped.transform(score))
+    #filter
+    print(grouped.filter(lambda x: len(x) >= 3))
+    print(grouped.mean())
+    print(grouped.filter(lambda x: x["Points"].mean() > 760))
 if __name__ == "__main__":
     main()
