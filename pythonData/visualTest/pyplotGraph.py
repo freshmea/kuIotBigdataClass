@@ -9,8 +9,8 @@ def main():
     X1 = np.random.rand(512, N)
     Y1 = np.random.rand(512, N)
     A1 = np.random.rand(512, N) * 150
-    # colors = np.random.rand(512, N, N)
-    # colors = np.random.choice(['r', 'g', 'b', 'c', 'm', 'y', 'k', 'w'])
+    # colors = np.random.rand(512, N)
+    # c=colors[:, i]
     for i in range(N):
         plt.scatter(X1[:,i], Y1[:,i], s=A1[:,i], c=np.random.choice(['r', 'g', 'b', 'c', 'm', 'y', 'k', 'w']), alpha=0.5)
     
