@@ -45,10 +45,11 @@ def main():
     etfs = sp500_px.loc[sp500_px.index > '2012-07-01',
                         sp500_sym[sp500_sym['sector'] == 'etf']['symbol']]
     # sns.heatmap(etfs.corr(), vmin=-1, vmax=1, cmap=sns.diverging_palette(20, 220, as_cmap=True))
-    fig = plt.figure(figsize=(5,4))
 
+    # fig = plt.figure(figsize=(5,4))
+    
     m, ax = plot_corr_ellipses(etfs.corr(), figsize=(5,4), cmap='bwr_r')
-    cb = fig.colorbar(m, ax=ax)
+    cb = plt.colorbar(m, ax=ax)
     cb.set_label('Correlation coefficient')
     plt.tight_layout()
     plt.show()
