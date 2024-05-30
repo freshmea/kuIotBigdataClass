@@ -28,7 +28,7 @@ def main():
         {np.mean([var > observed_variance for var in perm_variance ])}")
     fig = plt.figure()
     ax = fig.add_subplot()
-    ax.hist(perm_variance, bins=11, rwidth=0.9)
+    ax.hist(perm_variance, bins=11, rwidth=0.9, cumulative=True, density=True)
     for v in observed_variance:
         ax.axvline(x=v, color='black', lw=2)
     ax.text(60, 200, "Observed\nvariance", bbox={'facecolor': 'white'})
