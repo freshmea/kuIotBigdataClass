@@ -6,7 +6,7 @@ import pandas as pd
 def perm_test(df: pd.DataFrame):
     df = df.copy()
     df["Time"] = np.random.permutation(df["Time"].values) # type: ignore
-    return df.groupby("Page").mean().values[0]
+    return df.groupby("Page").std().values[0]
 
 def main():
     folder = "/home/aa/kuIotBigdataClass/pythonData/data/"
@@ -29,7 +29,8 @@ def main():
     fig = plt.figure()
     ax = fig.add_subplot()
     ax.hist(perm_variance, bins=11, rwidth=0.9)
-    ax.axvline(x=observed_variance[0], color='black', lw=2)
+    for v in observed_variance:
+        ax.axvline(x=v, color='black', lw=2)
     ax.text(60, 200, "Observed\nvariance", bbox={'facecolor': 'white'})
     ax.set_xlabel("Session time variance")
     ax.set_ylabel("Frequency")
