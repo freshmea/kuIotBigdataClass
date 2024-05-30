@@ -13,15 +13,20 @@ def perm_func(x :pd.Series, nA, nB):
     return x.loc[list(idx_b)].mean() - x.loc[list(idx_a)].mean()
 
 def main():
-    obs_pct_diff = 100 * (200 / 23739 - 182 / 22588)
+    aSize = 23739
+    bSize = 22588
+    aOne = 200
+    bOne = 182
+
+    obs_pct_diff = 100 * (bOne / bSize - aOne / aSize)
     random.seed(time.time())
     print(f"Observed difference: {obs_pct_diff:.4f}%")
-    conversion = [0] * 45945
-    conversion.extend([1] * 382)
+    conversion = [0] * (aSize + bSize - aOne - bOne)
+    conversion.extend([1] * (aOne + bOne))
     conversion = pd.Series(conversion)
-    
-    perm_diffs = [100 * perm_func(conversion, 23739, 22588) for _ in range(1000)]
-    
+
+    perm_diffs = [100 * perm_func(conversion, aSize, bSize) for _ in range(1000)]
+
     fig = plt.figure()
     ax = fig.add_subplot()
     ax.hist(perm_diffs, bins=11, rwidth=0.9)
