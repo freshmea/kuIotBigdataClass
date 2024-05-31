@@ -41,13 +41,20 @@ def main():
     outcome = 'AdjSalePrice'
     print(house.groupby('ZipCode')['AdjSalePrice'].mean())
 
-    model_poly = smf.ols(formula='AdjSalePrice ~ SqFtTotLiving + np.power(SqFtTotLiving, 2) + SqFtLot + Bathrooms + Bedrooms + BldgGrade', data=house_98105)
-    result_poly = model_poly.fit()
-    print(result_poly.summary())
+    # # polynomial
+    # model_poly = smf.ols(formula='AdjSalePrice ~ SqFtTotLiving + np.power(SqFtTotLiving, 2) + SqFtLot + Bathrooms + Bedrooms + BldgGrade', data=house_98105)
+    # result_poly = model_poly.fit()
+    # print(result_poly.summary())
+    # base spline
+    formula = 'AdjSalePrice ~ bs(SqFtTotLiving, df=6, degree=3) + SqFtLot + Bathrooms + Bedrooms + BldgGrade'
+    model_spline = smf.ols(formula=formula, data=house_98105)
+    result_spline = model_spline.fit()
+    print(result_spline.summary())
     
     fig = plt.figure()
     ax = fig.add_subplot()
-    partialResidualPlot(result_poly, house_98105, 'AdjSalePrice', 'SqFtTotLiving', ax)
+    # partialResidualPlot(result_poly, house_98105, 'AdjSalePrice', 'SqFtTotLiving', ax)
+    partialResidualPlot(result_spline, house_98105, 'AdjSalePrice', 'SqFtTotLiving', ax)
     plt.tight_layout()
     plt.show()
 
