@@ -30,14 +30,14 @@ def main():
     scaler.fit(X * 1.0)
 
     X_std = scaler.transform(X * 1.0)
-    newlan_std = scaler.transform(newloan * 1.0)
+    newloan_std = scaler.transform(newloan * 1.0)
 
     knn.fit(X_std, y)
 
     nbrs = knn.kneighbors(newloan)
     print(X.iloc[nbrs[1][0], :])
     print(f"distance : {nbrs[0]}")
-    print(f"predict {knn.predict(newloan)}")
+    print(f"predict {knn.predict(newloan_std)}")
 
 if __name__ == "__main__":
     main()
