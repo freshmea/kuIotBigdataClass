@@ -1,4 +1,9 @@
+from unittest import result
+
+import numpy as np
 import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 from sklearn.linear_model import LogisticRegression
 
 
@@ -17,24 +22,18 @@ def main():
 
     logit_reg = LogisticRegression(penalty='l2', C=1e42, solver='liblinear')
     logit_reg.fit(X, y)
-    print(f"intercept: {logit_reg.intercept_}")
-    print(f"classes: {logit_reg.classes_}")
-    for i, c in enumerate(logit_reg.coef_[0]):
-        print(f"{X.columns[i]}: {c}")
 
-    new_loan = X.loc[146:146, :]
-    print(new_loan)
-    result =  logit_reg.predict(new_loan)
-    print(f"result: {result}")
-
-    # logistic predicted values
-
-    pred = pd.DataFrame(logit_reg.predict_log_proba(X), columns = logit_reg.classes_)
-    print(f"log probability : \n {pred.describe()}")
-    pred = pd.DataFrame(logit_reg.predict_proba(X), columns = logit_reg.classes_)
-    print(f"probability : \n {pred.describe()}")
-    print(pred.head())
-
+    # y_numnbers = [1 if yi =='default' else 0 for yi in y]
+    # print(X.assign(const=1))
+    # logit_reg_sm = sm.GLM(y_numnbers, X.assign(const=1), family=sm.families.Binomial())
+    # logit_result = logit_reg_sm.fit()
+    
+    formula = "outcome ~ bs(payment_inc_ratio, df=4) + purpose_" + \
+        " + home_ + emp_len_ + bs(borrower_score, df=4)"
+    model = smf.glm(formula = formula, data=loan_data, family=sm.families.Binomial())
+    result = model.fit()
+    print(result.summary())
+    
 
 
 if __name__ == "__main__":
