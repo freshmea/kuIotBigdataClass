@@ -24,23 +24,23 @@ def main():
     logit_reg = LogisticRegression(penalty='l2', C=1e42, solver='liblinear')
     logit_reg.fit(X, y)
 
-    y_numnbers = [1 if yi =='default' else 0 for yi in y]
-    print(X.assign(const=1))
+    pred = logit_reg.predict(X)
+    pred_y = pred == 'default'
+    true_y = y == 'default'
+    true_pos = true_y & pred_y
+    true_neg = ~true_y & ~pred_y
+    false_pos = ~true_y & pred_y
+    false_neg = true_y & ~pred_y
     
-    # change vaule True -> 1, False -> 0
-    bool_columns = ['debt_consolidation', 'home_improvement', 'major_purchase', 'medical', 'other', 'small_business', 'OWN', 'RENT', ' > 1 Year']
-    for col in bool_columns:
-        X[col] = X[col].astype(int)
-                     
-    logit_reg_sm = sm.GLM(y_numnbers, X.assign(const=1), family=sm.families.Binomial())
-    logit_result = logit_reg_sm.fit()
-    print(logit_result.summary())
+    con_mat = pd.DataFrame([[np.sum(true_pos), np.sum(false_neg)],
+                            [np.sum(false_pos), np.sum(true_neg)]],
+                           index=['Y=default', 'Y=Paid off'],
+                           columns=['Yhat = default', 'Yhat = Paid off'])
+    print(con_mat)
+    print(f"Accuracy(정확도): {(np.sum(true_pos) + np.sum(true_neg)) / len(y)}")
+    print(f"Precision(정밀도): {np.sum(true_pos) / (np.sum(true_pos) + np.sum(false_pos))}")
+    print(f"Recall(재현율): {np.sum(true_pos) / (np.sum(true_pos) + np.sum(false_neg))}")
     
-    formula = "outcome ~ bs(payment_inc_ratio, df=4) + purpose_" + \
-        " + home_ + emp_len_ + bs(borrower_score, df=4)"
-    model = smf.glm(formula = formula, data=loan_data, family=sm.families.Binomial())
-    result = model.fit()
-    print(result.summary())
     
 
 
