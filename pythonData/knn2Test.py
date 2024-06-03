@@ -35,7 +35,7 @@ def main():
     knn.fit(X_std, y)
 
     nbrs = knn.kneighbors(newloan)
-    print(X.iloc[nbrs[1][0], :])
+    print(X_std[nbrs[1][0], :]) # type: ignore
     print(f"distance : {nbrs[0]}")
     print(f"predict {knn.predict(newloan_std)}")
 
