@@ -39,7 +39,7 @@ def main():
         y_pred = knn.predict(X_test)
         acc_array[k-1] = accuracy_score(y_test, y_pred)
     print(list(acc_array))
-    
-    
+
+
 if __name__ == "__main__":
     main()
