@@ -10,7 +10,7 @@ def main():
     
     predictors = ['payment_inc_ratio', 'purpose_', 'home_', 'emp_len_', 'borrower_score']
     outcome = 'outcome'
-    X = pd.get_dummies(loan_data[predictors], prefix='', prefix_sep='')
+    X = pd.get_dummies(loan_data[predictors], prefix='', prefix_sep='', drop_first=True)
     y = loan_data[outcome]
     print(X.head())
     print(y.head())
