@@ -22,20 +22,16 @@ def main():
 
     predictors = ['payment_inc_ratio', 'purpose_', 'home_', 'emp_len_', 'dti', 'revol_bal', 'revol_util']
     outcome = 'outcome'
-    # X = pd.get_dummies(loan_data[predictors], prefix='', prefix_sep='', drop_first=True)
-    # y = loan_data[outcome]
+
     X = pd.get_dummies(full_train_set[predictors], prefix='', prefix_sep='', drop_first=True, dtype=int)
     y = full_train_set[outcome]
 
     full_model = LogisticRegression(penalty='l2', C=1e42, solver='liblinear')
     full_model.fit(X, y)
-    
+
     plpd = 100 * np.mean(full_model.predict(X) == 'default')
     print(f"percentage of laons predicted to default (weighting): \n {plpd}")
     print(f"default /predicted default: {plpd / pld}")
-    
-    
-
 
 
 if __name__ == "__main__":
