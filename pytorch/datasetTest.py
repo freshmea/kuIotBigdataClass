@@ -19,12 +19,10 @@ def main():
     folder = "/home/aa/kuIotBigdataClass/pytorch/data/"
     tensor_dataset = MyDataset(folder +"covtype.csv")
     dataset = DataLoader(tensor_dataset, batch_size=100, shuffle=True)
-
-    #train_dataset
-    train_dataset = DataLoader(tensor_dataset, batch_size=100, shuffle=True)
-
-    # validation dataset
-    val_dataset = DataLoader(tensor_dataset, batch_size=100, shuffle=True)
+    
+    for i, (sample, label) in enumerate(dataset):
+        print(f"sample : {sample}")
+        print(f"label : {label}")
 
 if __name__ == "__main__":
     main()
