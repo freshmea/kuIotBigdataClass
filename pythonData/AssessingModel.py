@@ -26,20 +26,12 @@ def main():
 
     y_numnbers = [1 if yi =='default' else 0 for yi in y]
     print(X.assign(const=1))
+    
     # change vaule True -> 1, False -> 0
     bool_columns = ['debt_consolidation', 'home_improvement', 'major_purchase', 'medical', 'other', 'small_business', 'OWN', 'RENT', ' > 1 Year']
     for col in bool_columns:
         X[col] = X[col].astype(int)
-    # X['debt_consolidation'] = X['debt_consolidation'].astype(int)
-    # X['debt_consolidation'] = X['debt_consolidation'].astype(int)
-    # X['home_improvement'] = X['home_improvement'].astype(int)
-    # X['major_purchase'] = X['major_purchase'].astype(int)
-    # X['medical'] = X['medical'].astype(int)
-    # X['other'] = X['other'].astype(int)
-    # X['small_business'] = X['small_business'].astype(int)
-    # X['OWN'] = X['OWN'].astype(int)
-    # X['RENT'] = X['RENT'].astype(int)
-    # X[' > 1 Year'] = X[' > 1 Year'].astype(int)
+
     logit_reg_sm = sm.GLM(y_numnbers, X.assign(const=1), family=sm.families.Binomial())
     logit_result = logit_reg_sm.fit()
     
