@@ -41,10 +41,19 @@ def main():
             X_t[column] = np.random.permutation(X_t[column].values)
             shuff_acc = accuracy_score(y_test, rf_all.predict(X_t))
             scores[column].append((acc-shuff_acc)/acc)
-    # # 정규화
-    # loan3000[predictors] = StandardScaler().fit_transform(loan3000[predictors])
-    # # X, y 만들고 train, test로 나누기
-    # X_train, X_test, y_train, y_test = train_test_split(loan3000[predictors], loan3000[outcome], test_size=0.2, random_state=0)
+
+    df = pd.DataFrame({
+        'feature': X.columns,
+        'Accuracy Decrease': [np.mean(scores[column]) for column in X.columns],
+        'Gini Decrease': rf_all.feature_importances_
+    })
+    df = df.sort_values('Accuracy Decrease')
+    fig = plt.figure()
+    ax1 = fig.add_subplot(1,2,1)
+    ax2 = fig.add_subplot(1,2,2)
+    df.plot(kind='barh', x='feature', y='Accuracy Decrease', legend=False, ax=ax1)
+    df.plot(kind='barh', x='feature', y='Gini Decrease', legend=False, ax=ax2)
+    plt.show()
 
 if __name__ == "__main__":
     main()
