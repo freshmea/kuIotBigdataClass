@@ -44,7 +44,6 @@ def main():
     from sklearn.preprocessing import StandardScaler
     kmeans = KMeans(n_clusters=4)
     kmeans.fit(top_sp)
-    
     top_sp['cluster'] = kmeans.labels_
     
     # plot
