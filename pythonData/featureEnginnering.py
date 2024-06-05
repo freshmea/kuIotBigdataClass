@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+
+# KFold cross validation
+from sklearn.model_selection import KFold
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
