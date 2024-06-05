@@ -12,14 +12,13 @@ def main():
     Z = linkage(df, method='ward')
     print(Z)
     print(Z.shape)
-    
-    
+
     # cut dendrogram
     memb = fcluster(Z, 4, criterion='maxclust')
     memb = pd.Series(memb, index=df.index)
     for k, idx in memb.groupby(memb):
         print(f'Cluster {k}: {", ".join(idx.index)}')
-        
+
     # dendrogram
     fig, ax = plt.subplots()
     dendrogram(Z, labels=list(df.index), color_threshold=0 ,ax=ax)
