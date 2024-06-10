@@ -29,7 +29,7 @@ def gradient_descent(x, y, theta, alpha, m, numIterations):
     return theta, np.array(theta_list), cost_list
 
 def main():
-    x, y = gen_data(100, 25, 10, 2)
+    x, y = gen_data(100, 25, 10)
     # plt.plot(x[:, 1] , y, 'ro')
     # plt.show()
     m, n = np.shape(x)
@@ -40,10 +40,20 @@ def main():
     theta, theta_list, cost_list = gradient_descent(x, y, theta, alpha, m, numIterations)
 
     y_predict_step = np.dot(x, theta_list.transpose())
-    plt.plot(x[:, 1], y, 'ro')
-    for i in range(0, 20, 2):
-        plt.plot(x[:, 1], y_predict_step[:, i], label="Line %d %i")
+    # plt.plot(x[:, 1], y, 'ro')
+    # for i in range(0, 20, 2):
+    #     plt.plot(x[:, 1], y_predict_step[:, i], label="Line %d %i")
+    # plt.show()
+
+    # y_pred = np.dot(x, theta)
+    # plt.plot(x[:, 1], y, 'ro')
+    # plt.plot(x[:, 1], y_pred, lw=3)
+    # plt.show()
+
+    iterations = range(len(cost_list))
+    plt.scatter(iterations, cost_list)
     plt.show()
+
 
 if __name__ == '__main__':
     main()
