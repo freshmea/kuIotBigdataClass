@@ -28,7 +28,6 @@ def main():
     print(new_df.head())
     new_df["postTestScore_x"].fillna(new_df["postTestScore_y"], inplace=True)
     new_df.drop(columns="postTestScore_y", inplace=True)
-    #rename of postTestScroe_x to postTestScore
     new_df.rename(columns={"postTestScore_x": "postTestScore"}, inplace=True)
     print(new_df)
 
