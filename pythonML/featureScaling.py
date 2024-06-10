@@ -18,6 +18,13 @@ def main():
     scale = StandardScaler()
     df_scale = scale.fit(df[['B']])
     print(df_scale.fit_transform(df[['B']]))
+    
+    # Normalizer
+    print('-----------')
+    from sklearn.preprocessing import Normalizer
+    normalizer = Normalizer()
+    normalizer.fit(df[['A', 'B']])
+    print(normalizer.fit_transform(df[['A', 'B']]))
 
 if __name__ == '__main__':
     main()
