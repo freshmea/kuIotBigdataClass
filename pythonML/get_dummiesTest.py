@@ -8,7 +8,7 @@ def main():
                           'color': ['red', 'blue', 'blue']})
     print(edges.dtypes)
     print(pd.get_dummies(edges, dtype=int))
-    
+
     weight_dict = {3: 'M', 4: 'L', 5: 'XL'}
     edges["weight_sign"] = edges["weight"].map(weight_dict)
     print(edges["weight_sign"])
