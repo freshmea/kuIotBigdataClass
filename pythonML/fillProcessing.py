@@ -20,16 +20,24 @@ def main():
     # df.iloc[1, 3] = 'm'
     # df["postTestScore"].fillna(df.groupby('sex')["postTestScore"].transform('mean'), inplace=True)
     
-    # without transform
-    print(df.groupby('sex')["postTestScore"].mean())
-    sex_group = df.groupby('sex')["postTestScore"].mean()
-    df.iloc[1, 3] = 'm'
-    new_df = df.merge(sex_group, how='left', on='sex')
-    print(new_df.head())
-    new_df["postTestScore_x"].fillna(new_df["postTestScore_y"], inplace=True)
-    new_df.drop(columns="postTestScore_y", inplace=True)
-    new_df.rename(columns={"postTestScore_x": "postTestScore"}, inplace=True)
-    print(new_df)
+    # # without transform
+    # print(df.groupby('sex')["postTestScore"].mean())
+    # sex_group = df.groupby('sex')["postTestScore"].mean()
+    # df.iloc[1, 3] = 'm'
+    # new_df = df.merge(sex_group, how='left', on='sex')
+    # print(new_df.head())
+    # new_df["postTestScore_x"].fillna(new_df["postTestScore_y"], inplace=True)
+    # new_df.drop(columns="postTestScore_y", inplace=True)
+    # new_df.rename(columns={"postTestScore_x": "postTestScore"}, inplace=True)
+    # print(new_df)
+    
+    # without transform2
+    for i in range(len(df)):
+        if df.iloc[i, 3] == 'm' and pd.isnull(df.iloc[i, 5]):
+            df.iloc[i, 5] = df.groupby("sex")["postTestScore"].mean()[0]
+        elif df.iloc[i, 3] == 'f' and pd.isnull(df.iloc[i, 5]):
+            df.iloc[i, 5] = df.groupby("sex")["postTestScore"].mean()[1]
+    print(df)
 
 
 if __name__ == '__main__':
