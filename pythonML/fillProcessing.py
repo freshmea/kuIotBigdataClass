@@ -14,10 +14,23 @@ def main():
     df = pd.DataFrame(raw_data)
     # print(df.fillna('aadf'))
     df['preTestScore'].fillna(df['preTestScore'].mean(), inplace=True)
-    print(df.groupby('sex')["postTestScore"].transform('mean'))
+    
+    # # with transform
+    # print(df.groupby('sex')["postTestScore"].transform('mean'))
+    # df.iloc[1, 3] = 'm'
+    # df["postTestScore"].fillna(df.groupby('sex')["postTestScore"].transform('mean'), inplace=True)
+    
+    # without transform
+    print(df.groupby('sex')["postTestScore"].mean())
+    sex_group = df.groupby('sex')["postTestScore"].mean()
     df.iloc[1, 3] = 'm'
-    df["postTestScore"].fillna(df.groupby('sex')["postTestScore"].transform('mean'), inplace=True)
-    print(df)
+    new_df = df.merge(sex_group, how='left', on='sex')
+    print(new_df.head())
+    new_df["postTestScore_x"].fillna(new_df["postTestScore_y"], inplace=True)
+    new_df.drop(columns="postTestScore_y", inplace=True)
+    #rename of postTestScroe_x to postTestScore
+    new_df.rename(columns={"postTestScore_x": "postTestScore"}, inplace=True)
+    print(new_df)
 
 
 if __name__ == '__main__':
