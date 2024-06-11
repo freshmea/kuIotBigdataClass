@@ -3,7 +3,7 @@ import pandas as pd
 
 
 class LinearRegressionSGD:
-    def __init(self, fit_intercept=True, copy_X=True, eta0=0.01, epochs=1000, batch_size = 1, weight_decay=0.9, shuffle=True):
+    def __init__(self, fit_intercept=True, copy_X=True, eta0=0.01, epochs=1000, batch_size = 1, weight_decay=0.9, shuffle=True):
         self.fit_intercept = fit_intercept
         self.copy_X = copy_X
         self.eta0 = eta0
@@ -17,24 +17,24 @@ class LinearRegressionSGD:
         self._intercept = None
         self._new_X = None
         self._weight_history = None
-    
+
     def gradient(self, X, y, theta):
         return X.T.dot(self.hypothesis_function(X, theta) - y)/ len(X)
-    
+
     def hypothesis_function(self, X, theta):
         return X.dot(theta).reshape(-1, 1)
-    
+
     def cost(self, h, y):
         return 1/(2*len(y)) * np.sum((h-y).flatten() ** 2)
-    
+
     def fit(self, X, y):
         self._new_X = np.array(X)
         y = y.reshape(-1, 1)
-        
+
         if self.fit_intercept:
             intercept_vector = np.ones([len(self._new_X), 1])
             self._new_X = np.concatenate((intercept_vector, self._new_X), axis=1)
-        
+
         theta_init = np.random.normal(0.1, self._new_X.shape[1])
         self._w_history = [theta_init]
         self._cost_history = [self.cost(self.hypothesis_function(self._new_X, theta_init), y)]
@@ -76,3 +76,35 @@ class LinearRegressionSGD:
             weights= self._coef
 
         return test_X.dot(weights) # type: ignore
+
+    @property
+    def coef(self):
+        return self._coef
+
+    @property
+    def intercept(self):
+        return self._intercept
+
+    @property
+    def weights_history(self):
+        return self._w_history
+
+    @property
+    def cost_history(self):
+        return self._cost_history
+
+def main():
+    folder = "/home/aa/kuIotBigdataClass/pythonData/data/"
+    df = pd.read_csv(folder +"house_sales.csv", sep="\t")
+    predictors = ["SqFtTotLiving"]
+    target = "SalePrice"
+    X = df[predictors].values.reshape(-1, 1)
+    y = df[target].values
+
+    gd_lr = LinearRegressionSGD(eta0=0.001, epochs=1000, shuffle=False)
+    sgd_lr = LinearRegressionSGD(eta0=0.001, epochs=1000, shuffle=True)
+    msgd_lr = LinearRegressionSGD(eta0=0.001, epochs=1000, shuffle=True, batch_size=100)
+    
+    gd_lr.fit(X, y)
+if __name__ == "__main__":
+    main()
