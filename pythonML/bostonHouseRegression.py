@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Lasso, LinearRegression, Ridge, SGDRegressor
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
@@ -26,20 +27,36 @@ def main():
     ridge_model = Ridge(alpha=0.01, fit_intercept=True, copy_X=True)
     sgd_model = SGDRegressor(penalty="l2", alpha=0.01, max_iter=1000, tol=0.001, eta0=0.01)
 
+    modelnames = ["Linear", "Lasso", "Ridge", "SGD"]
+    models = []
+    models.append(model)
+    models.append(lasso_model)
+    models.append(ridge_model)
+    models.append(sgd_model)
+    
     model.fit(X_train, y_train)
     lasso_model.fit(X_train, y_train)
     ridge_model.fit(X_train, y_train)
     sgd_model.fit(X_train, y_train)
-    print(f"Linear Coefficients:{model.coef_}")
-    print(f"Lasso Coefficients:{lasso_model.coef_}")
-    print(f"Ridge Coefficients:{ridge_model.coef_}")
-    print(f"SGD Coefficients:{sgd_model.coef_}")
-    print("-------------------------")
-    print(f"Linear Intercept:{model.intercept_}")
-    print(f"Lasso Intercept:{lasso_model.intercept_}")
-    print(f"Ridge Intercept:{ridge_model.intercept_}")
-    print(f"SGD Intercept:{sgd_model.intercept_}")
     
+    for m, modelName in zip(models, modelnames):
+        print(f"{modelName} Coefficients:{m.coef_}")
+    print("-------------------------")
+    for m, modelName in zip(models, modelnames):
+        print(f"{modelName} Intercept:{m.intercept_}")
+
+    print(model.predict(x_data[:5]))
+    print(x_data[:5].dot(model.coef_.T) + model.intercept_)
+
+    y_true = y_test.copy()
+    y_hats = []
+    for m in models:
+        y_hats.append(m.predict(X_test))
+    for y_hat, modelName in zip(y_hats, modelnames):
+        print(f"{modelName} R2 Score:{r2_score(y_true, y_hat)}")
+        print(f"{modelName} MSE:{mean_squared_error(y_true, y_hat)}")
+        print(f"{modelName} RMSE:{np.sqrt(mean_squared_error(y_true, y_hat))}")
+        print(f"{modelName} MAE:{mean_absolute_error(y_true, y_hat)}")
 
 if __name__ == '__main__':
     main()
