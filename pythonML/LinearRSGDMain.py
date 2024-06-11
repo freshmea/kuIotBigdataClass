@@ -3,9 +3,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from LinearRSGDTest import LinearRegressionGD
 
-# from LinearRSGDTest import LinearRegressionSGD
-from sklearn.linear_model import SGDRegressor
+# from sklearn.linear_model import SGDRegressor
 
 
 def main():
@@ -21,13 +21,12 @@ def main():
     y = df[target].values
     print(X.shape, y.shape)
     
-    gd_lr = SGDRegressor(eta0=0.001, n_iter_no_change=10000, shuffle=False)
-    sgd_lr = SGDRegressor(eta0=0.001, n_iter_no_change=10000, shuffle=True)
+    gd_lr = LinearRegressionGD(eta0=0.001, epochs=1000, shuffle=False)
+    sgd_lr = LinearRegressionGD(eta0=0.001, epochs=1000, shuffle=True)
     
     gd_lr.fit(X, y) #type : ignore
     sgd_lr.fit(X, y) #type : ignore
-    print(gd_lr.loss_functions)
-    # plt.plot(range(len(gd_lr.loss_functions)), gd_lr.loss_curve_, label="GD")
+    
 
 if __name__ == "__main__":
     main()

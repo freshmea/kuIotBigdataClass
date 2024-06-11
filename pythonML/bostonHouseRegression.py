@@ -66,7 +66,7 @@ def main():
     axes.append(fig.add_subplot(224))
     for i, y_hat in enumerate(y_hats):
         axes[i].scatter(y_true, y_hat, s=10)
-        axes[i].plot([y_true.min(), y_true.max()], [y_true.min(), y_true.max()], 'k--', lw=2)
+        axes[i].plot([0, 60], [0, 60], 'k--', lw=2)
     plt.xlabel("Prices: $Y_i$")
     plt.ylabel("Predicted prices: $\hat{Y}_i$")
     plt.title("Prices vs Predicted prices: $Y_i$ vs $\hat{Y}_i$")
