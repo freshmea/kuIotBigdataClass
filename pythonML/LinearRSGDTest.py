@@ -4,12 +4,13 @@ import pandas as pd
 
 class LinearRegressionGD(object):
     def __init__(self, fit_intercept=True, copy_X=True,
-                 eta0=0.001, epochs=1000, weight_decay=0.9):
+                 eta0=0.001, epochs=1000, weight_decay=0.9, shuffle=True):
         self.fit_intercept = fit_intercept
         self.copy_X = copy_X
         self._eta0 = eta0
         self._epochs = epochs
         self._weight_decay = weight_decay
+        self._is_SGD = shuffle
 
         self._cost_history = []
         self._w_history = []
@@ -38,7 +39,9 @@ class LinearRegressionGD(object):
         theta = np.ones(self._new_X.shape[1])
 
         for epoch in range(self._epochs):
-            # 아래 코드를 반드시 활용할 것
+            if self._is_SGD:
+                np.random.shuffle(self._new_X)
+            
             gradient = self.gradient(self._new_X, y, theta).flatten()
 
             theta = theta - self._eta0 * gradient
@@ -81,16 +84,18 @@ class LinearRegressionGD(object):
 def main():
     folder = "/home/aa/kuIotBigdataClass/pythonData/data/"
     df = pd.read_csv(folder +"house_sales.csv", sep="\t")
-    predictors = ["SqFtTotLiving"]
+    predictors = "SqFtTotLiving"
     target = "SalePrice"
     X = df[predictors].values.reshape(-1, 1)
     y = df[target].values
     print(X.shape, y.shape)
 
-    gd_lr = LinearRegressionGD(eta0=0.001, epochs=1000 )
-    sgd_lr = LinearRegressionGD(eta0=0.001, epochs=1000 )
-    msgd_lr = LinearRegressionGD(eta0=0.001, epochs=1000)
+    gd_lr = LinearRegressionGD(eta0=0.001, epochs=1000, shuffle=False)
+    sgd_lr = LinearRegressionGD(eta0=0.001, epochs=1000, shuffle=True )
+    msgd_lr = LinearRegressionGD(eta0=0.001, epochs=1000, shuffle=True)
     
     gd_lr.fit(X, y)
+    sgd_lr.fit(X, y)
+    msgd_lr.fit(X, y)
 if __name__ == "__main__":
     main()
