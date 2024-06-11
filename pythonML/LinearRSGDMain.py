@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from LinearRSGDTest import LinearRegressionGD
-from sklearn.linear_model import Lasso, LinearRegression, Ridge, SGDRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
 
