@@ -1,11 +1,16 @@
+import random
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from sklearn.ensemble import VotingClassifier
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import KFold, train_test_split
+from sklearn.naive_bayes import GaussianNB
 from sklearn.preprocessing import StandardScaler
+from sklearn.tree import DecisionTreeClassifier
 
 
 def main():
@@ -31,8 +36,20 @@ def main():
     y_train = y.iloc[:891]
     # print(X_train.to_numpy())    
 
-    model = LogisticRegression()
-    model.fit(X_train, y_train)
+    clf1 = LogisticRegression()
+    clf2 = DecisionTreeClassifier(random_state=1, max_depth=4)
+    clf3 = GaussianNB()
+    eclf = VotingClassifier(estimators=[('lr', clf1), ('dt', clf2), ('gnb', clf3)], voting='hard')
+    
+    # train
+    eclf.fit(X_train, y_train)
+    
+    # cross_val_score
+    import sklearn.model_selection as ms
+    print(ms.cross_val_score(eclf, X_train, y_train, cv=5).mean())
+    print(ms.cross_val_score(clf1, X_train, y_train, cv=5).mean())
+    print(ms.cross_val_score(clf2, X_train, y_train, cv=5).mean())
+    print(ms.cross_val_score(clf3, X_train, y_train, cv=5).mean())
     
     
 if __name__ == "__main__":
