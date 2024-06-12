@@ -48,17 +48,17 @@ def main():
     print(cross_val_score(eclf, X_train, y_train, cv=5).mean())
     
     #Adaboost
-    eclf = AdaBoostClassifier(base_estimator=DecisionTreeClassifier(max_depth=2), n_estimators=500)
+    eclf = AdaBoostClassifier(estimator=DecisionTreeClassifier(max_depth=2), n_estimators=500)
     eclf.fit(X_train, y_train)
     
     print(cross_val_score(eclf, X_train, y_train, cv=5).mean())
     
     # hyperparameter tuning
-    eclf = AdaBoostClassifier(base_estimator=DecisionTreeClassifier(max_depth=2), n_estimators=500)
+    eclf = AdaBoostClassifier(estimator=DecisionTreeClassifier(max_depth=2), n_estimators=500)
     params = {
-        "base_estimator__criterion": ["gini", "entropy"],
-        "base_estimator__max_features": [7, 8],
-        "base_estimator__max_depth": [1, 2],
+        "estimator__criterion": ["gini", "entropy"],
+        "estimator__max_features": [7, 8],
+        "estimator__max_depth": [1, 2],
         "n_estimators": [23, 24, 25, 26, 27],
         "learning_rate": [0.4, 0.45, 0.5, 0.55, 0.6],
     }
