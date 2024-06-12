@@ -7,7 +7,6 @@ def get_info(df):
     not_suvived = df.loc[df["Survived"] == 0]
     x = np.array([len(suvived)/len(df), len(not_suvived)/len(df)])
     y = np.log2(x[x != 0])
-
     info_all = -sum(x[x!=0] * y)
     return info_all
 
@@ -23,7 +22,7 @@ def main():
     folder = "/home/aa/kuIotBigdataClass/pytorch/data/titanic/"
     df = pd.read_csv(folder + "train.csv")
     print(df["Sex"].head())
-    
+
     print(get_info(df))
     male = df.loc[df["Sex"] == "male"]
     female = df.loc[df["Sex"] == "female"]
