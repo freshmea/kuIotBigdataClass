@@ -11,7 +11,7 @@ def main():
     countervect_example = CountVectorizer()
     X_example = countervect_example.fit_transform(text_example)
     print(countervect_example.get_feature_names_out())
-    print(countervect_example.transform(text_example).toarray())
+    print(countervect_example.transform(text_example).toarray()) # type: ignore
     print(countervect_example.vocabulary_)
     model = BernoulliNB(alpha=1, binarize=0)
     
