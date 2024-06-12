@@ -16,7 +16,7 @@ def get_attribute_info(df, attribute_name):
     get_infos = []
     for value in attribute_values:
         split_df = df.loc[df[attribute_name] == value]
-        get_infos.append(get_info(split_df)/len(df) * get_info(split_df))
+        get_infos.append(len(split_df)/len(df) * get_info(split_df))
     return sum(get_infos)
 
 def main():
@@ -31,7 +31,6 @@ def main():
     print(f"female info : {get_info(female)}")
 
     print(get_attribute_info(df, "Sex"))
-
     print(get_info(df) - get_attribute_info(df, "Sex"))
     print(get_info(df) - get_attribute_info(df, "Pclass"))
 
