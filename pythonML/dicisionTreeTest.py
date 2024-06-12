@@ -7,8 +7,8 @@ def get_info(df):
     not_suvived = df.loc[df["Survived"] == 0]
     x = np.array([len(suvived)/len(df), len(not_suvived)/len(df)])
     y = np.log2(x[x != 0])
-    
-    info_all = -sum(x[x!=0] + y)
+
+    info_all = -sum(x[x!=0] * y)
     return info_all
 
 def get_attribute_info(df, attribute_name):
@@ -16,7 +16,7 @@ def get_attribute_info(df, attribute_name):
     get_infos = []
     for value in attribute_values:
         split_df = df.loc[df[attribute_name] == value]
-        get_infos.append(get_info(split_df)/len(df)*get_info(split_df))
+        get_infos.append(get_info(split_df)/len(df) * get_info(split_df))
     return sum(get_infos)
 
 def main():
