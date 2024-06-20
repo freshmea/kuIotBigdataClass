@@ -14,17 +14,17 @@ def main():
     loan_data = pd.read_csv(folder + "loan_data.csv.gz")
     print(loan_data.head())
     print(loan_data.info())
-    
+
     predictors = ["loan_amnt", "term", "annual_inc", "dti", "payment_inc_ratio", "revol_bal", "revol_util", "purpose", "delinq_2yrs_zero", "pub_rec_zero", "open_acc", "grade", "emp_length", "purpose_", "home_", "emp_len_", "borrower_score"]
     outcome = 'outcome'
-    
+
     X = pd.get_dummies(loan_data[predictors], drop_first=True, dtype=int)
     y = loan_data[outcome]
-    
+
     rf_all = RandomForestClassifier(n_estimators=500, random_state=1)
     rf_all.fit(X, y)
 
-    
+
     rf_all_entropy = RandomForestClassifier(n_estimators=500, criterion='entropy')
     rf_all_entropy.fit(X, y)
 

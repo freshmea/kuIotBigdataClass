@@ -723,3 +723,461 @@ int main(){
     - BeautifulSoup
   - json
   - csv
+
+---
+
+## 2024-05-27 월
+
+---
+
+- 데이터 과학을 위한 통계
+
+  - 1.1 정형 데이터의 종류
+    - 수치형 데이터
+      - 연속형 데이터: 일정 범위의 값
+      - 이산 데이터: 정수만 취할 수 있는 데이터
+    - 범주형 데이터
+      - 이진 데이터: 값이 2개인 데이터(남/여, 참/거짓, 0/1)
+      - 순서형 데이터: 수치 사이에 순위가 있는 데이터(성적)
+
+- 1.2 테이블 데이터(데이터 분석에서 가장 대표적으로 사용되는 객체의 형태)
+  - 데이터 프레임: 통계와 머신러닝 모델에서 가장 기본이 되는 테이블 형태의 데이터 구조
+  - 피처(feature): SQL에서의 컬럼
+  - 결과(outcome): 실험이나 연구에서 결과를 예측하기 위해 피처 사용
+  - 레코드(record): 일반적으로 테이블의 각 행은 하나의 레코드
+  - 테이블 형식이 아닌 데이터구조: 테이블 데이터로 변환 후 쓴다
+
+  - 1.3 위치추정
+    - 평균(mean/average)
+    - 절사평균: 양 끝에서 일정 개수의 값을 삭제한 후 평균을 구한다.
+    - 가중평균: 센서와 관련. 부정확한 센서는 가중값을 높게 준다. 데이터 수집 시 대조군이 항상 똑같은 수가 얻어지지는 않기 때문에, 가중값을 줘서 두 집단의 영향력을 비슷하게 맞출때 가중평균을 쓴다.
+    - 중간값: 데이터를 일렬로 정렬했을 때, 한가운데에 위치하는 값.
+    - 가중 중간값: //
+    - 로버스트: //
+
+    - 1.3.3_meanWeight.py [위치추정: 평균,절사평균,중간값,가중평균,가중중간값](python/pythonData/1.3.3_meanWeight.py)
+
+  - 1.4 변이(variability)추정
+    - 편차: 관측값과 위치 추정값 사이의 차이
+      - 평균을 기준으로 편차의 합은 항상 0
+      - 평균 절대 편차: 편차의 절대값의 평균
+    - 분산: //
+    - 표준편차: 분산에 제곱근을 한 값
+    - 중위 절대 편차(MAD): 로버스트한 변이 추정값. 중간값과의 편차를 구하고, 그 값들의 절대값에 대한 중간값
+    - 백분위수: //
+      - 사분위범위(IQR): //
+
+    - 1.4.3_deviation.py [변이추정: 표준편차,사분위범위(IQR), 중위절대편차(MAD)](python/pythonData/1.4.3_deviation.py)
+
+  - 1.5 데이터 분포 탐색
+    - boxplot(상자그림)
+    - 도수분포표(frequency table)
+    - 히스토그램(histogram)
+    - 밀도그림(density plot)
+
+    - 1.4.3_deviation.py [boxplot](python/pythonData/1.4.3_deviation.py)
+
+    - 1.5.2_histogramTest.py [도수분포표와 히스토그램](python/pythonData/1.5.2_histogramTest.py)
+
+  - 1.6 이진 데이터와 범주 데이터 탐색
+    - 최빈값(mode)
+    - 기댓값(expected value): 범주에 해당하는 어떤 수치가 있을때, 범주의 출현 확률에 따른 평균
+    - 막대도표(bar chart)
+    - 파이그림(pie chart)
+
+    - p47_categoryDate.py [이진데이터 막대도표로 표현](python/pythonData/p47_categoryDate.py)
+
+  - 1.7 상관관계
+    - 상관계수
+    - 상관행렬
+    - 산점도(scatterplot)
+
+    - p52_correlation.py [상관관계](python/pythonData/p52_correlation.py)
+
+- numpy
+  - numpyArray.py [numpy 실습](python/pythonData/numpyTest/numpyArray.py)
+
+  - numpyMethod.py [reshape, flatten](python/pythonData/numpyTest/numpyMethod.py)
+
+  - numpyIndexing.py [indexing, slicing](python/pythonData/numpyTest/numpyIndexing.py)
+
+  - numpyConstruction.py [배열생성함수: ones(),zeros(),empty(), 통계분석함수](python/pythonData/numpyTest/numpyConstruction.py)
+
+  - numpySum.py [연산함수: arange()](python/pythonData/numpyTest/numpySum.py)
+
+  - numpyStack.py [연결함수](python/pythonData/numpyTest/numpyStack.py)
+
+  - numpyDot.py [행렬연산](python/pythonData/numpyTest/numpyDot.py)
+
+  - numpyBroadcasting.py [브로드캐스팅 연산](python/pythonData/numpyTest/numpyBroadcasting.py)
+
+- 정리
+  - 통계를 왜 배우는가 -> 빅데이터
+  - 대표값: 평균, 중간값, 가중평균, 절사평균
+            분산, 편차, 절대편차, 표준편차(분산에 루트씌운것), 백분위와 IQR
+  - 이러한 값들을 가지고 그래프를 그림 (데이터 분포 탐색)
+    - 수치 데이터 -> 히스토그램 x-y, box plot
+    - 이산데이터, 범주데이터 -> 히스토그램
+  - 상관관계 corr -> -1 ~ 1, heatmap으로 표현
+  - numpy: []리스트가 기본 타입이지만, 약점이 있었다. c-type array사용.
+    - 선언: ones(), zeros(), empty()등
+    - 메소드: reshape (주의사항: 원소의 개수를 맞춰야한다)
+    - 사칙연산
+    - dot
+    - broadcasting: 증식하여 행렬이 맞춰져 연산됨(논리적으로 증식이 가능할 것 같은 경우에만)
+
+---
+
+## 2024-05-28 화
+
+---
+
+- numpy
+  - 비교 연산
+    - numpyBoolIndex.py [비교연산, 비교연산함수, 인덱스 반환함수, 정렬된 값의 인덱스를 반환하는 함수(argsort,argmax,argmin)](python/pythonData/numpyTest/numpyBoolIndex.py)
+
+    - numpyFancyIndex.py [인덱스를 활용한 데이터 추출: boolean index, fancy index](python/pythonData/numpyTest/numpyFancyIndex.py)
+
+- pandas
+  - python계의 엑셀
+  - 시리즈(series): 컬럼이 1개인 데이터프레임
+  - 시리즈를 여러개 모아놓으면 데이터프레임(데이터 테이블 전체를 포함하는 객체)
+  - pandasSeries.py [Series 객체 생성, 이름변경](python/pythonData/pandasTest/pandasSeries.py)
+
+  - pandas는 컬럼별로 타입을 다르게 지정할 수 있다.
+
+  - 객체 생성
+    - pandasDataFrame.py [데이터프레임 생성](python/pythonData/pandasTest/pandasDataFrame.py)
+
+  - 데이터 추출
+    - pandasExcel.py [엑셀 파일에서 데이터 추출](python/pythonData/pandasTest/pandasExcel.py)
+
+  - 그룹별 집계
+    - pandasGroup.py [그룹별 집계](python/pythonData/pandasTest/pandasGroup.py)
+
+    - 그룹화된 상태에서(grouped)
+    - pandasGroup2.py [그룹화된 상태_집계, 변환, 필터](python/pythonData/pandasTest/pandasGroup2.py)
+
+  - 병합과 연결
+    - pandasJoin.py [병합, 연결](python/pythonData/pandasTest/pandasJoin.py)
+
+    - pandasConcat.py [](python/pythonData/pandasTest/pandasConcat.py)
+
+- matplotlib
+  - pyplotTest.py [](python/pythonData/visualTest/pyplotTest.py)
+  - pyplotSubplot.py [](python/pythonData/visualTest/pyplotSubplot.py)
+  - pyplotSubplot2.py [](python/pythonData/visualTest/pyplotSubplot2.py)
+  - pyplotCustomizing.py [](python/pythonData/visualTest/pyplotCustomizing.py)
+  - 산점도
+    - pyplotGraph [산점도](python/pythonData/visualTest/pyplotGraph.py)
+  - pyplotBar [막대그래프](python/pythonData/visualTest/pyplotBar.py)
+
+- seaborn
+  - seabornLinePlot.py [시본의 기본 그래프](python/pythonData/visualTest/seabornLinePlot.py)
+  - seabornLinePlot.ipynb [Jupyter](python/pythonData/visualTest/seabornLinePlot.ipynb)
+
+---
+
+## 2024-05-29 수
+
+---
+
+- 플롯리(plotly)
+  - plotlyTest.ipynb [플롯리](python/pythonData/visualTest/plotlyTest.ipynb)
+
+- 데이터 과학을 위한 통계
+
+  - 탐색적 데이터 분석
+
+    - p52_correlation.py [전에 부족했던 부분 추가](python/pythonData/p52_correlation.py)
+
+    - scatterTelecom.py [산점도그리기](python/pythonData/scatterTelecom.py)
+
+    - multivariatePlot.py [육각형 구간과 등고선](python/pythonData/multivariatePlot.py)
+
+    - categoryPlot.py [범주형 변수 대 범주형 변수, 범주형 변수 대 수치형 변수, 바이올린 도표, 다변수 시각화](python/pythonData/categoryPlot.py)
+
+  - 데이터와 표본분포
+    - 임의 표본 추출: 대상이 되는 모집단 내의 선택 가능한 원소들을 무작위로 추출하는 과정, 원칙 지키는 것 중요.
+      계층(stratum): 공통된 특징을 가진 모집단의 동종 하위 그룹
+      표본편향(sample bias): 모집단을 잘못 대표하는 표본
+    - 편향 -> 통계적 편향은 계통적인(systematic) 오차를 의미한다.
+    - 임의의 표본 추출이 정확하게 이루어져야 한다.
+    - 선택편향: 관측 데이터를 선택하는 방식 때문에 생기는 편향
+      데이터 스누핑: 뭔가 흥미로운 것을 찾아 광범위하게 데이터를 살피는 것
+    - 평균으로의 회귀(regression to the mean)
+      - ...
+    - 중심 극한 정리(central limit theorem)
+      - ...
+    - 표준오차
+      - 표본 값들의 표준편차s와 표본크기 n을 기반으로 한 통계량을 이용하여 추정
+    - 부트스트랩
+      - resampleTest.py [부트스트랩](python/pythonData/resampleTest.py)
+
+    - 정규분포
+      - qqgraph.py [표준정규분포](python/pythonData/qqgraph.py)
+
+    - 긴꼬리분포
+      - qqBlackSwan.py [긴꼬리분포](python/pythonData/qqBlackSwan.py)
+
+    - T 분포
+    - 이항분포
+      - 이항식: 두 가지 결과를 갖는다.
+        이항시행: 두 가지 결과를 가져오는 시행
+        이항분포: n번의 시행에서 성공한 횟수에 대한 분포
+      - binormTest.py [이항분포](python/pythonData/binormTest.py)
+    - 카이제곱분포
+    - F 분포
+    - 푸아송 분포
+
+---
+
+## 2024-05-30 목
+
+---
+
+- orange
+  - 머신러닝: 지도학습[target]
+    - f(x, y) = ax + by + c
+
+- 데이터 과학을 위한 통계
+
+  - 통계적 실험과 유의성 검정
+    - permuteSample.py [재표본추출.순열검정(웹사이트 정보)](python/pythonData/permuteSample.py)
+
+    - permuteSample2.py [통계적유의성과 p값.순열검정](python/pythonData/permuteSample2.py)
+
+    - pValue.py [p-value](python/pythonData/pValue.py)
+    - tTest [t-test](python/pythonData/tTest.py)
+
+    - 분산 분석(analysis of variance, ANOVA)
+      - anovaTest.py [anova](python/pythonData/anovaTest.py)
+
+    - fStatistics.py [f-statistic](python/pythonData/fStatistics.py)
+    - chi2Statistics.py [chi2Statistics](python/pythonData/chi2Statistics.py)
+    - effectiveSize.py [effectiveSize](python/pythonData/effectiveSize.py)
+
+  - 회귀와 예측 (머신러닝과 직접관련)
+    - 지도학습 (target이 있는 학습)
+      비 지도학습 (target이 없는 학습)
+
+    - 단순 선형 회귀
+      - 응답변수(y값): 예측하고자 하는 변수
+        독립변수(x값): 응답치를 예측하기 위해 사용되는 변수
+        레코드: 한 특정 경우에 대한 입력과 출력을 담고 있는 벡터
+      - linearRegresstionTest.py [](python/pythonData/linearRegresstionTest.py)
+    - 다중 선형 회귀
+      - multiLinearReg.py [다중선형회귀 예제](python/pythonData/multiLinearReg.py)
+
+---
+
+## 2024-05-31 금
+
+---
+
+- 빅데이터 -> IoT기기에서 센서설정을 먼저 해야함 -> data생성 -> MySQL에 저장(database에 저장) -> 분석 및 분석한 데이터로 의미있는 결과, 모델을 뽑아냄 -> 머신러닝으로 모델을 훈련, 예측
+- 그래프 ( plt(matplot), sns(seaborn) )
+- 기본 데이터 다루기( numpy(속도가 빠름), pandas(파이썬의 엑셀, 행과 열로 이루어진 2차원 데이터를 column, row를 이용해서 다룸)(Series, DataFrame) )
+- 데이터의 분류
+  - 수치형: 숫자, linear모델(linear regression)도 잘 작동함
+  - 범주형: 범주형은 수치형으로 바꿀 수 있음.
+- 모집단과 샘플
+
+- chapter 4
+  - y = f(x)에 대해
+    - 수치형은 y값 자체가 중요
+    - 범주형은 2차원 그래프에 그려진 선에서 위쪽인지 아래쪽인지가 중요
+  - train(fit)
+
+- 4장 회귀와 예측
+  - subsetRegresstion.py [subsetRegression](python/pythonData/subsetRegresstion.py)
+  - weightRegre [weightRegre](python/pythonData/weightRegre.py)
+  - 회귀에서의 factor variable
+  - 다수의 수준을 갖는 요인변수들
+    - manyLevelStep.py [manyLevelStep](python/pythonData/manyLevelStep.py)
+
+  - 회귀진단
+    - 특잇값(outlier)
+    - outlierAnalysis.py [outlierAnalysis](python/pythonData/cooksDistance.py)
+  - cooksDistance.py [cookDistance](python/pythonData/cooksDistance.py)
+  - heteroskedasticity.py [heteroskedasticiy](python/pythonData/heteroskedasticity.py)
+  - partialResidualPlot.py [partialResidualPlot](python/pythonData/partialResidualPlot.py)
+  - polynomialRegression.py [polynomialRegression](python/pythonData/polynomialRegression.py)
+
+- 5장 분류
+  - 나이브 베이즈(naive Bayes): 나이브 베이즈 알고리즘은 주어진 결과에 대해 예측변숫값을 관찰할 확률을 사용하여, 예측변수가 주어졌을 때, 결과 Y = i를 관찰할 확률, 즉 정말 관심있는 것을 추정한다.
+  - naiveBayes [naiveBayes](python/pythonData/naiveBayes.py)
+  - descriminantAnalysis.py [descriminantAnalysis](python/pythonData/descriminantAnalysis.py)
+
+---
+
+## 2024-06-03 월
+
+---
+
+- 복습
+  - 지도학습
+    - 회귀(Regression)
+    - 분류(Classification): 나이브 베이즈, 판별분석
+  - 비지도학습: target이 없음
+
+- 데이터 과학을 위한 통계
+  - chapter5 분류
+    - 로지스틱 회귀
+      - logisticRegression.py [로지스틱 회귀](python/pythonData/logisticRegression.py)
+      - assessingModel.py [모델 평가하기](python/pythonData/assessingModel.py)
+    - 분류 모델 평가
+      - confusionMatrix.py [conf_mat](python/pythonData/confusionMatrix.py)
+      - rocCurve.py [rocCurve](python/pythonData/rocCurve.py)
+      - aucCurve.py [aucCurve](python/pythonData/aucCurve.py)
+
+  - chapter6 통계적 머신러닝
+    - KNN(k-nearest neighbors)
+      - 1. 특징들이 가장 유사한 k개의 레코드를 찾는다.
+      - 2. 분류: 이 유사한 레코드들 중에 다수가 속한 클래스가 무엇인지 찾은 후에, 새로운 레코드를 그 클래스에 할당한다.
+      - 3. 예측(KNN 회귀: KNN regression): 유사한 레코드들의 평균을 찾아서 새로운 레코드에 대한 예측값으로 사용한다.
+      - knnTest.py [knnTest](python/pythonData/knnTest.py)
+      - knn2Test.py [knn2Test](python/pythonData/knn2Test.py)
+      - featureEngineering.py [KNN을 통한 featureEngineering](python/pythonData/featureEngineering.py)
+      - datasetTest.py [pytorch폴더 datasetTest](pytorch/datasetTest.py)
+      - train_vaild_split.py [train_vaild_split](pytorch/train_valid_split.py)
+      - decisionTreeTest.py [decisionTree](pytorch/decisionTreeTest.py)
+
+---
+
+## 2024-06-04 화
+
+---
+
+- 데이터 과학을 위한 통계
+  - chapter 6 통계적 머신러닝
+    - 6.3 배깅과 랜덤 포레스트
+      - 앙상블: 여러 모델의 집합을 이용해서 하나의 예측을 이끌어내는 방식
+      - 배깅: 데이터를 부트스트래핑해서 여러 모델을 만드는 일반적인 방법. 배깅은 다양한 모델들을 정확히 같은 데이터에 대해 구하는 대신, 매번 부트스트랩 재표본에 대해 새로운 모델을 만든다.
+
+      - 랜덤 포레스트
+        - randomForestTest.py [랜덤 포레스트](python/pythonData/randomForestTest.py)
+      - 하이퍼파라미터
+        - variableImportance.py [](python/pythonData/variableImportance.py)
+        - variableImportance.ipynb [](python/pythonData/variableImportance.ipynb)
+
+      - xgboostTest.py [xgboostTest](python/pythonData/xgboostTest.py)
+      - overfitting.ipynb [overfitting](python/pythonData/overfitting.ipynb)
+
+  - chapter 7 비지도 학습
+    - 7.1 주성분분석 (PCA)
+      - pcaTest.py [pcaTest](python/pythonData/pcaTest.py)
+      - pcaTest2.py [pcaTest2](python/pythonData/pcaTest2.py)
+      - pcaTest3.py [pca데이터로 범주형도 클러스터링 할 수 있다](python/pythonData/pcaTest3.py)
+
+    - 7.2 k-평균 클러스터링
+      - kMeanClustering.py [k-평균 클러스터링](python/pythonData/kMeanClustering.py)
+
+---
+
+## 2024-06-05 수
+
+---
+
+- 데이터 과학을 위한 통계
+  - chapter 7 비지도학습
+    - 7.2 k-평균 클러스터링
+      - kMeanClustering2.py [kMeanClustering2](python/pythonData/kMeanClustering2.py)
+      - kMeanClusteringDeterminN.py [kMeanClusteringDeterminN](python/pythonData/kMeanClusteringDeterminN.py)
+    - 7.3 계층적 클러스터링
+      - hierarchicalClustering.py [계층적 클러스터링](python/pythonData/hierarchicalClustering.py)
+    - 7.4 모델 기반 클러스터링
+      - normalMixture.py [normalMixture](python/pythonData/normalMixture.py)
+    - 7.5 스케일링과 범주형 변수
+      - dominantVariable.py [지배 변수](python/pythonData/dominantVariable.py)
+      - gowersDistance.py [범주형 데이터와 고워 거리](python/pythonData/gowersDistance.py)
+- kaggle에서 titanic_machine learning from disaster 해보기
+  - kaggle에서 data 가져와 colab에서 실습
+
+---
+
+## 2024-06-10 월
+
+---
+
+- 머신러닝
+  - 데이터 전처리 전략
+    - 결측치 처리하기: 드롭과 채우기(drop & fill)
+    - 범주형 데이터 처리하기: 원핫인코딩(one-hot encoding)
+    - 범주형 데이터로 변환하여 처리하기: 바인딩(binding)
+    - 데이터의 크기 맞추기: 피쳐 스케일링(feature scaling)
+
+  - dropProcessing.py [데이터 전처리 드롭](pythonML/dropProcessing.py)
+  - fillProcessing.py [데이터 전처리 채우기](pythonML/fillProcessing.py)
+
+  - get_dummiesTest.py [get dummies](pythonML/get_dummiesTest.py)
+  - bindingTest.py [binding](pythonML/bindingTest.py)
+  - featureScaling.py [feature scaling](pythonML/featureScaling.py)
+
+  - 머신러닝 회귀귀법
+    - gradientDescent.py [경사하강법 알고리즘](pythonML/gradientDescent.py)
+    - testAndSplit.py [선형회귀 성능측정.훈련/테스트 분할](pythonML/testAndSplit.py)
+    - maeRmseR2.py [선형회귀 성능 측정 지표](pythonML/maeRmseR2.py)
+    - linearRegressionCustom.py [경사하강법으로 linear regression](pythonML/linearRegressionCustom.py)
+
+---
+
+## 2024-06-11 화
+
+---
+
+- 복습
+  - 머신러닝
+    - chap6 데이터 전처리
+      - 범주 -> 수치형
+      - non(결측치) -> pandas의 drop, fill 메소드
+      - 이상치 처리를 하면 데이터가 더 정확해진다.
+      - 정규화를 해야한다 -> 정규화, z스코어 정규화
+    - 회귀이론 ->  y = f(x) f()가 모델, y = w1x + w0 (w1값과 w0값을 구하는게 훈련)
+
+- chap 8 선형회귀의 심화
+  - LinearRSGDTest.py [로버스트 확률적 경사 하강법(RSGD)](pythonML/LinearRSGDTest.py)
+  - LinearRSGDMain.py [로버스트 확률적 경사 하강법(RSGD)](pythonML/LinearRSGDMain.py)
+  - bostonHouseRegression.py [보스턴 하우스 회귀](pythonML/bostonHouseRegression.py)
+  - confusionMatrixTest.py [confusion Matrix](pythonML/confusionMatrixTest.py)
+  - bindingTest.py [binding Test](pythonML/bindingTest.py)
+  - LogisticRegressionTest.py [Logistic Regression](pythonML/LogisticRegressionTest.py)
+  - softmaxTest.py [softmax Test](pythonML/softmaxTest.py)
+  - mnistClassify.ipynb [mnistClassify](pythonML/mnistClassify.ipynb)
+
+---
+
+## 2024-06-12 수
+
+---
+
+- 복습
+  - 선형회귀
+    - 1. 방적식 풀기: 최소자승법
+      - 빠르다, 중간과정 없음
+    - 2. 차근차근 접근: 경사하강법(GD)
+      - 국소적으로만 보게되는 단점이 있다 -> 확률적 경사하강법 사용
+  - 로지스틱
+
+- chap 11 나이브 베이지안 분류기
+  - simpleBayze.py [bayzian](pythonML/simpleBayze.py)
+  - sportsNaiveBayze.py [sportsNaiveBayze](pythonML/sportsNaiveBayze.py)
+
+---
+
+## 2024-06-14 금
+
+---
+
+- hanback전자의 XNode 장비 다루기(윈도우 환경에서 작업)
+  1. c드라이브 루트에 hanback 폴더 만들어서 장비에 있는 usb 파일 옮김
+  2. B타입 컴퓨터에 연결 (B타입은 bluetooth, zigbee 지원 / A타입은 와이파이 있음)
+  3. VScode 실행
+  4. 복사한 폴더 안의 Software -> Windows64 폴더 안 압축파일 풀고 Soda IDE설치
+  5. C드라이브 루트에 Xnode 폴더 생성()
+  6. SodaIDE 폴더 안의 VScode 실행 -> Xnode 폴더 열기
+  7. app.py 파일 생성(main파일, 파일 이름은 app으로 고정)
+  8. 옮겼던 파일 중 lib 파일을 만들어둔 Xnode 폴더에 복사(라이브러리 가져오기)
+  9. app.py 작성 및 진행 (해당 파일안에 진행사항 있음)
+
+- Xnode폴더 안 CORE 폴더의 py파일들
