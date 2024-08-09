@@ -2,6 +2,8 @@
 
 C/C++ database arduino raspberrypi Iot clas.....
 
+[교육생 공유 슬라이드](https://docs.google.com/presentation/d/1-UwFAXPtA_AanSU0PJ_e6FGAdjimA2HMkpU9958SV7k/edit?usp=sharing)
+
 ---
 
 ## 2024-02-22
