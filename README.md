@@ -890,11 +890,8 @@ int main(){
   - 탐색적 데이터 분석
 
     - p52_correlation.py [전에 부족했던 부분 추가](python/pythonData/p52_correlation.py)
-
     - scatterTelecom.py [산점도그리기](python/pythonData/scatterTelecom.py)
-
     - multivariatePlot.py [육각형 구간과 등고선](python/pythonData/multivariatePlot.py)
-
     - categoryPlot.py [범주형 변수 대 범주형 변수, 범주형 변수 대 수치형 변수, 바이올린 도표, 다변수 시각화](python/pythonData/categoryPlot.py)
 
   - 데이터와 표본분포
