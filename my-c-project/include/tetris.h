@@ -19,8 +19,9 @@ typedef struct {
 } Block;
 
 typedef struct {
-	Block blocks[4];
+	Block blocks[4][4]; // 4가지 회전 상태
 	SDL_Color color;
+	int rotation; // 현재 회전 상태 (0-3)
 } Tetromino;
 
 extern Tetromino tetrominos[];

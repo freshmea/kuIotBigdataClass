@@ -11,18 +11,15 @@
 int board[BOARD_HEIGHT][BOARD_WIDTH] = {0};
 
 void rotate_tetromino(Tetromino *tetromino) {
-	for (int i = 0; i < 4; i++) {
-		int temp = tetromino->blocks[i].x;
-		tetromino->blocks[i].x = tetromino->blocks[i].y;
-		tetromino->blocks[i].y = -temp;
-	}
+	tetromino->rotation = (tetromino->rotation + 1) % 4;
 }
 
 int check_collision(Tetromino *tetromino, int block_x, int block_y) {
 	for (int i = 0; i < 4; i++) {
 		int x = (block_x - (SCREEN_WIDTH - TETRIS_WIDTH) / 2) / BLOCK_SIZE +
-				tetromino->blocks[i].x;
-		int y = block_y / BLOCK_SIZE + tetromino->blocks[i].y;
+				tetromino->blocks[tetromino->rotation][i].x;
+		int y =
+			block_y / BLOCK_SIZE + tetromino->blocks[tetromino->rotation][i].y;
 		if (x < 0 || x >= BOARD_WIDTH || y >= BOARD_HEIGHT ||
 			(y >= 0 && board[y][x])) {
 			return 1;
@@ -34,8 +31,9 @@ int check_collision(Tetromino *tetromino, int block_x, int block_y) {
 void place_tetromino(Tetromino *tetromino, int block_x, int block_y) {
 	for (int i = 0; i < 4; i++) {
 		int x = (block_x - (SCREEN_WIDTH - TETRIS_WIDTH) / 2) / BLOCK_SIZE +
-				tetromino->blocks[i].x;
-		int y = block_y / BLOCK_SIZE + tetromino->blocks[i].y;
+				tetromino->blocks[tetromino->rotation][i].x;
+		int y =
+			block_y / BLOCK_SIZE + tetromino->blocks[tetromino->rotation][i].y;
 		board[y][x] = 1;
 	}
 }
@@ -62,9 +60,10 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 	SDL_SetRenderDrawColor(renderer, tetromino->color.r, tetromino->color.g,
 						   tetromino->color.b, tetromino->color.a);
 	for (int i = 0; i < 4; i++) {
-		SDL_Rect block = {*block_x + tetromino->blocks[i].x * BLOCK_SIZE,
-						  *block_y + tetromino->blocks[i].y * BLOCK_SIZE,
-						  BLOCK_SIZE, BLOCK_SIZE};
+		SDL_Rect block = {
+			*block_x + tetromino->blocks[tetromino->rotation][i].x * BLOCK_SIZE,
+			*block_y + tetromino->blocks[tetromino->rotation][i].y * BLOCK_SIZE,
+			BLOCK_SIZE, BLOCK_SIZE};
 		SDL_RenderFillRect(renderer, &block);
 	}
 

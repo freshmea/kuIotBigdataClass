@@ -9,13 +9,48 @@
 #include <unistd.h>
 
 Tetromino tetrominos[] = {
-	{{{0, 0}, {1, 0}, {2, 0}, {3, 0}}, {255, 0, 0, 255}},	// I
-	{{{0, 0}, {0, 1}, {1, 0}, {1, 1}}, {0, 255, 0, 255}},	// O
-	{{{0, 0}, {1, 0}, {2, 0}, {2, 1}}, {0, 0, 255, 255}},	// J
-	{{{0, 1}, {1, 1}, {2, 1}, {2, 0}}, {255, 255, 0, 255}}, // L
-	{{{0, 1}, {1, 1}, {1, 0}, {2, 0}}, {0, 255, 255, 255}}, // S
-	{{{0, 0}, {1, 0}, {1, 1}, {2, 1}}, {255, 0, 255, 255}}, // Z
-	{{{0, 1}, {1, 0}, {1, 1}, {2, 1}}, {128, 0, 128, 255}}	// T
+	{{{{0, 0}, {1, 0}, {2, 0}, {3, 0}},
+	  {{0, 0}, {0, 1}, {0, 2}, {0, 3}},
+	  {{0, 0}, {-1, 0}, {-2, 0}, {-3, 0}},
+	  {{0, 0}, {0, -1}, {0, -2}, {0, -3}}},
+	 {255, 0, 0, 255},
+	 0}, // I
+	{{{{0, 0}, {0, 1}, {1, 0}, {1, 1}},
+	  {{0, 0}, {0, 1}, {1, 0}, {1, 1}},
+	  {{0, 0}, {0, 1}, {1, 0}, {1, 1}},
+	  {{0, 0}, {0, 1}, {1, 0}, {1, 1}}},
+	 {0, 255, 0, 255},
+	 0}, // O
+	{{{{0, 0}, {1, 0}, {2, 0}, {2, 1}},
+	  {{0, 0}, {0, 1}, {0, 2}, {-1, 2}},
+	  {{0, 0}, {-1, 0}, {-2, 0}, {-2, -1}},
+	  {{0, 0}, {0, -1}, {0, -2}, {1, -2}}},
+	 {0, 0, 255, 255},
+	 0}, // J
+	{{{{0, 1}, {1, 1}, {2, 1}, {2, 0}},
+	  {{0, 0}, {0, 1}, {0, 2}, {1, 2}},
+	  {{0, 0}, {-1, 0}, {-2, 0}, {-2, -1}},
+	  {{0, 0}, {0, -1}, {0, -2}, {-1, -2}}},
+	 {255, 255, 0, 255},
+	 0}, // L
+	{{{{0, 1}, {1, 1}, {1, 0}, {2, 0}},
+	  {{0, 0}, {0, 1}, {-1, 1}, {-1, 2}},
+	  {{0, 0}, {-1, 0}, {-1, -1}, {-2, -1}},
+	  {{0, 0}, {0, -1}, {1, -1}, {1, -2}}},
+	 {0, 255, 255, 255},
+	 0}, // S
+	{{{{0, 0}, {1, 0}, {1, 1}, {2, 1}},
+	  {{0, 0}, {0, 1}, {-1, 1}, {-1, 2}},
+	  {{0, 0}, {-1, 0}, {-1, -1}, {-2, -1}},
+	  {{0, 0}, {0, -1}, {1, -1}, {1, -2}}},
+	 {255, 0, 255, 255},
+	 0}, // Z
+	{{{{0, 1}, {1, 0}, {1, 1}, {2, 1}},
+	  {{0, 0}, {0, 1}, {1, 1}, {1, 2}},
+	  {{0, 0}, {-1, 0}, {-1, -1}, {-2, -1}},
+	  {{0, 0}, {0, -1}, {1, -1}, {1, -2}}},
+	 {128, 0, 128, 255},
+	 0} // T
 };
 
 void render_main_screen(SDL_Renderer *renderer, TTF_Font *font) {
@@ -97,6 +132,7 @@ int main() {
 	static int block_x = (SCREEN_WIDTH - TETRIS_WIDTH) / 2;
 	static int block_y = 0;
 	static int current_tetromino = -1;
+	static int rotation_state = 0; // 회전 상태 추가
 	if (current_tetromino == -1) {
 		srand(time(NULL));
 		current_tetromino =
@@ -134,11 +170,13 @@ int main() {
 						block_x += BLOCK_SIZE;
 					}
 				} else if (event.key.keysym.sym == SDLK_w) {
+					int next_rotation_state = (rotation_state + 1) % 4;
 					Tetromino rotated_tetromino = *tetromino;
 					rotate_tetromino(&rotated_tetromino);
 					if (!check_collision(&rotated_tetromino, block_x,
 										 block_y)) {
 						*tetromino = rotated_tetromino;
+						rotation_state = next_rotation_state;
 					}
 				} else if (event.key.keysym.sym == SDLK_s) {
 					if (!check_collision(tetromino, block_x,
@@ -167,6 +205,8 @@ int main() {
 					current_tetromino =
 						rand() % (sizeof(tetrominos) / sizeof(tetrominos[0]));
 					tetromino = &tetrominos[current_tetromino];
+					rotation_state =
+						0; // 새로운 테트로미노가 생성될 때 회전 상태 초기화
 				}
 			}
 			render_tetris_screen(renderer, font, tetromino, &block_x, &block_y);
