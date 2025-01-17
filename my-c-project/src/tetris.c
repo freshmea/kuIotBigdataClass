@@ -13,8 +13,8 @@ int board[BOARD_HEIGHT][BOARD_WIDTH] = {0};
 void rotate_tetromino(Tetromino *tetromino) {
 	for (int i = 0; i < 4; i++) {
 		int temp = tetromino->blocks[i].x;
-		tetromino->blocks[i].x = -tetromino->blocks[i].y;
-		tetromino->blocks[i].y = temp;
+		tetromino->blocks[i].x = tetromino->blocks[i].y;
+		tetromino->blocks[i].y = -temp;
 	}
 }
 

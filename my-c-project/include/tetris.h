@@ -4,6 +4,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
 #define TETRIS_WIDTH (SCREEN_WIDTH / 3)
@@ -26,5 +30,9 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 void rotate_tetromino(Tetromino *tetromino);
 int check_collision(Tetromino *tetromino, int block_x, int block_y);
 void place_tetromino(Tetromino *tetromino, int block_x, int block_y);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // TETRIS_H
