@@ -5,11 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define BOARD_WIDTH (TETRIS_WIDTH / BLOCK_SIZE)
-#define BOARD_HEIGHT ((SCREEN_HEIGHT - BLOCK_SIZE * 3) / BLOCK_SIZE)
-
-int board[BOARD_HEIGHT][BOARD_WIDTH] = {0};
-
 void rotate_tetromino(Tetromino *tetromino) {
 	tetromino->rotation = (tetromino->rotation + 1) % 4;
 }
@@ -21,7 +16,7 @@ int check_collision(Tetromino *tetromino, int block_x, int block_y) {
 		int y =
 			block_y / BLOCK_SIZE + tetromino->blocks[tetromino->rotation][i].y;
 		if (x < 0 || x >= BOARD_WIDTH || y >= BOARD_HEIGHT ||
-			(y >= 0 && board[y][x])) {
+			(y >= 0 && board[y][x].occupied)) {
 			return 1;
 		}
 	}
@@ -34,7 +29,31 @@ void place_tetromino(Tetromino *tetromino, int block_x, int block_y) {
 				tetromino->blocks[tetromino->rotation][i].x;
 		int y =
 			block_y / BLOCK_SIZE + tetromino->blocks[tetromino->rotation][i].y;
-		board[y][x] = 1;
+		board[y][x].occupied = 1;
+		board[y][x].color = tetromino->color;
+	}
+	clear_full_lines();
+}
+
+void clear_full_lines() {
+	for (int y = 0; y < BOARD_HEIGHT; y++) {
+		int full = 1;
+		for (int x = 0; x < BOARD_WIDTH; x++) {
+			if (!board[y][x].occupied) {
+				full = 0;
+				break;
+			}
+		}
+		if (full) {
+			for (int k = y; k > 0; k--) {
+				for (int x = 0; x < BOARD_WIDTH; x++) {
+					board[k][x] = board[k - 1][x];
+				}
+			}
+			for (int x = 0; x < BOARD_WIDTH; x++) {
+				board[0][x].occupied = 0;
+			}
+		}
 	}
 }
 
@@ -44,14 +63,16 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 	SDL_RenderClear(renderer);
 
 	// 테트리스 벽 그리기
+	int padding = 3;
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_Rect left_wall = {(SCREEN_WIDTH - TETRIS_WIDTH) / 2 - BLOCK_SIZE, 0,
 						  BLOCK_SIZE, TETRIS_HEIGHT - BLOCK_SIZE * 3};
-	SDL_Rect right_wall = {(SCREEN_WIDTH + TETRIS_WIDTH) / 2 - BLOCK_SIZE, 0,
+	SDL_Rect right_wall = {(SCREEN_WIDTH + TETRIS_WIDTH) / 2 - padding, 0,
 						   BLOCK_SIZE, TETRIS_HEIGHT - BLOCK_SIZE * 3};
 	SDL_Rect bottom_wall = {(SCREEN_WIDTH - TETRIS_WIDTH) / 2 - BLOCK_SIZE,
 							SCREEN_HEIGHT - BLOCK_SIZE * 3,
-							TETRIS_WIDTH + BLOCK_SIZE * 2, BLOCK_SIZE};
+							TETRIS_WIDTH + BLOCK_SIZE * 2 - padding,
+							BLOCK_SIZE};
 	SDL_RenderFillRect(renderer, &left_wall);
 	SDL_RenderFillRect(renderer, &right_wall);
 	SDL_RenderFillRect(renderer, &bottom_wall);
@@ -68,10 +89,12 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 	}
 
 	// 보드에 쌓인 블럭 그리기
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	for (int y = 0; y < BOARD_HEIGHT; y++) {
 		for (int x = 0; x < BOARD_WIDTH; x++) {
-			if (board[y][x]) {
+			if (board[y][x].occupied) {
+				SDL_SetRenderDrawColor(renderer, board[y][x].color.r,
+									   board[y][x].color.g, board[y][x].color.b,
+									   board[y][x].color.a);
 				SDL_Rect block = {(SCREEN_WIDTH - TETRIS_WIDTH) / 2 +
 									  x * BLOCK_SIZE,
 								  y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE};
@@ -79,24 +102,30 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 			}
 		}
 	}
+}
 
-	// "Press Q to quit" 글자 그리기
-	TTF_Font *small_font = TTF_OpenFont("NanumFont/NanumGothic.ttf", 12);
+void render_next_tetromino(SDL_Renderer *renderer, TTF_Font *font,
+						   Tetromino *next_tetromino) {
 	SDL_Color white = {255, 255, 255, 255};
-	SDL_Surface *surface =
-		TTF_RenderText_Solid(small_font, "Press Q to quit", white);
+	SDL_Surface *surface = TTF_RenderText_Solid(font, "Next Block", white);
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);
 
-	SDL_Rect dstrect = {10, 420, 200, 20};
+	SDL_Rect dstrect = {10, 10, 100, 20};
 	SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-
-	// 글자 위쪽에 가로선 추가
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderDrawLine(renderer, 10, 415, 210, 415);
-
-	SDL_RenderPresent(renderer);
-
 	SDL_DestroyTexture(texture);
-	TTF_CloseFont(small_font);
+
+	SDL_Rect next_block_rect = {10, 40, 100, 100};
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_RenderDrawRect(renderer, &next_block_rect);
+
+	SDL_SetRenderDrawColor(renderer, next_tetromino->color.r,
+						   next_tetromino->color.g, next_tetromino->color.b,
+						   next_tetromino->color.a);
+	for (int i = 0; i < 4; i++) {
+		SDL_Rect block = {20 + next_tetromino->blocks[0][i].x * BLOCK_SIZE,
+						  50 + next_tetromino->blocks[0][i].y * BLOCK_SIZE,
+						  BLOCK_SIZE, BLOCK_SIZE};
+		SDL_RenderFillRect(renderer, &block);
+	}
 }

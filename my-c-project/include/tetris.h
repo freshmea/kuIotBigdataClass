@@ -13,6 +13,8 @@ extern "C" {
 #define TETRIS_WIDTH (SCREEN_WIDTH / 3)
 #define TETRIS_HEIGHT SCREEN_HEIGHT
 #define BLOCK_SIZE 15
+#define BOARD_WIDTH (TETRIS_WIDTH / BLOCK_SIZE)
+#define BOARD_HEIGHT ((SCREEN_HEIGHT - BLOCK_SIZE * 3) / BLOCK_SIZE)
 
 typedef struct {
 	int x, y;
@@ -24,13 +26,22 @@ typedef struct {
 	int rotation; // 현재 회전 상태 (0-3)
 } Tetromino;
 
+typedef struct {
+	int occupied;
+	SDL_Color color;
+} Cell;
+
 extern Tetromino tetrominos[];
+extern Cell board[BOARD_HEIGHT][BOARD_WIDTH];
 
 void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 						  Tetromino *tetromino, int *block_x, int *block_y);
 void rotate_tetromino(Tetromino *tetromino);
 int check_collision(Tetromino *tetromino, int block_x, int block_y);
 void place_tetromino(Tetromino *tetromino, int block_x, int block_y);
+void clear_full_lines();
+void render_next_tetromino(SDL_Renderer *renderer, TTF_Font *font,
+						   Tetromino *next_tetromino);
 
 #ifdef __cplusplus
 }
