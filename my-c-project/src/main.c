@@ -2,9 +2,11 @@
 #include "utils.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <libgen.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 Tetromino tetrominos[] = {
 	{{{0, 0}, {1, 0}, {2, 0}, {3, 0}}, {255, 0, 0, 255}},	// I
@@ -63,7 +65,23 @@ int main() {
 		return 1;
 	}
 
-	TTF_Font *font = TTF_OpenFont("NanumFont/NanumGothic.ttf", 24);
+	char exe_path[256];
+	ssize_t len = readlink("/proc/self/exe", exe_path, sizeof(exe_path) - 1);
+	if (len != -1) {
+		exe_path[len] = '\0';
+	} else {
+		printf("실행 파일 경로를 찾을 수 없습니다.\n");
+		SDL_DestroyRenderer(renderer);
+		SDL_DestroyWindow(window);
+		SDL_Quit();
+		return 1;
+	}
+
+	char *dir = dirname(exe_path);
+	char font_path[256];
+	snprintf(font_path, sizeof(font_path), "%s/../NanumFont/NanumGothic.ttf",
+			 dir);
+	TTF_Font *font = TTF_OpenFont(font_path, 24);
 	if (font == NULL) {
 		printf("폰트 로드 실패: %s\n", TTF_GetError());
 		SDL_DestroyRenderer(renderer);
@@ -86,7 +104,15 @@ int main() {
 	}
 	Tetromino *tetromino = &tetrominos[current_tetromino];
 
+	Uint32 last_time = SDL_GetTicks();
+	Uint32 block_last_time = SDL_GetTicks();
+	const Uint32 block_interval = 500; // 블럭이 내려오는 속도 조절 (밀리초)
+
 	while (running) {
+		Uint32 current_time = SDL_GetTicks();
+		Uint32 delta_time = current_time - last_time;
+		last_time = current_time;
+
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT) {
 				running = 0;
@@ -98,36 +124,60 @@ int main() {
 						running = 0;
 					}
 				} else if (event.key.keysym.sym == SDLK_a) {
-					if (block_x >
-						(SCREEN_WIDTH - TETRIS_WIDTH) / 2 - BLOCK_SIZE) {
+					if (!check_collision(tetromino, block_x - BLOCK_SIZE,
+										 block_y)) {
 						block_x -= BLOCK_SIZE;
 					}
 				} else if (event.key.keysym.sym == SDLK_d) {
-					if (block_x <
-						(SCREEN_WIDTH + TETRIS_WIDTH) / 2 - BLOCK_SIZE * 2) {
+					if (!check_collision(tetromino, block_x + BLOCK_SIZE,
+										 block_y)) {
 						block_x += BLOCK_SIZE;
 					}
 				} else if (event.key.keysym.sym == SDLK_w) {
-					rotate_tetromino(tetromino);
+					Tetromino rotated_tetromino = *tetromino;
+					rotate_tetromino(&rotated_tetromino);
+					if (!check_collision(&rotated_tetromino, block_x,
+										 block_y)) {
+						*tetromino = rotated_tetromino;
+					}
+				} else if (event.key.keysym.sym == SDLK_s) {
+					if (!check_collision(tetromino, block_x,
+										 block_y + BLOCK_SIZE)) {
+						block_y += BLOCK_SIZE;
+					}
+				} else if (event.key.keysym.sym == SDLK_SPACE) {
+					while (!check_collision(tetromino, block_x,
+											block_y + BLOCK_SIZE)) {
+						block_y += BLOCK_SIZE;
+					}
 				}
 			}
 		}
 
 		if (show_tetris) {
-			if (!check_collision(tetromino, block_x, block_y + BLOCK_SIZE)) {
-				block_y += BLOCK_SIZE;
-			} else {
-				place_tetromino(tetromino, block_x, block_y);
-				block_x = (SCREEN_WIDTH - TETRIS_WIDTH) / 2;
-				block_y = 0;
-				current_tetromino =
-					rand() % (sizeof(tetrominos) / sizeof(tetrominos[0]));
-				tetromino = &tetrominos[current_tetromino];
+			if (current_time - block_last_time >= block_interval) {
+				block_last_time = current_time;
+				if (!check_collision(tetromino, block_x,
+									 block_y + BLOCK_SIZE)) {
+					block_y += BLOCK_SIZE;
+				} else {
+					place_tetromino(tetromino, block_x, block_y);
+					block_x = (SCREEN_WIDTH - TETRIS_WIDTH) / 2;
+					block_y = 0;
+					current_tetromino =
+						rand() % (sizeof(tetrominos) / sizeof(tetrominos[0]));
+					tetromino = &tetrominos[current_tetromino];
+				}
 			}
 			render_tetris_screen(renderer, font, tetromino, &block_x, &block_y);
-			SDL_Delay(500); // 블럭이 내려오는 속도 조절
 		} else {
 			render_main_screen(renderer, font);
+		}
+
+		// 60fps 유지
+		Uint32 frame_time = SDL_GetTicks() - current_time;
+		if (frame_time < 16) {
+			SDL_Delay(16 - frame_time);
 		}
 	}
 

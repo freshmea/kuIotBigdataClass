@@ -23,7 +23,8 @@ int check_collision(Tetromino *tetromino, int block_x, int block_y) {
 		int x = (block_x - (SCREEN_WIDTH - TETRIS_WIDTH) / 2) / BLOCK_SIZE +
 				tetromino->blocks[i].x;
 		int y = block_y / BLOCK_SIZE + tetromino->blocks[i].y;
-		if (x < 0 || x >= BOARD_WIDTH || y >= BOARD_HEIGHT || board[y][x]) {
+		if (x < 0 || x >= BOARD_WIDTH || y >= BOARD_HEIGHT ||
+			(y >= 0 && board[y][x])) {
 			return 1;
 		}
 	}
