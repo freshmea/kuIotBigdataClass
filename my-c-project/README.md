@@ -6,7 +6,7 @@
 
 ## 프로젝트 구조
 
-```
+```bash
 my-c-project
 ├── src
 │   ├── main.c       # 애플리케이션의 진입점
@@ -17,8 +17,11 @@ my-c-project
 │   └── tetris.h     # 테트리스 게임 헤더 파일
 ├── tests            # 테스트 코드 디렉토리
 │   └── test_main.cpp # gtest 테스트 코드
+├── wave             # 오디오 파일 디렉토리
+│   ├── move.wav     # 블럭 이동 효과음
+│   ├── place.wav    # 블럭 배치 효과음
+│   └── bgm.wav      # 배경음악
 ├── CMakeLists.txt   # CMake 빌드 파일
-├── Makefile         # 빌드 자동화 파일
 └── README.md        # 프로젝트 문서
 ```
 
@@ -26,35 +29,21 @@ my-c-project
 
 - C 언어
 - GCC (GNU Compiler Collection)
-- Make (빌드 자동화 도구)
 - CMake (빌드 자동화 도구)
 - SDL (Simple DirectMedia Layer)
 - SDL_ttf (TrueType Font 지원)
+- SDL_mixer (오디오 지원)
 - gtest (Google Test)
 
 ## 빌드 및 실행 방법
 
-1. **디펜던시 설치**: SDL 및 SDL_ttf 라이브러리를 설치합니다.
-   ```
-   sudo apt-get install libsdl2-dev libsdl2-ttf-dev
-   ```
-
-2. **빌드**: cmake 를 통해서 빌드합니다.
-
-3. **실행**: 빌드가 완료되면 생성된 실행 파일을 다음 명령어로 실행합니다.
-   ```
-   ./my-c-project
-   ```
-
-## CMake를 사용한 빌드 방법
-
-1. **디펜던시 설치**: SDL 및 SDL_ttf 라이브러리를 설치합니다.
-   ```
-   sudo apt-get install libsdl2-dev libsdl2-ttf-dev
+1. **디펜던시 설치**: SDL, SDL_ttf 및 SDL_mixer 라이브러리를 설치합니다.
+   ```bash
+   sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-mixer-dev
    ```
 
 2. **빌드**: 프로젝트 디렉토리에서 다음 명령어를 실행하여 CMake를 사용해 애플리케이션을 빌드합니다.
-   ```
+   ```bash
    mkdir build
    cd build
    cmake ..
@@ -62,14 +51,14 @@ my-c-project
    ```
 
 3. **실행**: 빌드가 완료되면 생성된 실행 파일을 다음 명령어로 실행합니다.
-   ```
+   ```bash
    ./my-c-project
    ```
 
 ## 테스트 방법
 
 1. **gtest 설치**: gtest 라이브러리를 설치합니다.
-   ```
+   ```bash
    sudo apt-get install libgtest-dev
    cd /usr/src/gtest
    sudo cmake CMakeLists.txt
@@ -78,7 +67,7 @@ my-c-project
    ```
 
 2. **테스트 빌드 및 실행**: 프로젝트 디렉토리에서 다음 명령어를 실행하여 테스트를 빌드하고 실행합니다.
-   ```
+   ```bash
    make
    ./test-my-c-project
    ```
@@ -91,7 +80,7 @@ my-c-project
 - `include/utils.h` 헤더 파일은 `utils.c`에서 사용되는 함수와 데이터 구조를 선언합니다.
 - `include/tetris.h` 헤더 파일은 `tetris.c`에서 사용되는 함수와 데이터 구조를 선언합니다.
 - `tests/test_main.cpp` 파일은 gtest를 사용한 테스트 코드를 포함합니다.
-- `Makefile`은 소스 파일을 컴파일하고 실행 파일로 링크하는 방법을 지정합니다.
+- `wave` 디렉토리는 게임에서 사용되는 오디오 파일을 포함합니다.
 - `CMakeLists.txt`는 CMake를 사용하여 프로젝트를 빌드하는 방법을 지정합니다.
 
 이 프로젝트에 대한 질문이나 피드백이 있으면 언제든지 문의해 주세요.

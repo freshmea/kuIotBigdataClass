@@ -2,6 +2,7 @@
 #define TETRIS_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 
 #ifdef __cplusplus
@@ -39,7 +40,7 @@ void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
 void rotate_tetromino(Tetromino *tetromino);
 int check_collision(Tetromino *tetromino, int block_x, int block_y);
 void place_tetromino(Tetromino *tetromino, int block_x, int block_y);
-void clear_full_lines();
+int clear_full_lines();
 void render_next_tetromino(SDL_Renderer *renderer, TTF_Font *font,
 						   Tetromino *next_tetromino);
 

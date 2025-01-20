@@ -32,10 +32,10 @@ void place_tetromino(Tetromino *tetromino, int block_x, int block_y) {
 		board[y][x].occupied = 1;
 		board[y][x].color = tetromino->color;
 	}
-	clear_full_lines();
 }
 
-void clear_full_lines() {
+int clear_full_lines() {
+	int lines_cleared = 0;
 	for (int y = 0; y < BOARD_HEIGHT; y++) {
 		int full = 1;
 		for (int x = 0; x < BOARD_WIDTH; x++) {
@@ -45,6 +45,7 @@ void clear_full_lines() {
 			}
 		}
 		if (full) {
+			lines_cleared++;
 			for (int k = y; k > 0; k--) {
 				for (int x = 0; x < BOARD_WIDTH; x++) {
 					board[k][x] = board[k - 1][x];
@@ -55,6 +56,7 @@ void clear_full_lines() {
 			}
 		}
 	}
+	return lines_cleared;
 }
 
 void render_tetris_screen(SDL_Renderer *renderer, TTF_Font *font,
