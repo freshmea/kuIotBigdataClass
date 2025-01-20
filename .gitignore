@@ -71,4 +71,6 @@ dkms.conf
 *.pt
 *.pth
 
-# 
+# venv
+.venv/
+.ruff_cache/
