@@ -27,7 +27,7 @@
 
 ## 파일 구조
 
-```
+```bash
 uv-project-test
 ├── uv.yml
 ├── src

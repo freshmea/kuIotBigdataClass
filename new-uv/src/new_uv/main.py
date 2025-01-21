@@ -63,7 +63,7 @@ class Snake(pygame.sprite.Sprite):
         self.snake_body.pop()
 
         # rect 업데이트
-        self.rect.topleft = self.snake_pos
+        self.rect.topleft = self.snake_pos # type: ignore
 
         # 몸통 업데이트
         self.body_segments.empty()
@@ -125,7 +125,7 @@ class Game:
 
         # 지렁이 객체 생성
         self.snake = Snake(self.WHITE)
-        self.snake_group = pygame.sprite.GroupSingle(self.snake)
+        self.snake_group = pygame.sprite.GroupSingle(self.snake) # type: ignore
 
         # 적 지렁이 객체 생성
         self.enemies = pygame.sprite.Group()
@@ -171,11 +171,11 @@ class Game:
         self.enemies.update()
 
         # 충돌 체크
-        if pygame.sprite.spritecollideany(self.snake, self.enemies):
+        if pygame.sprite.spritecollideany(self.snake, self.enemies): # type: ignore
             self.running = False
 
         # 피자와 충돌 체크
-        collided_pizza = pygame.sprite.spritecollideany(self.snake, self.pizzas)
+        collided_pizza = pygame.sprite.spritecollideany(self.snake, self.pizzas) # type: ignore
         if collided_pizza:
             self.snake.grow()
             self.pizzas.remove(collided_pizza)
@@ -191,7 +191,7 @@ class Game:
 
         # 경과 시간 계산
         elapsed_time = time.time() - self.start_time
-        font = pygame.font.SysFont(None, 36)
+        font = pygame.font.SysFont(None, 36) # type: ignore
         time_text = font.render(f'Time: {int(elapsed_time)}s', True, self.WHITE)
         self.screen.blit(time_text, (10, 10))
 

@@ -1,5 +1,7 @@
 import sys
 
+from new_uv import Game
+
 import pygame
 
 
