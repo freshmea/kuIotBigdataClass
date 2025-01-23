@@ -1,3 +1,11 @@
+Metadata-Version: 2.2
+Name: new-uv
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pygame>=2.6.1
+
 # uv-project-test
 
 이 프로젝트는 pygame 라이브러리를 사용하여 간단한 지렁이 게임을 구현합니다.

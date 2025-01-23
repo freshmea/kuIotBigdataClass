@@ -74,3 +74,8 @@ dkms.conf
 # venv
 .venv/
 .ruff_cache/
+
+# sphinx
+_build/
+_static/
+_templates/

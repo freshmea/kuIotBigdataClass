@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/new_uv/__init__.py
+src/new_uv/main.py
+src/new_uv.egg-info/PKG-INFO
+src/new_uv.egg-info/SOURCES.txt
+src/new_uv.egg-info/dependency_links.txt
+src/new_uv.egg-info/requires.txt
+src/new_uv.egg-info/top_level.txt
+tests/test_main.py
