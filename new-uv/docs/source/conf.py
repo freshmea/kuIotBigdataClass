@@ -25,7 +25,7 @@ extensions = [
     'sphinx.ext.napoleon',       # Google/NumPy 스타일 docstring 지원
     'sphinx.ext.viewcode',       # 소스 코드 링크 추가
 ]
-
+extensions.append('myst_parser')
 templates_path = ['_templates']
 exclude_patterns = []
 
