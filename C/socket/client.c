@@ -28,6 +28,12 @@ int main(int argc, char *argv[]) {
 		perror("ERROR connecting");
 		exit(1);
 	}
+	// print client socket ip, port
+	struct sockaddr_in client_addr;
+	socklen_t client_len = sizeof(client_addr);
+	getsockname(sockfd, (struct sockaddr *)&client_addr, &client_len);
+	printf("Client IP: %s\n", inet_ntoa(client_addr.sin_addr));
+	printf("Client port: %d\n", ntohs(client_addr.sin_port));
 
 	printf("Connected to server %s on port %s\n", argv[1], argv[2]);
 	char *message = "Hello, World! this message from client\n";

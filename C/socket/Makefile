@@ -1,4 +1,4 @@
-TARGET = adress client uecho_server uecho_client
+TARGET = adress client uecho_server uecho_client info
 
 all: ${TARGET}
 
@@ -12,6 +12,9 @@ uecho_server: uecho_sever.o
 	cc -o $@ $<
 
 uecho_client: uecho_client.o
+	cc -o $@ $<
+
+info: info.o
 	cc -o $@ $<
 
 clean:
